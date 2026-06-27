@@ -1,12 +1,14 @@
 ---
 import ThemeChooser from './ThemeChooser.astro';
+import { ORG, orgLogoUrl } from '../lib/brand';
 
 const base = import.meta.env.BASE_URL;
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const brandLogo = orgLogoUrl(64);
 const links = [
   { href: `${base}`, label: 'Packs', match: (p: string) => p === '' || p === '/' || p === base.replace(/\/$/, '') },
   { href: `${base}docs/`, label: 'Docs', match: (p: string) => p.includes('/docs') },
-  { href: 'https://github.com/docharvest', label: 'GitHub', external: true },
+  { href: `https://github.com/${ORG}`, label: 'GitHub', external: true },
 ];
 ---
 
@@ -14,10 +16,15 @@ const links = [
   <div class="navbar mx-auto max-w-6xl min-h-12 px-4">
     <div class="navbar-start gap-2">
       <a href={base} class="flex items-center gap-2.5 font-semibold tracking-tight text-base-content no-underline">
-        <span class="flex size-7 items-center justify-center rounded-sm bg-primary font-mono text-[0.65rem] font-bold text-primary-content">
-          DH
-        </span>
-        <span class="font-mono text-sm tracking-tight">docharvest</span>
+        <img
+          src={brandLogo}
+          alt=""
+          width="28"
+          height="28"
+          class="size-7 shrink-0 rounded-md border border-base-300 bg-base-200 object-cover"
+          decoding="async"
+        />
+        <span class="font-mono text-sm tracking-tight">{ORG}</span>
       </a>
     </div>
     <div class="navbar-center hidden md:flex">
