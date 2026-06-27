@@ -37,10 +37,9 @@ const packs = getPacks().map((p) => ({
             <li>
               <a
                 href={`${base}docs/${p.id}/`}
-                class="group grid gap-3 py-5 transition-colors hover:bg-base-200/50 sm:grid-cols-[auto_8rem_minmax(0,1fr)_auto] sm:items-center sm:gap-6 sm:px-1"
+                class="group grid gap-3 py-5 transition-colors hover:bg-base-200/50 sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:items-center sm:gap-6 sm:px-1"
               >
                 <PackLogo logo={p.logo} title={p.title} size={40} />
-                <span class="font-mono text-sm text-primary">{p.id}</span>
                 <span class="min-w-0">
                   <span class="block text-lg font-semibold tracking-tight group-hover:text-primary">{p.title}</span>
                   <span class="mt-1 block max-w-2xl text-sm leading-relaxed text-base-content/70 text-pretty">
