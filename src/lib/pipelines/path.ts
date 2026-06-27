@@ -51,19 +51,54 @@ export function pageOrder(segments: string[], explicit?: number): number {
   return segments.length === 0 ? 0 : 10 + segments.length * 10;
 }
 
-/** Standard YAML frontmatter title if present (not dialect-specific). */
-export function titleFromFrontmatterOrH1(raw: string): string | undefined {
-  const yaml = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
-  if (yaml) {
-    const t = yaml[1].match(/^title:\s*["']?(.+?)["']?\s*$/m);
-    if (t) return t[1].trim();
-  }
-  const h1 = raw.match(/^#\s+(.+)\s*$/m);
-  if (h1) return h1[1].trim();
-  return undefined;
-}
-
 export function stripYamlFrontmatter(raw: string): string {
   const yaml = raw.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n/);
   return yaml ? raw.slice(yaml[0].length) : raw;
+}
+
+function titleFromYamlFrontmatter(raw: string): string | undefined {
+  const yaml = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
+  if (!yaml) return undefined;
+  const t = yaml[1].match(/^title:\s*["']?(.+?)["']?\s*$/m);
+  return t ? t[1].trim() : undefined;
+}
+
+/**
+ * Page title for a doc source file:
+ * 1. YAML frontmatter `title:` if set
+ * 2. Else if the first non-empty line (after frontmatter) is an ATX H1 (`# …`), use that text
+ * 3. Else unslugify the file name (last path segment)
+ *
+ * Does not scan later headings — avoids picking a random `#` in the body.
+ */
+export function titleFromDocSource(raw: string, segments: string[], slugPath = ''): string {
+  const fromFm = titleFromYamlFrontmatter(raw);
+  if (fromFm) return fromFm;
+
+  const body = stripYamlFrontmatter(raw);
+  for (const line of body.split(/\r?\n/)) {
+    const trimmed = line.trim();
+    if (!trimmed) continue;
+    // Only a single-# ATX heading on that line (not ##)
+    const h1 = trimmed.match(/^#\s+(.+?)\s*$/);
+    if (h1) return h1[1].trim();
+    break;
+  }
+
+  return titleFromSlug(slugPath, segments);
+}
+
+/** @deprecated use titleFromDocSource */
+export function titleFromFrontmatterOrH1(raw: string): string | undefined {
+  const fromFm = titleFromYamlFrontmatter(raw);
+  if (fromFm) return fromFm;
+  const body = stripYamlFrontmatter(raw);
+  for (const line of body.split(/\r?\n/)) {
+    const trimmed = line.trim();
+    if (!trimmed) continue;
+    const h1 = trimmed.match(/^#\s+(.+?)\s*$/);
+    if (h1) return h1[1].trim();
+    break;
+  }
+  return undefined;
 }

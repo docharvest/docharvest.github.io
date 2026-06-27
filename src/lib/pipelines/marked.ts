@@ -10,8 +10,7 @@ import {
   pageOrder,
   parseContentPath,
   stripYamlFrontmatter,
-  titleFromFrontmatterOrH1,
-  titleFromSlug,
+  titleFromDocSource,
 } from './path';
 
 const sources = import.meta.glob('../../../content/**/*.{md,markdown}', {
@@ -34,7 +33,7 @@ export const markedPipeline: DocPipeline = {
       if (!parsed) continue;
       const { tech, segments } = parsed;
       const slugPath = segments.join('/');
-      const title = titleFromFrontmatterOrH1(raw) ?? titleFromSlug(slugPath, segments);
+      const title = titleFromDocSource(raw, segments, slugPath);
       const html = renderMarkdown(raw);
 
       pages.push({
