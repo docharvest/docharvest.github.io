@@ -1,17 +1,14 @@
 import type { APIRoute, GetStaticPaths } from 'astro';
-import { create, insertMultiple } from '@orama/orama';
-import { persist } from '@orama/plugin-data-persistence';
 import { getAllPagesAsync, getPacks, getPagesForTech } from '../../lib/docs';
 
 export const prerender = true;
 
-/** One Orama dataset per pack — never a global mixed index. */
+/** One document list per pack (markdown text). Client builds MiniSearch — no Orama in the browser. */
 export const getStaticPaths = (async () => {
   await getAllPagesAsync();
   return getPacks().map((p) => ({ params: { tech: p.id } }));
 }) satisfies GetStaticPaths;
 
-/** Cap markdown body in the index (still source text, not HTML). */
 const MAX_BODY_CHARS = 20_000;
 
 export const GET: APIRoute = async ({ params }) => {
@@ -24,20 +21,7 @@ export const GET: APIRoute = async ({ params }) => {
   const pack = getPacks().find((p) => p.id === tech);
   const pages = getPagesForTech(tech);
 
-  const db = await create({
-    schema: {
-      id: 'string',
-      title: 'string',
-      description: 'string',
-      slugPath: 'string',
-      path: 'string',
-      /** Markdown / MDX source (not rendered HTML) */
-      body: 'string',
-      tech: 'string',
-    },
-  });
-
-  const docs = pages.map((page) => {
+  const documents = pages.map((page) => {
     const slugPath = page.slugPath;
     const path = slugPath ? `/docs/${tech}/${slugPath}/` : `/docs/${tech}/`;
     const md =
@@ -55,22 +39,17 @@ export const GET: APIRoute = async ({ params }) => {
     };
   });
 
-  if (docs.length) {
-    await insertMultiple(db, docs);
-  }
-
-  const serialized = await persist(db, 'json');
-  const payload =
-    typeof serialized === 'string' ? serialized : JSON.stringify(serialized);
+  const payload = JSON.stringify({
+    tech,
+    title: pack?.title ?? tech,
+    documents,
+  });
 
   return new Response(payload, {
     status: 200,
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
       'Cache-Control': 'public, max-age=3600',
-      'X-Docharvest-Pack': tech,
-      'X-Docharvest-Pack-Title': pack?.title ?? tech,
-      'X-Docharvest-Doc-Count': String(docs.length),
     },
   });
 };

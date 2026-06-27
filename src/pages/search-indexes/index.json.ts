@@ -8,11 +8,10 @@ export const GET: APIRoute = async () => {
   const packs = getPacks().map((p) => ({
     id: p.id,
     title: p.title,
-    logo: p.logo,
     pages: getPagesForTech(p.id).length,
     indexUrl: `/search-indexes/${p.id}.json`,
   }));
-  return new Response(JSON.stringify({ packs }, null, 0), {
+  return new Response(JSON.stringify({ packs }), {
     headers: { 'Content-Type': 'application/json; charset=utf-8' },
   });
 };

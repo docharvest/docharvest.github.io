@@ -1,10 +1,5 @@
 ---
-/**
- * Ctrl/Cmd+K palette. One Orama dataset per pack at /search-indexes/<tech>.json
- */
-import { getPacks } from '../lib/docs';
-
-const packs = getPacks().map((p) => ({ id: p.id, title: p.title }));
+/** Ctrl/Cmd+K — search box + results; pack from /docs/<tech>/ only */
 ---
 
 <button
@@ -21,13 +16,11 @@ const packs = getPacks().map((p) => ({ id: p.id, title: p.title }));
   <kbd class="kbd kbd-sm hidden opacity-60 md:inline-flex">⌘K</kbd>
 </button>
 
-<!-- Native dialog; avoid relying on daisyUI .modal open quirks -->
 <dialog
   id="search-palette-dialog"
-  class="search-palette-dialog w-[min(32rem,calc(100vw-2rem))] max-w-lg rounded-lg border border-base-300 bg-base-100 p-0 text-base-content shadow-lg open:flex open:flex-col"
-  data-search-dialog
+  class="search-palette-dialog w-[min(32rem,calc(100vw-2rem))] max-w-lg rounded-lg border border-base-300 bg-base-100 p-0 text-base-content shadow-lg"
 >
-  <div class="flex flex-col gap-0">
+  <div class="flex flex-col">
     <div class="flex items-center gap-2 border-b border-base-300 px-3 py-2">
       <svg xmlns="http://www.w3.org/2000/svg" class="size-4 shrink-0 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 18a7 7 0 100-14 7 7 0 000 14z"></path>
@@ -35,27 +28,12 @@ const packs = getPacks().map((p) => ({ id: p.id, title: p.title }));
       <input
         type="search"
         class="min-h-10 min-w-0 flex-1 border-0 bg-transparent text-base text-base-content outline-none placeholder:text-base-content/40"
-        placeholder="Search this pack only…"
+        placeholder="Search this pack…"
         data-search-input
         autocomplete="off"
         spellcheck="false"
       />
       <kbd class="kbd kbd-sm shrink-0 opacity-50">esc</kbd>
-    </div>
-    <div class="border-b border-base-300 px-3 py-2">
-      <label class="flex items-center gap-2 text-xs text-base-content/60">
-        <span class="shrink-0">Pack</span>
-        <select
-          class="min-h-8 w-full max-w-xs rounded-md border border-base-300 bg-base-100 px-2 text-sm text-base-content"
-          data-search-pack
-          aria-label="Documentation pack"
-        >
-          {packs.map((p) => <option value={p.id}>{p.title}</option>)}
-        </select>
-      </label>
-      <p class="mt-1 font-mono text-[0.65rem] text-base-content/40" data-search-status>
-        One dataset per project — results never cross packs.
-      </p>
     </div>
     <ul class="max-h-72 list-none overflow-y-auto p-2" data-search-results role="listbox"></ul>
   </div>
@@ -66,151 +44,71 @@ const packs = getPacks().map((p) => ({ id: p.id, title: p.title }));
     margin: auto;
   }
   .search-palette-dialog::backdrop {
-    background: color-mix(in oklab, var(--color-neutral, #000) 45%, transparent);
+    background: color-mix(in oklab, #000 45%, transparent);
   }
 </style>
 
-<!-- Open / keyboard: always works even if Orama fails to load -->
-<script is:inline >
-  (function () {
-    var dialog = document.getElementById('search-palette-dialog');
-    if (!dialog || typeof dialog.showModal !== 'function') return;
-
-    var input = dialog.querySelector('[data-search-input]');
-    var packSelect = dialog.querySelector('[data-search-pack]');
-    var resultsEl = dialog.querySelector('[data-search-results]');
-    var statusEl = dialog.querySelector('[data-search-status]');
-
-    function techFromLocation() {
-      var m = location.pathname.match(/\/docs\/([^/]+)/);
-      return m ? m[1] : '';
-    }
-
-    function syncPackFromRoute() {
-      if (!packSelect) return;
-      var t = techFromLocation();
-      if (!t) return;
-      for (var i = 0; i < packSelect.options.length; i++) {
-        if (packSelect.options[i].value === t) {
-          packSelect.value = t;
-          break;
-        }
-      }
-    }
-
-    function openPalette() {
-      syncPackFromRoute();
-      try {
-        dialog.showModal();
-      } catch (err) {
-        dialog.setAttribute('open', '');
-      }
-      if (input) {
-        input.value = '';
-        setTimeout(function () {
-          input.focus();
-        }, 0);
-      }
-      if (statusEl) {
-        var tech = packSelect && packSelect.value;
-        statusEl.textContent = tech
-          ? 'Dataset: ' + tech + ' only (no cross-pack mix)'
-          : 'Select a pack.';
-      }
-      if (resultsEl) resultsEl.innerHTML = '';
-      document.dispatchEvent(new CustomEvent('docharvest:search-open'));
-    }
-
-    function closePalette() {
-      if (dialog.open) dialog.close();
-    }
-
-    document.addEventListener(
-      'click',
-      function (e) {
-        var t = e.target;
-        if (!t || !t.closest) return;
-        if (t.closest('[data-search-open]')) {
-          e.preventDefault();
-          openPalette();
-        }
-      },
-      true,
-    );
-
-    document.addEventListener('keydown', function (e) {
-      var key = e.key || e.code;
-      var isK = key === 'k' || key === 'K' || e.code === 'KeyK';
-      if (!(e.metaKey || e.ctrlKey) || !isK) return;
-      // Don't steal from inputs except our search field
-      var tag = (e.target && e.target.tagName) || '';
-      if (
-        (tag === 'INPUT' || tag === 'TEXTAREA' || (e.target && e.target.isContentEditable)) &&
-        !(e.target && e.target.hasAttribute && e.target.hasAttribute('data-search-input'))
-      ) {
-        return;
-      }
-      e.preventDefault();
-      e.stopPropagation();
-      if (dialog.open) closePalette();
-      else openPalette();
-    });
-
-    dialog.addEventListener('click', function (e) {
-      // click backdrop (dialog itself)
-      if (e.target === dialog) closePalette();
-    });
-  })();
-</script>
-
-<!-- Orama restore + search (module; may fail without breaking open/close) -->
 <script>
-  import { restore } from '@orama/plugin-data-persistence';
+  import MiniSearch from 'minisearch';
 
   const dialog = document.getElementById('search-palette-dialog');
   const input = dialog?.querySelector('[data-search-input]');
-  const packSelect = dialog?.querySelector('[data-search-pack]');
   const resultsEl = dialog?.querySelector('[data-search-results]');
-  const statusEl = dialog?.querySelector('[data-search-status]');
-  if (!dialog || !input || !packSelect || !resultsEl || !statusEl) {
-    console.warn('[search] palette DOM incomplete');
-  } else {
-    /** @type {Map<string, Promise<any>>} */
-    const dbByTech = new Map();
 
-    function loadDb(tech) {
+  if (dialog instanceof HTMLDialogElement && input instanceof HTMLInputElement && resultsEl) {
+    /** @type {Map<string, Promise<MiniSearch | null>>} */
+    const cache = new Map();
+    let searchTimer = 0;
+
+    function techFromLocation() {
+      const m = location.pathname.match(/\/docs\/([^/]+)/);
+      return m ? m[1] : '';
+    }
+
+    function loadPack(tech) {
       if (!tech) return Promise.resolve(null);
-      const cached = dbByTech.get(tech);
-      if (cached) return cached;
+      const hit = cache.get(tech);
+      if (hit) return hit;
       const p = fetch(`/search-indexes/${encodeURIComponent(tech)}.json`)
         .then((res) => {
-          if (!res.ok) throw new Error(`index ${tech} HTTP ${res.status}`);
-          return res.text();
+          if (!res.ok) throw new Error(`index HTTP ${res.status}`);
+          return res.json();
         })
-        .then((text) => restore('json', text))
+        .then((data) => {
+          const mini = new MiniSearch({
+            fields: ['title', 'description', 'body', 'slugPath'],
+            storeFields: ['title', 'path', 'slugPath', 'tech'],
+            searchOptions: {
+              boost: { title: 3, description: 1.5, slugPath: 1.2 },
+              prefix: true,
+              fuzzy: 0.15,
+            },
+          });
+          mini.addAll(data.documents || []);
+          return mini;
+        })
         .catch((err) => {
-          dbByTech.delete(tech);
-          statusEl.textContent = `Failed to load index for “${tech}”.`;
-          console.error(err);
+          cache.delete(tech);
+          console.error('[search]', err);
           return null;
         });
-      dbByTech.set(tech, p);
+      cache.set(tech, p);
       return p;
     }
 
-    function renderHits(hits) {
+    function renderHits(rows) {
       resultsEl.innerHTML = '';
-      if (!hits?.length) {
+      const tech = techFromLocation();
+      if (!rows?.length) {
         const empty = document.createElement('li');
         empty.className = 'px-3 py-2 text-sm text-base-content/50';
-        empty.textContent = input.value.trim()
-          ? 'No matches in this pack.'
-          : 'Type to search — only the selected pack is queried.';
+        if (!tech) empty.textContent = 'Open a documentation pack (/docs/…) to search.';
+        else if (!input.value.trim()) empty.textContent = 'Type to search this pack only.';
+        else empty.textContent = 'No matches.';
         resultsEl.appendChild(empty);
         return;
       }
-      for (const hit of hits) {
-        const doc = hit.document;
+      for (const doc of rows) {
         const li = document.createElement('li');
         const a = document.createElement('a');
         a.href = doc.path;
@@ -228,67 +126,72 @@ const packs = getPacks().map((p) => ({ id: p.id, title: p.title }));
       }
     }
 
-    let searchTimer = 0;
     function runSearch() {
-      const tech = packSelect.value;
+      const tech = techFromLocation();
       const term = input.value.trim();
-      if (!tech) {
+      if (!tech || !term) {
         renderHits([]);
         return;
       }
-      statusEl.textContent = `Dataset: ${tech} only (no cross-pack mix)`;
-      if (!term) {
-        renderHits([]);
-        return;
-      }
-      loadDb(tech)
-        .then((db) => {
-          if (!db) return null;
-          return db.search({
-            term,
-            limit: 12,
-            properties: ['title', 'description', 'body', 'slugPath'],
-          });
-        })
-        .then((res) => {
-          if (res) renderHits(res.hits);
-        });
+      loadPack(tech).then((mini) => {
+        if (!mini) {
+          renderHits([]);
+          return;
+        }
+        renderHits(mini.search(term).slice(0, 12));
+      });
     }
 
-    function onOpen() {
-      const tech = packSelect.value;
-      statusEl.textContent = tech ? `Loading “${tech}” index…` : 'Select a pack.';
+    function openPalette() {
+      const tech = techFromLocation();
+      try {
+        dialog.showModal();
+      } catch {
+        dialog.setAttribute('open', '');
+      }
+      input.value = '';
       renderHits([]);
-      if (tech) {
-        loadDb(tech).then(() => {
-          statusEl.textContent = `Dataset: ${tech} only (no cross-pack mix)`;
-        });
-      }
+      if (tech) loadPack(tech);
+      queueMicrotask(() => input.focus());
     }
 
-    document.addEventListener('docharvest:search-open', onOpen);
+    function closePalette() {
+      if (dialog.open) dialog.close();
+    }
+
+    document.querySelectorAll('[data-search-open]').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openPalette();
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      const isK = e.key === 'k' || e.key === 'K' || e.code === 'KeyK';
+      if (!(e.metaKey || e.ctrlKey) || !isK) return;
+      const el = e.target;
+      const tag = el && el.tagName;
+      const otherField =
+        (tag === 'INPUT' || tag === 'TEXTAREA' || el?.isContentEditable) &&
+        !(el instanceof HTMLElement && el.hasAttribute('data-search-input'));
+      if (otherField) return;
+      e.preventDefault();
+      if (dialog.open) closePalette();
+      else openPalette();
+    });
+
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) closePalette();
+    });
 
     input.addEventListener('input', () => {
       window.clearTimeout(searchTimer);
-      searchTimer = window.setTimeout(runSearch, 120);
-    });
-
-    packSelect.addEventListener('change', () => {
-      input.value = '';
-      renderHits([]);
-      const tech = packSelect.value;
-      statusEl.textContent = tech ? `Loading “${tech}” index…` : 'Select a pack.';
-      if (tech) {
-        loadDb(tech).then(() => {
-          statusEl.textContent = `Dataset: ${tech} only (no cross-pack mix)`;
-          input.focus();
-        });
-      }
+      searchTimer = window.setTimeout(runSearch, 100);
     });
 
     resultsEl.addEventListener('click', (e) => {
-      const a = e.target.closest('a');
-      if (a?.href && dialog.open) dialog.close();
+      const a = e.target instanceof Element ? e.target.closest('a') : null;
+      if (a?.href) closePalette();
     });
   }
 </script>
