@@ -1,9 +1,10 @@
 /**
  * Documentation packs + page index.
  *
- * Pack metadata and **pipeline** are defined only in `workspaced.cue` (`#docs`).
- * `content/manifest.json` is generated (`npm run gen:manifest` / prebuild).
- * Pipelines live under `src/lib/pipelines/`.
+ * Pack metadata and pipeline are defined in `workspaced.cue` (`#docs`), exposed on
+ * each `docs_*` module as `config.pack`. `content/manifest.json` is rendered by
+ * `.workspaced/config/content/manifest.json.tmpl` on `workspaced codebase apply`.
+ * Inspect evaluated config: `workspaced codebase config dump`.
  */
 import manifestJson from '../../content/manifest.json';
 import { getPipeline } from './pipelines/registry';

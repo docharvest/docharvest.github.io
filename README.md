@@ -17,18 +17,17 @@ There is **no** site-wide `/llms.txt`.
 
 ## Adding a documentation pack
 
-**Single source of truth:** [`workspaced.cue`](workspaced.cue) `#docs` (vendoring + site metadata + `pipeline`).
+**Single source of truth:** [`workspaced.cue`](workspaced.cue) `#docs`.
 
-1. Add an entry under `#docs` (`from`, `version`, `origin`, `destination`, `title`, `description`, `pipeline`).
-2. `npm run gen:manifest` (also runs on `predev` / `prebuild`) writes [`content/manifest.json`](content/manifest.json). With `cue` installed this uses `siteManifest`; otherwise a small parser reads `#docs`.
-3. If `pipeline` is `astro-md`, add a static `import.meta.glob` for that pack under [`src/lib/pipelines/astro-md.ts`](src/lib/pipelines/astro-md.ts) (Vite requires literal globs).
-4. New pipelines: implement under [`src/lib/pipelines/`](src/lib/pipelines/), register in `registry.ts`, allow the id in the `#docs` pipeline union in `workspaced.cue`.
-5. `workspaced mod lock` && `workspaced codebase apply` → `content/<destination>/`.
-6. `npm run build`.
+1. Add an entry under `#docs` (`from`, `github`, `version`, `origin`, `destination`, `title`, `description`, `pipeline`).
+2. Each entry becomes a `docs_*` module; `config.pack` is visible in `workspaced codebase config dump`.
+3. [`.workspaced/config/content/manifest.json.tmpl`](.workspaced/config/content/manifest.json.tmpl) renders [`content/manifest.json`](content/manifest.json) on `workspaced codebase apply` (same config-tree mechanism as lewtec/skills README).
+4. If `pipeline` is `astro-md`, add a static `import.meta.glob` for that pack in [`src/lib/pipelines/astro-md.ts`](src/lib/pipelines/astro-md.ts).
+5. New pipelines: `src/lib/pipelines/` + `registry.ts` + allow the id in the `#docs` `pipeline` union.
+6. `workspaced mod lock` && `workspaced codebase apply`.
 
 Do **not** hand-edit `content/manifest.json`.
 
-First pack: **renovate** from [`renovatebot/renovate` `docs/`](https://github.com/renovatebot/renovate/tree/main/docs).
 
 ## Develop
 

@@ -1,18 +1,14 @@
 package workspaced
 
-// Documentation packs: single source of truth for vendoring + site metadata.
-// Placed under content/<destination>/ via core:place.
-// Site reads content/manifest.json generated from this file (`npm run gen:manifest`).
-//
-// Fields:
-//   from, version, origin, destination — workspaced input + place target
-//   title, description               — site UI / llms headers
-//   pipeline                         — astro-md | marked (src/lib/pipelines/)
-//
-// Do not edit content/manifest.json by hand.
+// Documentation packs: single source of truth for vendoring + site metadata + pipeline.
+// Place: content/<destination>/ via core:place.
+// Manifest: .workspaced/config/content/manifest.json.tmpl on `workspaced codebase apply`
+// (config-tree). Template reads module config.pack — inspect with:
+//   workspaced codebase config dump
 #docs: {
 	renovate: {
 		from:        "github:renovatebot/renovate"
+		github:      "renovatebot/renovate"
 		origin:      "docs"
 		destination: "renovate"
 		title:       "Renovate"
@@ -21,6 +17,7 @@ package workspaced
 	}
 	opencv4: {
 		from:        "github:opencv/opencv"
+		github:      "opencv/opencv"
 		version:     "4.x"
 		origin:      "doc"
 		destination: "opencv4"
@@ -30,6 +27,7 @@ package workspaced
 	}
 	opencv5: {
 		from:        "github:opencv/opencv"
+		github:      "opencv/opencv"
 		version:     "5.x"
 		origin:      "doc"
 		destination: "opencv5"
@@ -41,6 +39,8 @@ package workspaced
 
 #docs: [string]: {
 	from:        string | *""
+	// owner/repo for site links (no github: prefix)
+	github:      string | *""
 	version:     string | *"HEAD"
 	origin:      string | *"docs"
 	destination: string | *""
@@ -48,9 +48,6 @@ package workspaced
 	description: string | *""
 	pipeline:    "astro-md" | "marked" | *"astro-md"
 }
-
-// Site manifest JSON is generated from #docs by scripts/gen-manifest.mjs
-// (npm run gen:manifest / prebuild). Keep all pack metadata and pipeline here only.
 
 workspaced: {
 	inputs: {
@@ -63,11 +60,33 @@ workspaced: {
 	}
 	modules: {
 		for name, value in #docs {
+			let packId = [
+				if value.destination != "" {value.destination},
+				name,
+			][0]
+			let treeRef = [
+				if value.version == "HEAD" {"main"},
+				value.version,
+			][0]
 			"docs_\(name)": {
 				from: "core:place"
 				config: {
 					items: {
-						"content/\(value.destination)": "docs_\(name):\(value.origin)"
+						"content/\(packId)": "docs_\(name):\(value.origin)"
+					}
+					// Surfaced on config dump → template .root.modules.<name>.config.pack
+					pack: {
+						id:          packId
+						title:       [
+							if value.title != "" {value.title},
+							packId,
+						][0]
+						description: value.description
+						pipeline:    value.pipeline
+						github:      value.github
+						origin:      value.origin
+						version:     value.version
+						treeRef:     treeRef
 					}
 				}
 			}
