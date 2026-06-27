@@ -3,6 +3,7 @@ import ThemeChooser from './ThemeChooser.astro';
 
 const base = import.meta.env.BASE_URL;
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isHome = path === '' || path === '/' || path === base.replace(/\/$/, '');
 const links = [
   { href: `${base}`, label: 'Home', match: (p: string) => p === '' || p === '/' || p === base.replace(/\/$/, '') },
   { href: `${base}docs/`, label: 'Docs', match: (p: string) => p.includes('/docs') },
@@ -10,21 +11,46 @@ const links = [
 ];
 ---
 
-<header class="border-b border-base-300 bg-base-100">
-  <div class="navbar mx-auto max-w-6xl px-4">
+<header
+  class:list={[
+    'sticky top-0 z-40 border-b backdrop-blur-md',
+    isHome
+      ? 'border-primary-content/10 bg-primary/95 text-primary-content'
+      : 'border-base-300 bg-base-100/90 text-base-content',
+  ]}
+>
+  <div class="navbar mx-auto max-w-6xl min-h-14 px-4">
     <div class="navbar-start gap-2">
-      <a href={base} class="flex items-center gap-2.5 font-semibold tracking-tight text-base-content no-underline">
-        <span class="flex size-8 items-center justify-center rounded-field border border-base-300 bg-primary text-sm font-bold text-primary-content">DH</span>
-        <span>docharvest</span>
+      <a
+        href={base}
+        class:list={[
+          'flex items-center gap-2.5 font-semibold tracking-tight no-underline',
+          isHome ? 'text-primary-content' : 'text-base-content',
+        ]}
+      >
+        <span
+          class:list={[
+            'flex size-8 items-center justify-center rounded-sm font-mono text-xs font-bold',
+            isHome ? 'bg-primary-content text-primary' : 'bg-primary text-primary-content',
+          ]}
+        >
+          DH
+        </span>
+        <span class="font-mono text-sm tracking-tight">docharvest</span>
       </a>
     </div>
     <div class="navbar-center hidden md:flex">
-      <nav class="menu menu-horizontal gap-1 px-1" aria-label="Primary">
+      <nav class="menu menu-horizontal gap-0.5 px-1" aria-label="Primary">
         {
           links.map((link) =>
             link.external ? (
               <li>
-                <a href={link.href} target="_blank" rel="noopener noreferrer" class="font-medium">
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class:list={['font-medium', isHome && 'text-primary-content/90 hover:bg-primary-content/10']}
+                >
                   {link.label}
                 </a>
               </li>
@@ -32,7 +58,14 @@ const links = [
               <li>
                 <a
                   href={link.href}
-                  class:list={['font-medium', link.match(path) && 'bg-base-200']}
+                  class:list={[
+                    'font-medium',
+                    isHome
+                      ? link.match(path)
+                        ? 'bg-primary-content/15 text-primary-content'
+                        : 'text-primary-content/90 hover:bg-primary-content/10'
+                      : link.match(path) && 'bg-base-200',
+                  ]}
                   aria-current={link.match(path) ? 'page' : undefined}
                 >
                   {link.label}
@@ -44,12 +77,20 @@ const links = [
       </nav>
     </div>
     <div class="navbar-end gap-1">
-      <ThemeChooser />
+      {!isHome && <ThemeChooser />}
       <div class="dropdown dropdown-end md:hidden">
-        <div tabindex="0" role="button" class="btn btn-ghost btn-sm" aria-label="Menu">
+        <div
+          tabindex="0"
+          role="button"
+          class:list={['btn btn-ghost btn-sm', isHome && 'text-primary-content hover:bg-primary-content/10']}
+          aria-label="Menu"
+        >
           Menu
         </div>
-        <ul tabindex="0" class="dropdown-content menu bg-base-100 border border-base-300 rounded-box z-50 mt-2 w-48 p-2 shadow-none">
+        <ul
+          tabindex="0"
+          class="dropdown-content menu z-50 mt-2 w-48 rounded-box border border-base-300 bg-base-100 p-2 text-base-content shadow-none"
+        >
           {
             links.map((link) => (
               <li>

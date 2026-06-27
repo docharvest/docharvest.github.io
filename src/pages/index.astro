@@ -7,90 +7,199 @@ const packs = getPacks().map((p) => ({
   ...p,
   pageCount: getPagesForTech(p.id).length,
 }));
+const totalPages = packs.reduce((n, p) => n + p.pageCount, 0);
+const featured = packs[0];
+const siteHost = 'docharvest.github.io';
 ---
 
 <BaseLayout
   title="docharvest"
-  description="Harvested documentation packs for tools and ecosystems. Each pack is vendored with workspaced and exposes a tech-specific llms.txt for agents."
+  description="Upstream docs, vendored into versioned packs. Humans browse /docs/:tech. Agents fetch that tech's llms.txt — never a site-wide dump."
 >
-  <section class="border-b border-base-300 bg-base-100">
-    <div class="mx-auto max-w-6xl px-4 py-16 sm:py-20">
-      <p class="mb-3 text-sm font-medium text-primary">documentation harvest</p>
-      <h1 class="max-w-3xl text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
-        Docs packs for humans and agents
-      </h1>
-      <p class="mt-5 max-w-2xl text-lg text-base-content/80 text-pretty">
-        docharvest vendors upstream documentation into versioned packs managed by
-        <a class="link link-primary" href="https://github.com/lucasew/workspaced" target="_blank" rel="noopener noreferrer">workspaced</a>.
-        Browse at <code class="rounded-field bg-base-200 px-1.5 py-0.5 text-sm">/docs/:tech</code>.
-        Agents get <strong class="font-semibold text-base-content">per-tech</strong>
-        <code class="rounded-field bg-base-200 px-1.5 py-0.5 text-sm">llms.txt</code> — never a site-wide index.
-      </p>
-      <div class="mt-8 flex flex-wrap gap-3">
-        <a class="btn btn-primary rounded-field shadow-none" href={`${base}docs/`}>Browse packs</a>
-        <a
-          class="btn btn-outline border-base-300 rounded-field shadow-none"
-          href="https://github.com/docharvest/docharvest.github.io"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Site source
+  {/* Hero: committed primary surface, not cream SaaS */}
+  <section class="relative overflow-hidden border-b border-primary-content/10 bg-primary text-primary-content">
+    <div
+      class="pointer-events-none absolute inset-0 opacity-[0.12]"
+      style="background-image: linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px); background-size: 48px 48px;"
+      aria-hidden="true"
+    ></div>
+    <div class="relative mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-16 lg:py-24">
+      <div>
+        <p class="font-mono text-xs tracking-wide text-primary-content/70">
+          {siteHost} · documentation harvest
+        </p>
+        <h1 class="mt-4 max-w-[14ch] font-display text-[clamp(2.5rem,6vw,3.75rem)] font-medium leading-[1.05] tracking-[-0.03em] text-balance">
+          Upstream docs, cut into agent-ready packs
+        </h1>
+        <p class="mt-6 max-w-xl text-base leading-relaxed text-primary-content/85 text-pretty sm:text-lg">
+          Each pack is one tech under <code class="rounded bg-primary-content/15 px-1.5 py-0.5 font-mono text-[0.85em]">/docs/:tech</code>.
+          Content is vendored with <a class="underline decoration-primary-content/40 underline-offset-4 hover:decoration-primary-content" href="https://github.com/lucasew/workspaced" target="_blank" rel="noopener noreferrer">workspaced</a>.
+          Agents load <strong class="font-semibold text-primary-content">only that tech’s</strong>
+          <code class="rounded bg-primary-content/15 px-1.5 py-0.5 font-mono text-[0.85em]">llms.txt</code> — no org-wide blob.
+        </p>
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          {
+            featured ? (
+              <a
+                class="btn border-0 bg-primary-content text-primary hover:bg-primary-content/90"
+                href={`${base}docs/${featured.id}/`}
+              >
+                Open {featured.title}
+              </a>
+            ) : null
+          }
+          <a
+            class="btn btn-outline border-primary-content/35 bg-transparent text-primary-content hover:border-primary-content/60 hover:bg-primary-content/10"
+            href={`${base}docs/`}
+          >
+            All packs
+          </a>
+          <a
+            class="btn btn-ghost text-primary-content/80 hover:bg-primary-content/10 hover:text-primary-content"
+            href="https://github.com/docharvest/docharvest.github.io"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Source
+          </a>
+        </div>
+        <dl class="mt-10 flex flex-wrap gap-x-10 gap-y-4 font-mono text-sm text-primary-content/75">
+          <div>
+            <dt class="text-primary-content/50">packs</dt>
+            <dd class="mt-0.5 text-2xl font-medium tabular-nums text-primary-content">{packs.length}</dd>
+          </div>
+          <div>
+            <dt class="text-primary-content/50">pages</dt>
+            <dd class="mt-0.5 text-2xl font-medium tabular-nums text-primary-content">{totalPages || '—'}</dd>
+          </div>
+          <div>
+            <dt class="text-primary-content/50">agent index</dt>
+            <dd class="mt-0.5 text-primary-content">per-tech only</dd>
+          </div>
+        </dl>
+      </div>
+
+      {/* Manifest-style panel */}
+      <div class="min-w-0 rounded-lg border border-primary-content/20 bg-neutral/90 p-1 text-neutral-content shadow-none">
+        <div class="flex items-center gap-2 border-b border-neutral-content/10 px-3 py-2 font-mono text-[0.65rem] uppercase tracking-wider text-neutral-content/50">
+          <span class="size-2 rounded-full bg-success/80" aria-hidden="true"></span>
+          manifest · agent fetch
+        </div>
+        <pre class="overflow-x-auto p-4 font-mono text-[0.7rem] leading-relaxed text-neutral-content/90 sm:text-xs"><code>{`# GET /docs/renovate/llms.txt
+
+# Renovate
+> Automated dependency updates…
+
+## Pages
+- [Config options](/docs/renovate/usage/…)
+- [Self-hosted](/docs/renovate/usage/…)
+- … ${featured?.pageCount ?? 'N'} pages in this pack only
+
+# No /llms.txt at site root.`}</code></pre>
+        {
+          featured && (
+            <div class="flex flex-wrap gap-2 border-t border-neutral-content/10 px-3 py-2.5">
+              <a
+                class="font-mono text-[0.7rem] text-accent underline-offset-2 hover:underline"
+                href={`${base}docs/${featured.id}/llms.txt`}
+              >
+                /docs/{featured.id}/llms.txt
+              </a>
+              <span class="text-neutral-content/30" aria-hidden="true">·</span>
+              <a
+                class="font-mono text-[0.7rem] text-neutral-content/60 underline-offset-2 hover:text-neutral-content hover:underline"
+                href={`${base}docs/${featured.id}/llms-full.txt`}
+              >
+                llms-full.txt
+              </a>
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </section>
+
+  {/* Pack index — table-like, not identical cards */}
+  <section class="border-b border-base-300 bg-base-100" id="packs" aria-labelledby="packs-heading">
+    <div class="mx-auto max-w-6xl px-4 py-14 sm:py-16">
+      <div class="flex flex-wrap items-end justify-between gap-4 border-b border-base-300 pb-6">
+        <div>
+          <h2 id="packs-heading" class="font-display text-3xl font-medium tracking-[-0.02em] sm:text-4xl">
+            Packs
+          </h2>
+          <p class="mt-2 max-w-prose text-base-content/70 text-pretty">
+            One directory per tech. Pin sources in <code class="rounded bg-base-200 px-1 font-mono text-xs">workspaced.cue</code>, apply, ship.
+          </p>
+        </div>
+        <a class="font-mono text-sm text-primary hover:underline" href={`${base}docs/`}>
+          /docs/ →
         </a>
       </div>
-    </div>
-  </section>
 
-  <section class="border-b border-base-300 bg-base-200/50">
-    <div class="mx-auto max-w-6xl px-4 py-14">
-      <h2 class="text-2xl font-semibold tracking-tight">How packs work</h2>
-      <div class="mt-8 grid gap-4 md:grid-cols-3">
-        <div class="rounded-box border border-base-300 bg-base-100 p-5">
-          <h3 class="font-semibold">Declare</h3>
-          <p class="mt-2 text-sm text-base-content/80 text-pretty">
-            Add an entry under <code class="text-xs">#docs</code> in <code class="text-xs">workspaced.cue</code> (source repo, path, destination id).
-          </p>
-        </div>
-        <div class="rounded-box border border-base-300 bg-base-100 p-5">
-          <h3 class="font-semibold">Apply</h3>
-          <p class="mt-2 text-sm text-base-content/80 text-pretty">
-            <code class="text-xs">workspaced codebase apply</code> places files under <code class="text-xs">content/&lt;tech&gt;/</code>. Renovate tracks lock pins.
-          </p>
-        </div>
-        <div class="rounded-box border border-base-300 bg-base-100 p-5">
-          <h3 class="font-semibold">Publish</h3>
-          <p class="mt-2 text-sm text-base-content/80 text-pretty">
-            Astro builds <code class="text-xs">/docs/:tech/…</code> and emits <code class="text-xs">llms.txt</code> + <code class="text-xs">llms-full.txt</code> only under each tech.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="mx-auto max-w-6xl px-4 py-14">
-      <div class="flex flex-wrap items-end justify-between gap-4">
-        <h2 class="text-2xl font-semibold tracking-tight">Documentation packs</h2>
-        <a class="link link-primary text-sm" href={`${base}docs/`}>All packs</a>
-      </div>
-      <ul class="mt-8 grid gap-3 sm:grid-cols-2">
+      <ul class="mt-2 divide-y divide-base-300" role="list">
         {
           packs.map((p) => (
             <li>
               <a
                 href={`${base}docs/${p.id}/`}
-                class="flex h-full flex-col rounded-box border border-base-300 bg-base-100 p-5 transition-colors hover:border-primary/40 hover:bg-base-200/40"
+                class="group grid gap-3 py-6 transition-colors hover:bg-base-200/40 sm:grid-cols-[7rem_1fr_auto] sm:items-baseline sm:gap-8 sm:px-2"
               >
-                <span class="text-xs font-medium uppercase tracking-wide text-primary">{p.id}</span>
-                <span class="mt-1 font-semibold">{p.title}</span>
-                <span class="mt-2 text-sm text-base-content/75 text-pretty">{p.description}</span>
-                <span class="mt-3 text-xs text-base-content/50">
-                  {p.pageCount > 0 ? `${p.pageCount} pages` : 'content pending apply'} · llms.txt
+                <span class="font-mono text-sm text-primary">{p.id}</span>
+                <span class="min-w-0">
+                  <span class="block text-lg font-semibold tracking-tight group-hover:text-primary">{p.title}</span>
+                  <span class="mt-1 block max-w-2xl text-sm leading-relaxed text-base-content/70 text-pretty">
+                    {p.description}
+                  </span>
+                </span>
+                <span class="flex flex-wrap items-center gap-3 font-mono text-xs text-base-content/50 sm:justify-end">
+                  <span>{p.pageCount > 0 ? `${p.pageCount} pages` : 'pending apply'}</span>
+                  <span class="rounded-full border border-base-300 px-2 py-0.5 text-base-content/60 group-hover:border-primary/40 group-hover:text-primary">
+                    llms.txt
+                  </span>
                 </span>
               </a>
             </li>
           ))
         }
       </ul>
+    </div>
+  </section>
+
+  {/* Pipeline as horizontal steps, not three equal cards */}
+  <section class="bg-base-200/60" aria-labelledby="pipeline-heading">
+    <div class="mx-auto max-w-6xl px-4 py-14 sm:py-16">
+      <h2 id="pipeline-heading" class="font-display text-3xl font-medium tracking-[-0.02em] sm:text-4xl">
+        From cue to URL
+      </h2>
+      <ol class="mt-10 grid gap-0 border border-base-300 bg-base-100 md:grid-cols-3">
+        <li class="border-b border-base-300 p-6 md:border-b-0 md:border-r">
+          <p class="font-mono text-xs text-base-content/50">workspaced.cue</p>
+          <h3 class="mt-2 text-lg font-semibold">Declare</h3>
+          <p class="mt-2 text-sm leading-relaxed text-base-content/75 text-pretty">
+            Add <code class="rounded bg-base-200 px-1 font-mono text-[0.8em]">#docs.your_tech</code> with
+            <code class="rounded bg-base-200 px-1 font-mono text-[0.8em]">from</code>,
+            <code class="rounded bg-base-200 px-1 font-mono text-[0.8em]">origin</code>, destination id. Mirror title in
+            <code class="rounded bg-base-200 px-1 font-mono text-[0.8em]">content/manifest.json</code>.
+          </p>
+        </li>
+        <li class="border-b border-base-300 p-6 md:border-b-0 md:border-r">
+          <p class="font-mono text-xs text-base-content/50">codebase apply</p>
+          <h3 class="mt-2 text-lg font-semibold">Place</h3>
+          <p class="mt-2 text-sm leading-relaxed text-base-content/75 text-pretty">
+            <code class="rounded bg-base-200 px-1 font-mono text-[0.8em]">workspaced codebase apply</code> copies upstream
+            into <code class="rounded bg-base-200 px-1 font-mono text-[0.8em]">content/&lt;tech&gt;/</code>. Lockfile pins stay Renovate-friendly.
+          </p>
+        </li>
+        <li class="p-6">
+          <p class="font-mono text-xs text-base-content/50">astro build</p>
+          <h3 class="mt-2 text-lg font-semibold">Serve</h3>
+          <p class="mt-2 text-sm leading-relaxed text-base-content/75 text-pretty">
+            Static routes under <code class="rounded bg-base-200 px-1 font-mono text-[0.8em]">/docs/:tech/…</code> plus
+            <code class="rounded bg-base-200 px-1 font-mono text-[0.8em]">llms.txt</code> /
+            <code class="rounded bg-base-200 px-1 font-mono text-[0.8em]">llms-full.txt</code> scoped to that pack.
+          </p>
+        </li>
+      </ol>
     </div>
   </section>
 </BaseLayout>
