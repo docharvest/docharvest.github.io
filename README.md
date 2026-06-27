@@ -17,15 +17,16 @@ There is **no** site-wide `/llms.txt`.
 
 ## Adding a documentation pack
 
-Packs are managed like [lewtec/skills](https://github.com/lewtec/skills) but under `#docs` in [`workspaced.cue`](workspaced.cue).
+**Single source of truth:** [`workspaced.cue`](workspaced.cue) `#docs` (vendoring + site metadata + `pipeline`).
 
-1. Add an entry under `#docs` (destination id = pack id).
-2. Mirror metadata in [`content/manifest.json`](content/manifest.json), including **`pipeline`**:
-   - `astro-md` — Astro/Vite Markdown & MDX (default for normal `.md` trees).
-   - `marked` — plain `marked` on file text (`.md` / `.markdown`; no dialect transforms). Use when Astro’s MD loader cannot handle the tree.
-3. Implement extra pipelines under [`src/lib/pipelines/`](src/lib/pipelines/) and register them in `registry.ts` if needed.
-4. Run `workspaced mod lock` then `workspaced codebase apply` → `content/<id>/`.
-5. `npm run build`.
+1. Add an entry under `#docs` (`from`, `version`, `origin`, `destination`, `title`, `description`, `pipeline`).
+2. `npm run gen:manifest` (also runs on `predev` / `prebuild`) writes [`content/manifest.json`](content/manifest.json). With `cue` installed this uses `siteManifest`; otherwise a small parser reads `#docs`.
+3. If `pipeline` is `astro-md`, add a static `import.meta.glob` for that pack under [`src/lib/pipelines/astro-md.ts`](src/lib/pipelines/astro-md.ts) (Vite requires literal globs).
+4. New pipelines: implement under [`src/lib/pipelines/`](src/lib/pipelines/), register in `registry.ts`, allow the id in the `#docs` pipeline union in `workspaced.cue`.
+5. `workspaced mod lock` && `workspaced codebase apply` → `content/<destination>/`.
+6. `npm run build`.
+
+Do **not** hand-edit `content/manifest.json`.
 
 First pack: **renovate** from [`renovatebot/renovate` `docs/`](https://github.com/renovatebot/renovate/tree/main/docs).
 

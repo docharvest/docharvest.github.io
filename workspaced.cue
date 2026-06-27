@@ -1,11 +1,15 @@
 package workspaced
 
-// Documentation packs placed via core:place under content/<destination>/.
-// Each entry is one "tech" shown at /docs/:tech on the Astro site.
-// `version` is the git ref (branch / tag / SHA) for the github input.
+// Documentation packs: single source of truth for vendoring + site metadata.
+// Placed under content/<destination>/ via core:place.
+// Site reads content/manifest.json generated from this file (`npm run gen:manifest`).
 //
-// Site rendering pipeline is chosen in content/manifest.json (`pipeline`), not here.
-// Keep destination id aligned with manifest pack id.
+// Fields:
+//   from, version, origin, destination — workspaced input + place target
+//   title, description               — site UI / llms headers
+//   pipeline                         — astro-md | marked (src/lib/pipelines/)
+//
+// Do not edit content/manifest.json by hand.
 #docs: {
 	renovate: {
 		from:        "github:renovatebot/renovate"
@@ -13,6 +17,7 @@ package workspaced
 		destination: "renovate"
 		title:       "Renovate"
 		description: "Automated dependency updates. Configuration, usage, and development docs from the Renovate project."
+		pipeline:    "astro-md"
 	}
 	opencv4: {
 		from:        "github:opencv/opencv"
@@ -21,6 +26,7 @@ package workspaced
 		destination: "opencv4"
 		title:       "OpenCV 4"
 		description: "OpenCV 4.x documentation and tutorials from the opencv/opencv 4.x branch (doc/)."
+		pipeline:    "marked"
 	}
 	opencv5: {
 		from:        "github:opencv/opencv"
@@ -29,6 +35,7 @@ package workspaced
 		destination: "opencv5"
 		title:       "OpenCV 5"
 		description: "OpenCV 5.x documentation and tutorials from the opencv/opencv 5.x branch (doc/)."
+		pipeline:    "marked"
 	}
 }
 
@@ -39,6 +46,38 @@ package workspaced
 	destination: string | *""
 	title:       string | *""
 	description: string | *""
+	pipeline:    "astro-md" | "marked" | *"astro-md"
+}
+
+// Derived site manifest — cue export . -e siteManifest --out json -o content/manifest.json
+siteManifest: {
+	packs: [
+		for name, d in #docs {
+			let id = [
+				if d.destination != "" {d.destination},
+				name,
+			][0]
+			let treeRef = [
+				if d.version == "HEAD" {"main"},
+				d.version,
+			][0]
+			let gh = [
+				if len(d.from) > 7 && d.from[0:7] == "github:" {d.from[7:]},
+				d.from,
+			][0]
+			{
+				id:          id
+				title:       [
+					if d.title != "" {d.title},
+					id,
+				][0]
+				description: d.description
+				pipeline:    d.pipeline
+				repo:        "https://github.com/\(gh)"
+				source:      "https://github.com/\(gh)/tree/\(treeRef)/\(d.origin)"
+			}
+		},
+	]
 }
 
 workspaced: {

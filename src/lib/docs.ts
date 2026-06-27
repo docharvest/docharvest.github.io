@@ -1,8 +1,9 @@
 /**
  * Documentation packs + page index.
  *
- * Pack metadata (including which **pipeline** renders `content/<id>/`) lives in
- * `content/manifest.json`. Pipelines are implemented under `src/lib/pipelines/`.
+ * Pack metadata and **pipeline** are defined only in `workspaced.cue` (`#docs`).
+ * `content/manifest.json` is generated (`npm run gen:manifest` / prebuild).
+ * Pipelines live under `src/lib/pipelines/`.
  */
 import manifestJson from '../../content/manifest.json';
 import { getPipeline } from './pipelines/registry';
@@ -43,7 +44,6 @@ function buildPages(): DocPage[] {
     pages.push(...pipeline.collect({ pack }));
   }
 
-  // Prefer astro-md over marked if the same slug ever appears twice (misconfig).
   const byKey = new Map<string, DocPage>();
   for (const page of pages) {
     const key = `${page.tech}\0${page.slugPath}`;
@@ -91,5 +91,4 @@ export function getTechNav(tech: string) {
   }));
 }
 
-// re-export for layout imports that used humanizeSegment from docs
 void humanizeSegment;

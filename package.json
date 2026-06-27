@@ -11,7 +11,10 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "gen:manifest": "node scripts/gen-manifest.mjs",
+    "prebuild": "npm run gen:manifest",
+    "predev": "npm run gen:manifest"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.0",
