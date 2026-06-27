@@ -27,6 +27,8 @@ export type DocPage = {
   order: number;
   Content: unknown | null;
   html: string | null;
+  /** Markdown/MDX source for Orama (not HTML). */
+  searchText: string | null;
   headings: { depth: number; slug: string; text: string }[];
   filePath: string;
   pipeline: PipelineId;
