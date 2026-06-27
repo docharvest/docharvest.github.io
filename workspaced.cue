@@ -53,7 +53,7 @@ package workspaced
 siteManifest: {
 	packs: [
 		for name, d in #docs {
-			let id = [
+			let packId = [
 				if d.destination != "" {d.destination},
 				name,
 			][0]
@@ -66,10 +66,10 @@ siteManifest: {
 				d.from,
 			][0]
 			{
-				id:          id
+				id:          packId
 				title:       [
 					if d.title != "" {d.title},
-					id,
+					packId,
 				][0]
 				description: d.description
 				pipeline:    d.pipeline
