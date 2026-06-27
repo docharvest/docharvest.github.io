@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 /**
- * Generate content/manifest.json from workspaced.cue (#docs).
- * Prefer `cue export` when available; otherwise parse the #docs block we author here.
+ * Generate content/manifest.json from workspaced.cue `#docs` (single source of truth).
+ * Parses the #docs entries we author (double-quoted string fields).
  */
-import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -11,19 +10,6 @@ import { fileURLToPath } from 'node:url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const cuePath = join(root, 'workspaced.cue');
 const outPath = join(root, 'content', 'manifest.json');
-
-function tryCueExport() {
-  try {
-    const json = execFileSync(
-      'cue',
-      ['export', '.', '-e', 'siteManifest', '--out', 'json'],
-      { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] },
-    );
-    return JSON.parse(json);
-  } catch {
-    return null;
-  }
-}
 
 /** Minimal parser for our #docs: { name: { key: "value" } } entries (double-quoted strings only). */
 function parseDocsFromCue(src) {
