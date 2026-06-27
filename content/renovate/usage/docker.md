@@ -406,10 +406,19 @@ If you have dependencies on Google Container Registry (and Artifact Registry) yo
 1. Open the file and prefix the content with `_json_key:`. The file should look like this:
 
    ```
-   _json_key:{ ... downloaded service account JSON ... }
+   _json_key:{
+     "type": "service_account",
+     "project_id": "sample-project",
+     "private_key_id": "5786ff7e615522b932a2a37b4a6f9645c4316dbd",
+     "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDaOkxZut9uDUHV\n...\n/PWs0Wa2z5+IawMD7nO63+b6\n-----END PRIVATE KEY-----\n",
+     "client_email": "renovate-lookup@sample-project.iam.gserviceaccount.com",
+     "client_id": "115429165445403928973",
+     "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+     "token_uri": "https://oauth2.googleapis.com/token",
+     "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+     "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/renovate-lookup%40sample-project.iam.gserviceaccount.com"
+   }
    ```
-   (Example credentials omitted for secret-scanning.)
-   (Example credentials omitted here so CI secret-scanning does not flag sample docs.)
 
 1. Base64 encode the prefixed service account credentials by running `cat prefixed-service-account.json | base64`
 1. Add the prefixed and encoded service account to your configuration file
