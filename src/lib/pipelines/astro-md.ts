@@ -4,11 +4,10 @@
  * Vite/Astro processes `.md` / `.mdx` into components (syntax highlighting, assets).
  * Use for packs that are ordinary Markdown/MDX without Astro-hostile paths.
  *
- * **Vite limitation:** `import.meta.glob` patterns must be static string literals.
- * When you add a pack with `"pipeline": "astro-md"` in manifest.json, also add a
- * `import.meta.glob('../../../content/<id>/**/*.{md,mdx}', { eager: true })` entry
- * to `moduleSources` below (spread into `modules`). Otherwise Astro never sees the files,
- * and if you used a catch-all glob, hostile trees (e.g. OpenCV) would break the build.
+ * Vite limitation: import.meta.glob patterns must be static string literals.
+ * When you add a pack with pipeline "astro-md" in manifest.json, also add a
+ * matching import.meta.glob for content/PACK_ID (md and mdx) into `modules` below.
+ * A catch-all under content/ would also load hostile trees (e.g. OpenCV) and break the build.
  */
 import type { DocPage, DocPipeline, PipelineContext } from './types';
 import { pageOrder, parseContentPath, titleFromSlug } from './path';
