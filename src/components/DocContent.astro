@@ -1,0 +1,17 @@
+---
+interface Props {
+  Content?: unknown | null;
+  html?: string | null;
+}
+
+const { Content = null, html = null } = Astro.props;
+---
+
+{
+  Content ? (
+    // @ts-expect-error Astro MD/MDX component
+    <Content />
+  ) : html ? (
+    <Fragment set:html={html} />
+  ) : null
+}

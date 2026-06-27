@@ -1,4 +1,5 @@
 ---
+import DocContent from '../../../components/DocContent.astro';
 import TechDocsLayout from '../../../layouts/TechDocsLayout.astro';
 import { getAllPages, getPack, getPacks, getPage, getPagesForTech } from '../../../lib/docs';
 
@@ -14,7 +15,7 @@ if (!tech) throw new Error('missing tech');
 const pack = getPack(tech);
 const indexPage = getPage(tech, '');
 const pages = getPagesForTech(tech);
-const Content = indexPage?.Content;
+const hasBody = Boolean(indexPage?.Content || indexPage?.html);
 const title = indexPage?.title ?? pack?.title ?? tech;
 const description = indexPage?.description || pack?.description || '';
 const base = import.meta.env.BASE_URL;
@@ -22,9 +23,8 @@ const base = import.meta.env.BASE_URL;
 
 <TechDocsLayout tech={tech} title={title} description={description} slugPath="">
   {
-    Content ? (
-      // @ts-expect-error MD/MDX component
-      <Content />
+    hasBody ? (
+      <DocContent Content={indexPage?.Content} html={indexPage?.html} />
     ) : (
       <div class="not-prose">
         {pack?.description && <p class="text-base-content/80 text-pretty">{pack.description}</p>}

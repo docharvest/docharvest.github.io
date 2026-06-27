@@ -16,6 +16,15 @@
     },
     {
       "kind": "source",
+      "ref": "github:opencv/opencv",
+      "depName": "opencv/opencv",
+      "packageName": "https://github.com/opencv/opencv",
+      "currentValue": "5.x",
+      "currentDigest": "8b06f28e1b7807d533a74e1f584021fbc389888a",
+      "datasource": "git-refs"
+    },
+    {
+      "kind": "source",
       "ref": "github:renovatebot/renovate",
       "depName": "renovatebot/renovate",
       "packageName": "https://github.com/renovatebot/renovate",
