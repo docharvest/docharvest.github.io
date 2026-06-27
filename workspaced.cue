@@ -65,6 +65,16 @@ package workspaced
 		description: "Nixpkgs documentation from NixOS/nixpkgs on master (doc/)."
 		pipeline:    "marked"
 	}
+	nixos: {
+		from:        "github:NixOS/nixpkgs"
+		github:      "NixOS/nixpkgs"
+		version:     "master"
+		origin:      "nixos/doc/manual"
+		destination: "nixos"
+		title:       "NixOS"
+		description: "NixOS manual from NixOS/nixpkgs on master (nixos/doc/manual)."
+		pipeline:    "marked"
+	}
 }
 
 #docs: [string]: {
