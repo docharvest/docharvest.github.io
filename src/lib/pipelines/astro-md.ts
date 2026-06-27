@@ -24,7 +24,6 @@ type MdModule = {
 /** One glob per astro-md pack (keep in sync with #docs pipeline: "astro-md"). */
 const modules = {
   ...import.meta.glob('../../../content/renovate/**/*.{md,mdx}', { eager: true }),
-  ...import.meta.glob('../../../content/svelte/**/*.{md,mdx}', { eager: true }),
 } as Record<string, MdModule>;
 
 export const astroMdPipeline: DocPipeline = {

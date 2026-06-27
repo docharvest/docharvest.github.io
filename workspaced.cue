@@ -42,7 +42,8 @@ package workspaced
 		destination: "svelte"
 		title:       "Svelte"
 		description: "Svelte documentation (runes, template syntax, runtime) from sveltejs/svelte documentation/docs."
-		pipeline:    "astro-md"
+		// marked: Astro MD chokes on some Svelte frontmatter (e.g. tags); fences still get Shiki via finalizeDocHtml
+		pipeline:    "marked"
 	}
 }
 
