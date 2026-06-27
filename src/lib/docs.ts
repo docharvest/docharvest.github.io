@@ -1,12 +1,12 @@
 /**
  * Documentation packs + page index.
  *
- * Pack metadata and pipeline are defined in `workspaced.cue` (`#docs`), exposed on
- * each `docs_*` module as `config.pack`. `content/manifest.json` is rendered by
- * `.workspaced/config/content/manifest.json.tmpl` on `workspaced codebase apply`.
- * Inspect evaluated config: `workspaced codebase config dump`.
+ * Pack metadata and pipeline are defined in `workspaced.cue` (`#docs`).
+ * HTML backends emit body HTML; `finalizeDocHtml` applies shared Shiki highlighting
+ * so every pipeline (marked / future) gets the same code treatment as astro-md.
  */
 import manifestJson from '../../content/manifest.json';
+import { finalizeDocHtml, warmHighlighter } from './pipelines/highlight';
 import { getPipeline } from './pipelines/registry';
 import { humanizeSegment } from './pipelines/path';
 import type { DocPack, DocPage, PipelineId } from './pipelines/types';
@@ -38,6 +38,8 @@ export function getPack(tech: string): DocPack | undefined {
 }
 
 async function buildPagesAsync(): Promise<DocPage[]> {
+  await warmHighlighter();
+
   const pages: DocPage[] = [];
 
   for (const pack of getPacks()) {
@@ -48,6 +50,14 @@ async function buildPagesAsync(): Promise<DocPage[]> {
       pages.push(...pipeline.collect({ pack }));
     } else {
       throw new Error(`Pipeline ${pipeline.id} has neither collect nor collectAsync`);
+    }
+  }
+
+  // Universal pass: any page with HTML body gets shared Shiki on <pre><code>
+  for (let i = 0; i < pages.length; i++) {
+    const page = pages[i]!;
+    if (page.html) {
+      pages[i] = { ...page, html: await finalizeDocHtml(page.html) };
     }
   }
 
@@ -68,14 +78,12 @@ async function buildPagesAsync(): Promise<DocPage[]> {
   );
 }
 
-// Eager async init at module load (Astro build / Vite SSR supports top-level await).
 const pagesPromise = buildPagesAsync();
 
 export async function getAllPagesAsync(): Promise<DocPage[]> {
   return pagesPromise;
 }
 
-/** Sync accessor — only valid after pagesPromise settled; prefer getAllPagesAsync in async contexts. */
 let _pagesSync: DocPage[] | null = null;
 pagesPromise.then((p) => {
   _pagesSync = p;
@@ -84,7 +92,7 @@ pagesPromise.then((p) => {
 export function getAllPages(): DocPage[] {
   if (!_pagesSync) {
     throw new Error(
-      'Doc pages not ready yet (Shiki warm-up). Use getAllPagesAsync() in getStaticPaths / async frontmatter.',
+      'Doc pages not ready yet. Use getAllPagesAsync() in getStaticPaths / async frontmatter.',
     );
   }
   return _pagesSync;

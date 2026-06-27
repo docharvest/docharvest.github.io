@@ -1,13 +1,11 @@
 /**
- * Pipeline: marked + Shiki
+ * Pipeline: marked
  *
- * Load source as plain text, parse with `marked`, highlight fences with Shiki
- * (github-light / github-dark, defaultColor: false — matches astro.config).
- * No dialect transforms.
+ * Plain text → marked → HTML. Syntax highlighting is applied later for all
+ * HTML backends via `finalizeDocHtml` in docs.ts (not dialect-specific).
  */
-import { Marked } from 'marked';
+import { marked } from 'marked';
 import type { DocPage, DocPipeline, PipelineContext } from './types';
-import { highlightCode, warmHighlighter } from './highlight';
 import {
   pageOrder,
   parseContentPath,
@@ -22,27 +20,13 @@ const sources = import.meta.glob('../../../content/**/*.{md,markdown}', {
   import: 'default',
 }) as Record<string, string>;
 
-const marked = new Marked();
-
-// Extend defaults — do not pass a partial renderer into parse() (wipes built-ins).
-marked.use({
-  async: true,
-  renderer: {
-    code({ text, lang }) {
-      return highlightCode(text, lang);
-    },
-  },
-});
-
-async function renderMarkdown(raw: string): Promise<string> {
-  const body = stripYamlFrontmatter(raw);
-  return (await marked.parse(body)) as string;
+function renderMarkdown(raw: string): string {
+  return marked.parse(stripYamlFrontmatter(raw), { async: false }) as string;
 }
 
 export const markedPipeline: DocPipeline = {
   id: 'marked',
-  async collectAsync({ pack }: PipelineContext): Promise<DocPage[]> {
-    await warmHighlighter();
+  collect({ pack }: PipelineContext): DocPage[] {
     const pages: DocPage[] = [];
 
     for (const [path, raw] of Object.entries(sources)) {
@@ -51,7 +35,7 @@ export const markedPipeline: DocPipeline = {
       const { tech, segments } = parsed;
       const slugPath = segments.join('/');
       const title = titleFromFrontmatterOrH1(raw) ?? titleFromSlug(slugPath, segments);
-      const html = await renderMarkdown(raw);
+      const html = renderMarkdown(raw);
 
       pages.push({
         tech,
