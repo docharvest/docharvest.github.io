@@ -32,11 +32,17 @@ type MdModule = {
   getHeadings?: () => { depth: number; slug: string; text: string }[];
 };
 
+/** Astro markdown pipeline (standard MD/MDX). */
 const modules = import.meta.glob('../../content/renovate/**/*.{md,mdx}', { eager: true }) as Record<
   string,
   MdModule
 >;
 
+/**
+ * Raw text + marked only — no dialect transforms.
+ * OpenCV uses .markdown and relative image paths that break Astro's MD asset graph,
+ * so we render with the standard marked parser and leave non-Markdown syntax as-is.
+ */
 const markdownRaw = import.meta.glob(
   [
     '../../content/opencv4/**/*.{md,markdown}',
@@ -48,33 +54,6 @@ const markdownRaw = import.meta.glob(
     import: 'default',
   },
 ) as Record<string, string>;
-
-/** Paths / basenames we never expose as pages */
-const SKIP_BASENAMES = new Set([
-  'readme',
-  'index',
-  'summary',
-  'root',
-  'faq',
-  'opencv-logo',
-  'tutorials', // top-level TOC noise; real tutorials live under tutorials/
-]);
-
-const SKIP_SEGMENT = new Set([
-  'images',
-  'assets',
-  'tools',
-  'js',
-  'css',
-]);
-
-const NOISE_GROUPS = new Set([
-  'opencv-logo',
-  'images',
-  'assets',
-  'tools',
-  'js',
-]);
 
 const DOC_EXT = /\.(md|mdx|markdown)$/i;
 
@@ -104,79 +83,27 @@ function parseContentPath(path: string): { tech: string; segments: string[]; bas
   const file = parts[parts.length - 1] ?? '';
   if (!DOC_EXT.test(file)) return null;
   const dirParts = parts.slice(1, -1);
-  if (dirParts.some((s) => SKIP_SEGMENT.has(s.toLowerCase()))) return null;
   const base = file.replace(DOC_EXT, '');
-  if (dirParts.length === 0 && /^(CMakeLists|Doxyfile|LICENSE|opencv-logo)/i.test(base)) return null;
-  // skip table-of-contents index pages that are mostly links
-  if (/^table_of_content/i.test(base) || /^js_table_of_contents/i.test(base)) return null;
-
-  const segments =
-    SKIP_BASENAMES.has(base.toLowerCase()) && dirParts.length === 0
-      ? []
-      : SKIP_BASENAMES.has(base.toLowerCase()) && dirParts.length > 0 && base.toLowerCase() === 'tutorials'
-        ? [...dirParts] // unlikely
-        : SKIP_BASENAMES.has(base.toLowerCase())
-          ? [...dirParts]
-          : [...dirParts, base];
-
-  // drop pure logo / root junk groups
-  if (segments[0] && NOISE_GROUPS.has(segments[0].toLowerCase())) return null;
-
+  // Common index filenames map to the pack/section root URL
+  const isIndexName = /^(readme|index|summary)$/i.test(base);
+  const segments = isIndexName ? [...dirParts] : [...dirParts, base];
   return { tech, segments, base };
 }
 
-/** Strip Doxygen / OpenCV authoring directives so pages are readable as HTML */
-export function cleanUpstreamMarkdown(raw: string): { title?: string; body: string } {
-  let body = raw.replace(/^\uFEFF/, '');
-  let title: string | undefined;
-
-  const yaml = body.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
+function titleFromMarkdown(raw: string): string | undefined {
+  const yaml = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
   if (yaml) {
     const t = yaml[1].match(/^title:\s*["']?(.+?)["']?\s*$/m);
-    if (t) title = t[1];
-    body = body.slice(yaml[0].length);
+    if (t) return t[1].trim();
   }
+  const h1 = raw.match(/^#\s+(.+)\s*$/m);
+  if (h1) return h1[1].trim();
+  return undefined;
+}
 
-  // First heading or @title
-  const atTitle = body.match(/^@title\s+(.+)\s*$/m);
-  if (atTitle && !title) title = atTitle[1].trim();
-
-  const h1 = body.match(/^#\s+(.+?)(?:\s*\{#.*?\})?\s*$/m);
-  if (h1 && !title) title = h1[1].replace(/\{#.*?\}/g, '').trim();
-
-  // Remove Doxygen-style lines and inline refs noise
-  body = body
-    // heading anchors {#id}
-    .replace(/\s*\{#[\w.:-]+\}/g, '')
-    // @prev_tutorial{...} @next_tutorial{...} on their own or inline
-    .replace(/@prev_tutorial\{[^}]*\}/g, '')
-    .replace(/@next_tutorial\{[^}]*\}/g, '')
-    .replace(/@tableofcontents\b/g, '')
-    .replace(/@tablecontents\b/g, '')
-    // code-toggle scaffolding (OpenCV tutorials; often indented)
-    .replace(/^[ \t]*@add_toggle\w*[ \t]*$/gm, '')
-    .replace(/^[ \t]*@end_toggle[ \t]*$/gm, '')
-    .replace(/^[ \t]*@include[ \t]+(\S+)[ \t]*$/gm, '\n```\n// $1\n```\n')
-    // @warning / @note / @sa blocks — keep the text, drop tag
-    .replace(/^[ \t]*@warning\s+/gm, '> **Warning:** ')
-    .replace(/^[ \t]*@note\s+/gm, '> **Note:** ')
-    .replace(/^[ \t]*@sa\s+/gm, 'See also: ')
-    .replace(/^[ \t]*@brief\s+/gm, '')
-    .replace(/^[ \t]*@title\s+.+$/gm, '')
-    .replace(/^[ \t]*@prev_tutorial.+$/gm, '')
-    .replace(/^[ \t]*@next_tutorial.+$/gm, '')
-    // @ref name -> `name` (readable)
-    .replace(/@ref\s+([\w:.]+)/g, '`$1`')
-    // MkDocs / Renovate admonitions (may be indented)
-    .replace(/^[ \t]*!!!\s+tip\s+/gim, '> **Tip:** ')
-    .replace(/^[ \t]*!!!\s+note\s+/gim, '> **Note:** ')
-    .replace(/^[ \t]*!!!\s+warning\s+/gim, '> **Warning:** ')
-    .replace(/^[ \t]*!!!\s+info\s+/gim, '> **Info:** ')
-    // collapse excess blank lines
-    .replace(/\n{3,}/g, '\n\n')
-    .trim();
-
-  return { title, body };
+function bodyFromMarkdown(raw: string): string {
+  const yaml = raw.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n/);
+  return yaml ? raw.slice(yaml[0].length) : raw;
 }
 
 function buildPages(): DocPage[] {
@@ -213,12 +140,11 @@ function buildPages(): DocPage[] {
     if (!parsed) continue;
     const { tech, segments } = parsed;
     const slugPath = segments.join('/');
-    const { title: extractedTitle, body } = cleanUpstreamMarkdown(raw);
-    const title = extractedTitle ?? titleFromSlug(slugPath, segments);
+    const title = titleFromMarkdown(raw) ?? titleFromSlug(slugPath, segments);
     const depth = segments.length;
     const isIndex = segments.length === 0;
     const order = isIndex ? 0 : 10 + depth * 10;
-    const html = marked.parse(body, { async: false }) as string;
+    const html = marked.parse(bodyFromMarkdown(raw), { async: false }) as string;
 
     pages.push({
       tech,
@@ -289,7 +215,6 @@ export function getTechNav(tech: string) {
   }));
 }
 
-/** Human label for nav groups */
 export function humanizeSegment(seg: string): string {
   return humanize(seg);
 }
