@@ -1,11 +1,10 @@
 {
   "packs": [
-{{- $i := 0 }}
+{{- $sep := "" }}
 {{- range $name, $mod := .root.modules }}
 {{- with $mod.config }}
 {{- with .pack }}
-{{- if $i }},{{ end }}
-    {
+{{ $sep }}    {
       "id": {{ printf "%q" .id }},
       "title": {{ printf "%q" .title }},
       "description": {{ printf "%q" .description }},
@@ -13,7 +12,7 @@
       "repo": {{ printf "%q" (printf "https://github.com/%s" .github) }},
       "source": {{ printf "%q" (printf "https://github.com/%s/tree/%s/%s" .github .treeRef .origin) }}
     }
-{{- $i = add1 $i }}
+{{- $sep = "," }}
 {{- end }}
 {{- end }}
 {{- end }}

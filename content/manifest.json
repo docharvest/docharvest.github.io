@@ -1,0 +1,28 @@
+{
+  "packs": [
+    {
+      "id": "opencv4",
+      "title": "OpenCV 4",
+      "description": "OpenCV 4.x documentation and tutorials from the opencv/opencv 4.x branch (doc/).",
+      "pipeline": "marked",
+      "repo": "https://github.com/opencv/opencv",
+      "source": "https://github.com/opencv/opencv/tree/4.x/doc"
+    }
+,    {
+      "id": "opencv5",
+      "title": "OpenCV 5",
+      "description": "OpenCV 5.x documentation and tutorials from the opencv/opencv 5.x branch (doc/).",
+      "pipeline": "marked",
+      "repo": "https://github.com/opencv/opencv",
+      "source": "https://github.com/opencv/opencv/tree/5.x/doc"
+    }
+,    {
+      "id": "renovate",
+      "title": "Renovate",
+      "description": "Automated dependency updates. Configuration, usage, and development docs from the Renovate project.",
+      "pipeline": "astro-md",
+      "repo": "https://github.com/renovatebot/renovate",
+      "source": "https://github.com/renovatebot/renovate/tree/main/docs"
+    }
+  ]
+}
