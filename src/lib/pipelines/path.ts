@@ -66,7 +66,9 @@ function titleFromYamlFrontmatter(raw: string): string | undefined {
 /**
  * Page title for a doc source file:
  * 1. YAML frontmatter `title:` if set
- * 2. Else if the first non-empty line (after frontmatter) is an ATX H1 (`# …`), use that text
+ * 2. Else if the first non-empty line (after frontmatter) is an ATX H1 (`# …`),
+ *    use that text — unless the unslugified file name is longer (e.g. man pages
+ *    with `# Name` vs `nix-env` → prefer "Nix Env")
  * 3. Else unslugify the file name (last path segment)
  *
  * Does not scan later headings — avoids picking a random `#` in the body.
@@ -75,30 +77,21 @@ export function titleFromDocSource(raw: string, segments: string[], slugPath = '
   const fromFm = titleFromYamlFrontmatter(raw);
   if (fromFm) return fromFm;
 
+  const fromSlug = titleFromSlug(slugPath, segments);
+
   const body = stripYamlFrontmatter(raw);
   for (const line of body.split(/\r?\n/)) {
     const trimmed = line.trim();
     if (!trimmed) continue;
     // Only a single-# ATX heading on that line (not ##)
     const h1 = trimmed.match(/^#\s+(.+?)\s*$/);
-    if (h1) return h1[1].trim();
+    if (h1) {
+      const fromH1 = h1[1].trim();
+      // Prefer the longer label (unslugified filename wins over terse man "Name")
+      return fromSlug.length > fromH1.length ? fromSlug : fromH1;
+    }
     break;
   }
 
-  return titleFromSlug(slugPath, segments);
-}
-
-/** @deprecated use titleFromDocSource */
-export function titleFromFrontmatterOrH1(raw: string): string | undefined {
-  const fromFm = titleFromYamlFrontmatter(raw);
-  if (fromFm) return fromFm;
-  const body = stripYamlFrontmatter(raw);
-  for (const line of body.split(/\r?\n/)) {
-    const trimmed = line.trim();
-    if (!trimmed) continue;
-    const h1 = trimmed.match(/^#\s+(.+?)\s*$/);
-    if (h1) return h1[1].trim();
-    break;
-  }
-  return undefined;
+  return fromSlug;
 }
