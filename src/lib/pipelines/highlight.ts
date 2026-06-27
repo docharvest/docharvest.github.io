@@ -46,6 +46,7 @@ const LANGS = [
   'ini',
   'docker',
   'graphql',
+  'svelte',
 ] as const;
 
 let highlighterPromise: Promise<Highlighter> | null = null;

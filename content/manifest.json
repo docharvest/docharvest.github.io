@@ -24,5 +24,13 @@
       "repo": "https://github.com/renovatebot/renovate",
       "source": "https://github.com/renovatebot/renovate/tree/main/docs"
     }
+,    {
+      "id": "svelte",
+      "title": "Svelte",
+      "description": "Svelte documentation (runes, template syntax, runtime) from sveltejs/svelte documentation/docs.",
+      "pipeline": "astro-md",
+      "repo": "https://github.com/sveltejs/svelte",
+      "source": "https://github.com/sveltejs/svelte/tree/main/documentation/docs"
+    }
   ]
 }

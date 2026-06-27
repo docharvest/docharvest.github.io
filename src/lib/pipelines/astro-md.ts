@@ -5,9 +5,8 @@
  * Use for packs that are ordinary Markdown/MDX without Astro-hostile paths.
  *
  * Vite limitation: import.meta.glob patterns must be static string literals.
- * When you add a pack with pipeline "astro-md" in manifest.json, also add a
+ * When you add a pack with pipeline "astro-md" in workspaced.cue #docs, also add a
  * matching import.meta.glob for content/PACK_ID (md and mdx) into `modules` below.
- * A catch-all under content/ would also load hostile trees (e.g. OpenCV) and break the build.
  */
 import type { DocPage, DocPipeline, PipelineContext } from './types';
 import { pageOrder, parseContentPath, titleFromSlug } from './path';
@@ -22,9 +21,10 @@ type MdModule = {
   getHeadings?: () => { depth: number; slug: string; text: string }[];
 };
 
-/** One glob per astro-md pack (keep in sync with manifest `pipeline: "astro-md"`). */
+/** One glob per astro-md pack (keep in sync with #docs pipeline: "astro-md"). */
 const modules = {
   ...import.meta.glob('../../../content/renovate/**/*.{md,mdx}', { eager: true }),
+  ...import.meta.glob('../../../content/svelte/**/*.{md,mdx}', { eager: true }),
 } as Record<string, MdModule>;
 
 export const astroMdPipeline: DocPipeline = {

@@ -35,6 +35,15 @@ package workspaced
 		description: "OpenCV 5.x documentation and tutorials from the opencv/opencv 5.x branch (doc/)."
 		pipeline:    "marked"
 	}
+	svelte: {
+		from:        "github:sveltejs/svelte"
+		github:      "sveltejs/svelte"
+		origin:      "documentation/docs"
+		destination: "svelte"
+		title:       "Svelte"
+		description: "Svelte documentation (runes, template syntax, runtime) from sveltejs/svelte documentation/docs."
+		pipeline:    "astro-md"
+	}
 }
 
 #docs: [string]: {
