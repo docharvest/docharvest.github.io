@@ -64,7 +64,7 @@ workspaced: {
 				if value.destination != "" {value.destination},
 				name,
 			][0]
-			let treeRef = [
+			let refForTree = [
 				if value.version == "HEAD" {"main"},
 				value.version,
 			][0]
@@ -86,7 +86,7 @@ workspaced: {
 						github:      value.github
 						origin:      value.origin
 						version:     value.version
-						treeRef:     treeRef
+						treeRef:     refForTree
 					}
 				}
 			}
