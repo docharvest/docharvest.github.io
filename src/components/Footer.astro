@@ -1,0 +1,33 @@
+---
+const base = import.meta.env.BASE_URL;
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-auto border-t border-base-300 bg-base-200">
+  <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 text-sm text-base-content/80 sm:flex-row sm:items-center sm:justify-between">
+    <p>
+      <span class="font-medium text-base-content">docharvest</span>
+      — harvested documentation packs for humans and agents.
+    </p>
+    <nav class="flex flex-wrap gap-4" aria-label="Footer">
+      <a class="link link-hover" href={`${base}docs/`}>Docs</a>
+      <a class="link link-hover" href="https://github.com/docharvest" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a
+        class="link link-hover"
+        href="https://github.com/docharvest/docharvest.github.io"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Site source
+      </a>
+    </nav>
+  </div>
+  <div class="border-t border-base-300">
+    <p class="mx-auto max-w-6xl px-4 py-3 text-xs text-base-content/60">
+      © {year} docharvest · Packs are vendored upstream via
+      <a class="link link-hover" href="https://github.com/lucasew/workspaced" target="_blank" rel="noopener noreferrer">workspaced</a>.
+      Per-tech <code class="text-[0.7rem]">llms.txt</code> lives under each
+      <code class="text-[0.7rem]">/docs/:tech/</code> route (no site-wide file).
+    </p>
+  </div>
+</footer>

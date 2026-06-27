@@ -1,0 +1,39 @@
+name: Workspaced apply
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+
+      - name: Install workspaced
+        run: |
+          export DOWNLOAD_DIR="${RUNNER_TEMP}/workspaced"
+          curl -sL https://raw.githubusercontent.com/lucasew/workspaced/refs/heads/master/setup | bash
+          echo "$DOWNLOAD_DIR" >> "$GITHUB_PATH"
+
+      - name: Apply workspaced codebase
+        run: workspaced codebase apply
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8
+        with:
+          commit-message: "chore: apply workspaced codebase"
+          title: "chore: apply workspaced codebase"
+          body: |
+            Automated PR created by the Workspaced apply workflow.
+
+            Ran `workspaced codebase apply` and opened this PR with the resulting diff.
+          branch: workspaced/apply
+          delete-branch: true

@@ -1,0 +1,26 @@
+---
+import TechDocsLayout from '../../../layouts/TechDocsLayout.astro';
+import { getAllPages } from '../../../lib/docs';
+
+export function getStaticPaths() {
+  return getAllPages()
+    .filter((p) => p.slugPath)
+    .map((page) => ({
+      params: { tech: page.tech, slug: page.slugPath },
+      props: { page },
+    }));
+}
+
+const { page } = Astro.props;
+const Content = page.Content;
+---
+
+<TechDocsLayout
+  tech={page.tech}
+  title={page.title}
+  description={page.description}
+  slugPath={page.slugPath}
+>
+  {/* @ts-expect-error MD/MDX component */}
+  <Content />
+</TechDocsLayout>

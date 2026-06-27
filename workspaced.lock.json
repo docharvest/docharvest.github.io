@@ -1,0 +1,56 @@
+{
+  "dependencies": [
+    {
+      "kind": "tool",
+      "ref": "github:astral-sh/ruff",
+      "depName": "astral-sh/ruff",
+      "currentValue": "0.15.20",
+      "datasource": "github-releases"
+    },
+    {
+      "kind": "tool",
+      "ref": "github:golangci/golangci-lint",
+      "depName": "golangci/golangci-lint",
+      "currentValue": "v2.12.2",
+      "datasource": "github-releases"
+    },
+    {
+      "kind": "source",
+      "ref": "github:renovatebot/renovate",
+      "depName": "renovatebot/renovate",
+      "packageName": "https://github.com/renovatebot/renovate",
+      "currentValue": "main",
+      "currentDigest": "bcd44b991fe6c2de266c87c9a84c4e75520543ed",
+      "datasource": "git-refs"
+    },
+    {
+      "kind": "tool",
+      "ref": "github:rhysd/actionlint",
+      "depName": "rhysd/actionlint",
+      "currentValue": "v1.7.12",
+      "datasource": "github-releases"
+    },
+    {
+      "kind": "tool",
+      "ref": "registry:biome",
+      "depName": "biomejs/biome",
+      "currentValue": "2.5.1",
+      "datasource": "github-releases",
+      "versioning": "semver"
+    },
+    {
+      "kind": "tool",
+      "ref": "registry:nodejs",
+      "depName": "",
+      "currentValue": "v26.4.0",
+      "datasource": ""
+    },
+    {
+      "kind": "tool",
+      "ref": "registry:shellcheck",
+      "depName": "koalaman/shellcheck",
+      "currentValue": "0.11.0",
+      "datasource": "github-releases"
+    }
+  ]
+}
