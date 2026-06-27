@@ -49,36 +49,8 @@ package workspaced
 	pipeline:    "astro-md" | "marked" | *"astro-md"
 }
 
-// Derived site manifest — cue export . -e siteManifest --out json -o content/manifest.json
-siteManifest: {
-	packs: [
-		for name, d in #docs {
-			let packId = [
-				if d.destination != "" {d.destination},
-				name,
-			][0]
-			let treeRef = [
-				if d.version == "HEAD" {"main"},
-				d.version,
-			][0]
-			let gh = [
-				if len(d.from) > 7 && d.from[0:7] == "github:" {d.from[7:]},
-				d.from,
-			][0]
-			{
-				id:          packId
-				title:       [
-					if d.title != "" {d.title},
-					packId,
-				][0]
-				description: d.description
-				pipeline:    d.pipeline
-				repo:        "https://github.com/\(gh)"
-				source:      "https://github.com/\(gh)/tree/\(treeRef)/\(d.origin)"
-			}
-		},
-	]
-}
+// Site manifest JSON is generated from #docs by scripts/gen-manifest.mjs
+// (npm run gen:manifest / prebuild). Keep all pack metadata and pipeline here only.
 
 workspaced: {
 	inputs: {
