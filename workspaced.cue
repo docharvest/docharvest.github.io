@@ -45,6 +45,16 @@ package workspaced
 		// marked: Astro MD chokes on some Svelte frontmatter (e.g. tags); fences still get Shiki via finalizeDocHtml
 		pipeline:    "marked"
 	}
+	nix: {
+		from:        "github:NixOS/nix"
+		github:      "NixOS/nix"
+		version:     "master"
+		origin:      "doc/manual/source"
+		destination: "nix"
+		title:       "Nix"
+		description: "Nix package manager manual (source) from NixOS/nix on master."
+		pipeline:    "marked"
+	}
 }
 
 #docs: [string]: {
