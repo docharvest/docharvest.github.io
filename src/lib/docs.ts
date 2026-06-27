@@ -32,16 +32,11 @@ type MdModule = {
   getHeadings?: () => { depth: number; slug: string; text: string }[];
 };
 
-/** Astro-processed MD only for packs that use normal markdown (e.g. renovate). */
 const modules = import.meta.glob('../../content/renovate/**/*.{md,mdx}', { eager: true }) as Record<
   string,
   MdModule
 >;
 
-/**
- * OpenCV (and similar) use Doxygen `.markdown` / relative image paths that break
- * Astro's asset pipeline — render as raw text via marked instead.
- */
 const markdownRaw = import.meta.glob(
   [
     '../../content/opencv4/**/*.{md,markdown}',
@@ -54,18 +49,47 @@ const markdownRaw = import.meta.glob(
   },
 ) as Record<string, string>;
 
-const SKIP_BASENAMES = new Set(['readme', 'index', 'summary', 'root', 'faq']);
+/** Paths / basenames we never expose as pages */
+const SKIP_BASENAMES = new Set([
+  'readme',
+  'index',
+  'summary',
+  'root',
+  'faq',
+  'opencv-logo',
+  'tutorials', // top-level TOC noise; real tutorials live under tutorials/
+]);
+
+const SKIP_SEGMENT = new Set([
+  'images',
+  'assets',
+  'tools',
+  'js',
+  'css',
+]);
+
+const NOISE_GROUPS = new Set([
+  'opencv-logo',
+  'images',
+  'assets',
+  'tools',
+  'js',
+]);
 
 const DOC_EXT = /\.(md|mdx|markdown)$/i;
+
+function humanize(slug: string): string {
+  return slug
+    .replace(/\.markdown$/i, '')
+    .replace(/[_-]+/g, ' ')
+    .replace(/\b\w/g, (c) => c.toUpperCase())
+    .trim();
+}
 
 function titleFromSlug(slugPath: string, segments: string[]): string {
   const leaf = segments[segments.length - 1] ?? slugPath;
   if (!leaf) return 'Overview';
-  return leaf
-    .replace(/\.markdown$/i, '')
-    .split(/[-_]/)
-    .map((w) => (w.length ? w[0]!.toUpperCase() + w.slice(1) : w))
-    .join(' ');
+  return humanize(leaf);
 }
 
 function parseContentPath(path: string): { tech: string; segments: string[]; base: string } | null {
@@ -80,28 +104,78 @@ function parseContentPath(path: string): { tech: string; segments: string[]; bas
   const file = parts[parts.length - 1] ?? '';
   if (!DOC_EXT.test(file)) return null;
   const dirParts = parts.slice(1, -1);
+  if (dirParts.some((s) => SKIP_SEGMENT.has(s.toLowerCase()))) return null;
   const base = file.replace(DOC_EXT, '');
-  if (dirParts.length === 0 && /^(CMakeLists|Doxyfile|LICENSE)/i.test(base)) return null;
+  if (dirParts.length === 0 && /^(CMakeLists|Doxyfile|LICENSE|opencv-logo)/i.test(base)) return null;
+  // skip table-of-contents index pages that are mostly links
+  if (/^table_of_content/i.test(base) || /^js_table_of_contents/i.test(base)) return null;
+
   const segments =
     SKIP_BASENAMES.has(base.toLowerCase()) && dirParts.length === 0
       ? []
-      : SKIP_BASENAMES.has(base.toLowerCase())
-        ? [...dirParts]
-        : [...dirParts, base];
+      : SKIP_BASENAMES.has(base.toLowerCase()) && dirParts.length > 0 && base.toLowerCase() === 'tutorials'
+        ? [...dirParts] // unlikely
+        : SKIP_BASENAMES.has(base.toLowerCase())
+          ? [...dirParts]
+          : [...dirParts, base];
+
+  // drop pure logo / root junk groups
+  if (segments[0] && NOISE_GROUPS.has(segments[0].toLowerCase())) return null;
+
   return { tech, segments, base };
 }
 
-function stripOpenCvFrontMatter(raw: string): { title?: string; body: string } {
-  let body = raw;
+/** Strip Doxygen / OpenCV authoring directives so pages are readable as HTML */
+export function cleanUpstreamMarkdown(raw: string): { title?: string; body: string } {
+  let body = raw.replace(/^\uFEFF/, '');
   let title: string | undefined;
+
   const yaml = body.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
   if (yaml) {
     const t = yaml[1].match(/^title:\s*["']?(.+?)["']?\s*$/m);
     if (t) title = t[1];
     body = body.slice(yaml[0].length);
   }
+
+  // First heading or @title
   const atTitle = body.match(/^@title\s+(.+)\s*$/m);
   if (atTitle && !title) title = atTitle[1].trim();
+
+  const h1 = body.match(/^#\s+(.+?)(?:\s*\{#.*?\})?\s*$/m);
+  if (h1 && !title) title = h1[1].replace(/\{#.*?\}/g, '').trim();
+
+  // Remove Doxygen-style lines and inline refs noise
+  body = body
+    // heading anchors {#id}
+    .replace(/\s*\{#[\w.:-]+\}/g, '')
+    // @prev_tutorial{...} @next_tutorial{...} on their own or inline
+    .replace(/@prev_tutorial\{[^}]*\}/g, '')
+    .replace(/@next_tutorial\{[^}]*\}/g, '')
+    .replace(/@tableofcontents\b/g, '')
+    .replace(/@tablecontents\b/g, '')
+    // code-toggle scaffolding (OpenCV tutorials)
+    .replace(/^@add_toggle\w*\s*$/gm, '')
+    .replace(/^@end_toggle\s*$/gm, '')
+    .replace(/^@include\s+(\S+)\s*$/gm, '\n```\n// $1\n```\n')
+    // @warning / @note / @sa blocks — keep the text, drop tag
+    .replace(/^@warning\s+/gm, '> **Warning:** ')
+    .replace(/^@note\s+/gm, '> **Note:** ')
+    .replace(/^@sa\s+/gm, 'See also: ')
+    .replace(/^@brief\s+/gm, '')
+    .replace(/^@title\s+.+$/gm, '')
+    .replace(/^@prev_tutorial.+$/gm, '')
+    .replace(/^@next_tutorial.+$/gm, '')
+    // @ref name -> `name` (readable)
+    .replace(/@ref\s+([\w:.]+)/g, '`$1`')
+    // MkDocs / Renovate admonitions
+    .replace(/^!!!\s+tip\s+/gim, '> **Tip:** ')
+    .replace(/^!!!\s+note\s+/gim, '> **Note:** ')
+    .replace(/^!!!\s+warning\s+/gim, '> **Warning:** ')
+    .replace(/^!!!\s+info\s+/gim, '> **Info:** ')
+    // collapse excess blank lines
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+
   return { title, body };
 }
 
@@ -139,7 +213,7 @@ function buildPages(): DocPage[] {
     if (!parsed) continue;
     const { tech, segments } = parsed;
     const slugPath = segments.join('/');
-    const { title: extractedTitle, body } = stripOpenCvFrontMatter(raw);
+    const { title: extractedTitle, body } = cleanUpstreamMarkdown(raw);
     const title = extractedTitle ?? titleFromSlug(slugPath, segments);
     const depth = segments.length;
     const isIndex = segments.length === 0;
@@ -213,4 +287,9 @@ export function getTechNav(tech: string) {
     order,
     segments,
   }));
+}
+
+/** Human label for nav groups */
+export function humanizeSegment(seg: string): string {
+  return humanize(seg);
 }

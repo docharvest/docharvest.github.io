@@ -13,6 +13,11 @@ export function getStaticPaths() {
 }
 
 const { page } = Astro.props;
+// Astro MD often starts with # Title matching frontmatter; OpenCV html has <h1>
+const hasContentTitle = Boolean(
+  page.html?.includes('<h1') ||
+    (page.headings?.some((h) => h.depth === 1)),
+);
 ---
 
 <TechDocsLayout
@@ -20,6 +25,7 @@ const { page } = Astro.props;
   title={page.title}
   description={page.description}
   slugPath={page.slugPath}
+  hasContentTitle={hasContentTitle}
 >
   <DocContent Content={page.Content} html={page.html} />
 </TechDocsLayout>

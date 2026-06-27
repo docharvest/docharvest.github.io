@@ -19,39 +19,40 @@ const hasBody = Boolean(indexPage?.Content || indexPage?.html);
 const title = indexPage?.title ?? pack?.title ?? tech;
 const description = indexPage?.description || pack?.description || '';
 const base = import.meta.env.BASE_URL;
+const hasContentTitle = Boolean(
+  indexPage?.html?.includes('<h1') ||
+    indexPage?.headings?.some((h) => h.depth === 1),
+);
 ---
 
-<TechDocsLayout tech={tech} title={title} description={description} slugPath="">
+<TechDocsLayout tech={tech} title={title} description={description} slugPath="" hasContentTitle={hasBody && hasContentTitle}>
   {
     hasBody ? (
       <DocContent Content={indexPage?.Content} html={indexPage?.html} />
     ) : (
       <div class="not-prose">
-        {pack?.description && <p class="text-base-content/80 text-pretty">{pack.description}</p>}
-        {pages.length === 0 ? (
-          <p class="mt-4 text-sm text-warning">
-            No content placed yet. Run <code class="rounded bg-base-200 px-1">workspaced codebase apply</code> after declaring the pack in <code class="rounded bg-base-200 px-1">workspaced.cue</code>.
-          </p>
-        ) : (
-          <ul class="mt-6 divide-y divide-base-300 rounded-box border border-base-300">
-            {pages
-              .filter((p) => p.slugPath)
-              .map((p) => (
-                <li>
-                  <a
-                    href={`${base}docs/${tech}/${p.slugPath}/`}
-                    class="flex flex-col gap-0.5 px-4 py-3 hover:bg-base-200/50 sm:flex-row sm:justify-between"
-                  >
-                    <span class="font-medium">{p.title}</span>
-                    <span class="text-sm text-base-content/60">{p.slugPath}</span>
-                  </a>
-                </li>
-              ))}
-          </ul>
+        {pack?.description && <p class="text-base-content/70 leading-relaxed text-pretty">{pack.description}</p>}
+        <ul class="mt-8 divide-y divide-base-300 border-y border-base-300">
+          {pages
+            .filter((p) => p.slugPath)
+            .slice(0, 40)
+            .map((p) => (
+              <li>
+                <a
+                  href={`${base}docs/${tech}/${p.slugPath}/`}
+                  class="flex flex-col gap-0.5 py-3 hover:bg-base-200/40 sm:flex-row sm:justify-between sm:gap-6"
+                >
+                  <span class="font-medium">{p.title}</span>
+                  <span class="font-mono text-xs text-base-content/45">{p.slugPath}</span>
+                </a>
+              </li>
+            ))}
+        </ul>
+        {pages.length > 40 && (
+          <p class="mt-3 text-sm text-base-content/50">…and {pages.length - 40} more in the sidebar.</p>
         )}
-        <p class="mt-6 text-sm">
-          Agent index:{' '}
-          <a class="link link-primary" href={`${base}docs/${tech}/llms.txt`}>llms.txt</a>
+        <p class="mt-6 text-sm text-base-content/60">
+          <a class="link link-primary" href={`${base}docs/${tech}/llms.txt`}>llms.txt</a> for agents
         </p>
       </div>
     )

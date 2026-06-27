@@ -1,16 +1,17 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import { getPack, getTechNav } from '../lib/docs';
+import { getPack, getTechNav, humanizeSegment } from '../lib/docs';
 
 interface Props {
   tech: string;
   title: string;
   description?: string;
-  /** Current page slug under the tech ('' for index) */
   slugPath?: string;
+  /** When true, content already has a top-level title — omit layout H1 to avoid doubles */
+  hasContentTitle?: boolean;
 }
 
-const { tech, title, description = '', slugPath = '' } = Astro.props;
+const { tech, title, description = '', slugPath = '', hasContentTitle = false } = Astro.props;
 const pack = getPack(tech);
 const nav = getTechNav(tech);
 const base = import.meta.env.BASE_URL;
@@ -24,158 +25,183 @@ for (const item of nav) {
   if (!groups.has(group)) groups.set(group, []);
   groups.get(group)!.push(item);
 }
-
-const groupEntries = [...groups.entries()];
+const groupEntries = [...groups.entries()].sort(([a], [b]) => {
+  if (a === '_root') return -1;
+  if (b === '_root') return 1;
+  return a.localeCompare(b);
+});
 
 function hrefFor(itemSlug: string) {
   return itemSlug ? `${base}docs/${tech}/${itemSlug}/` : `${base}docs/${tech}/`;
 }
 
 function labelFor(item: NavItem) {
-  if (item.segments.length <= 1) return item.title;
-  // drop group prefix; keep last 2 segments max for depth
-  const rest = item.segments.slice(1);
-  const shown = rest.length > 2 ? rest.slice(-2) : rest;
-  return shown.join(' / ') || item.title;
+  // Prefer frontmatter / extracted title over path soup
+  if (item.title && !/^[a-z0-9]+(-[a-z0-9]+)+$/i.test(item.title)) return item.title;
+  if (item.segments.length <= 1) return item.title || humanizeSegment(item.slugPath || tech);
+  const leaf = item.segments[item.segments.length - 1] ?? item.title;
+  return humanizeSegment(leaf);
 }
 ---
 
 <BaseLayout title={title} description={description || pack?.description}>
-  <div class="mx-auto max-w-6xl px-4 py-6 sm:py-10">
-    {/* Mobile: open drawer — sidebar is off-canvas until toggled */}
-    <div class="mb-4 flex items-center gap-3 lg:hidden">
-      <label
-        for="docs-sidebar-toggle"
-        class="btn btn-sm btn-outline border-base-300 gap-2 shadow-none"
-      >
+  <div class="docs-shell mx-auto flex w-full max-w-[90rem] flex-col lg:flex-row">
+    {/* Mobile bar */}
+    <div class="sticky top-12 z-30 flex items-center gap-3 border-b border-base-300 bg-base-100/95 px-4 py-2.5 backdrop-blur-md lg:hidden">
+      <label for="docs-sidebar-toggle" class="btn btn-sm btn-outline border-base-300 gap-2 shadow-none">
         <svg xmlns="http://www.w3.org/2000/svg" class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h10" />
         </svg>
-        Pages
+        Contents
       </label>
-      <a href={`${base}docs/${tech}/`} class="min-w-0 truncate font-mono text-xs text-primary">
-        {tech}
-      </a>
+      <div class="min-w-0 flex-1">
+        <p class="truncate font-mono text-[0.65rem] text-base-content/50">{tech}</p>
+        <p class="truncate text-sm font-medium leading-tight">{title}</p>
+      </div>
     </div>
 
-    <div class="grid gap-8 lg:grid-cols-[15rem_minmax(0,1fr)]">
-      {/* Checkbox drives mobile drawer; always “on” for layout on lg via CSS */}
-      <input type="checkbox" id="docs-sidebar-toggle" class="peer/sidebar sr-only" />
+    <input type="checkbox" id="docs-sidebar-toggle" class="peer/sidebar sr-only" />
 
-      {/* Backdrop — only when open on small screens */}
-      <label
-        for="docs-sidebar-toggle"
-        class="fixed inset-0 z-40 bg-neutral/50 opacity-0 pointer-events-none transition-opacity peer-checked/sidebar:pointer-events-auto peer-checked/sidebar:opacity-100 lg:hidden"
-        aria-hidden="true"
-      ></label>
+    <label
+      for="docs-sidebar-toggle"
+      class="fixed inset-0 z-40 bg-neutral/40 opacity-0 pointer-events-none transition-opacity peer-checked/sidebar:pointer-events-auto peer-checked/sidebar:opacity-100 lg:hidden"
+      aria-hidden="true"
+    ></label>
 
-      <aside
-        class="docs-sidebar fixed inset-y-0 left-0 z-50 flex w-[min(18rem,88vw)] -translate-x-full flex-col border-r border-base-300 bg-base-100 transition-transform duration-200 ease-out peer-checked/sidebar:translate-x-0 lg:static lg:z-0 lg:w-auto lg:translate-x-0 lg:border-r-0 lg:bg-transparent"
-        aria-label={`${packTitle} navigation`}
-      >
-        <div class="flex items-center justify-between gap-2 border-b border-base-300 px-3 py-3 lg:hidden">
-          <span class="font-mono text-sm font-medium">{packTitle}</span>
-          <label for="docs-sidebar-toggle" class="btn btn-ghost btn-sm btn-square" aria-label="Close navigation">
-            <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </label>
+    {/* Sidebar column */}
+    <aside
+      class="docs-sidebar fixed inset-y-0 left-0 z-50 flex w-[min(19rem,92vw)] -translate-x-full flex-col border-r border-base-300 bg-base-100 transition-transform duration-200 ease-out peer-checked/sidebar:translate-x-0 lg:sticky lg:top-12 lg:z-0 lg:h-[calc(100dvh-3rem)] lg:w-64 lg:shrink-0 lg:translate-x-0 xl:w-72"
+      aria-label={`${packTitle} navigation`}
+    >
+      <div class="flex items-center justify-between gap-2 border-b border-base-300 px-3 py-3 lg:hidden">
+        <span class="truncate font-medium">{packTitle}</span>
+        <label for="docs-sidebar-toggle" class="btn btn-ghost btn-sm btn-square" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </label>
+      </div>
+
+      <div class="flex min-h-0 flex-1 flex-col overflow-hidden">
+        <div class="hidden shrink-0 border-b border-base-300 px-4 py-3 lg:block">
+          <a href={`${base}`} class="font-mono text-[0.65rem] text-base-content/45 hover:text-primary">← packs</a>
+          <a href={`${base}docs/${tech}/`} class="mt-1 block truncate text-base font-semibold text-primary no-underline hover:underline">
+            {packTitle}
+          </a>
         </div>
 
-        <div class="flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto overscroll-contain px-3 py-3 lg:sticky lg:top-16 lg:max-h-[calc(100dvh-5rem)] lg:px-0 lg:py-0">
-          <div class="hidden lg:block">
-            <p class="mb-1 font-mono text-[0.65rem] uppercase tracking-wide text-base-content/50">Pack</p>
-            <a
-              href={`${base}docs/${tech}/`}
-              class="block truncate font-semibold text-primary no-underline hover:underline"
-            >
-              {packTitle}
-            </a>
-          </div>
-
-          <nav class="text-sm" aria-label={`${packTitle} pages`}>
-            {
-              groupEntries.map(([group, items]) => {
-                const isOpen = group === activeGroup || group === '_root';
-                if (group === '_root') {
-                  return (
-                    <ul class="mb-2 space-y-0.5">
-                      {items.map((item) => (
-                        <li>
-                          <a
-                            href={hrefFor(item.slugPath)}
-                            class:list={[
-                              'block rounded-field px-2 py-1.5 leading-snug hover:bg-base-200',
-                              item.slugPath === slugPath && 'bg-primary font-medium text-primary-content hover:bg-primary',
-                            ]}
-                            aria-current={item.slugPath === slugPath ? 'page' : undefined}
-                          >
-                            {labelFor(item)}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  );
-                }
+        <nav class="min-h-0 flex-1 overflow-y-auto overscroll-contain px-2 py-2 text-sm" aria-label={`${packTitle} pages`} data-docs-nav>
+          {
+            groupEntries.map(([group, items]) => {
+              const isOpen = group === activeGroup || group === '_root';
+              if (group === '_root') {
                 return (
-                  <details class="group/nav mb-1 border-b border-base-300/80 pb-1" open={isOpen || undefined}>
-                    <summary class="cursor-pointer list-none rounded-field px-2 py-1.5 font-mono text-[0.7rem] font-medium uppercase tracking-wide text-base-content/55 hover:bg-base-200 hover:text-base-content [&::-webkit-details-marker]:hidden">
-                      <span class="inline-flex w-full items-center justify-between gap-2">
-                        <span class="truncate">{group}</span>
-                        <span class="text-base-content/40 transition-transform group-open/nav:rotate-90" aria-hidden="true">›</span>
-                      </span>
-                    </summary>
-                    <ul class="mt-0.5 space-y-0.5 pb-1 pl-1">
-                      {items.map((item) => (
-                        <li>
-                          <a
-                            href={hrefFor(item.slugPath)}
-                            class:list={[
-                              'block rounded-field px-2 py-1 text-[0.8125rem] leading-snug text-base-content/85 hover:bg-base-200 hover:text-base-content',
-                              item.slugPath === slugPath && 'bg-primary font-medium text-primary-content hover:bg-primary hover:text-primary-content',
-                            ]}
-                            aria-current={item.slugPath === slugPath ? 'page' : undefined}
-                          >
-                            {labelFor(item)}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </details>
+                  <ul class="mb-2 space-y-0.5">
+                    {items.map((item) => (
+                      <li>
+                        <a
+                          href={hrefFor(item.slugPath)}
+                          data-active={item.slugPath === slugPath ? 'true' : undefined}
+                          class:list={[
+                            'block rounded-md px-2.5 py-1.5 leading-snug text-base-content/80 hover:bg-base-200 hover:text-base-content',
+                            item.slugPath === slugPath && 'bg-primary/10 font-medium text-primary hover:bg-primary/15 hover:text-primary',
+                          ]}
+                          aria-current={item.slugPath === slugPath ? 'page' : undefined}
+                        >
+                          {labelFor(item)}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
                 );
-              })
-            }
-          </nav>
+              }
+              return (
+                <details class="group/nav mb-0.5" open={isOpen || undefined}>
+                  <summary class="cursor-pointer list-none rounded-md px-2.5 py-1.5 text-xs font-semibold tracking-wide text-base-content/45 hover:bg-base-200 hover:text-base-content/70 [&::-webkit-details-marker]:hidden">
+                    <span class="inline-flex w-full items-center justify-between gap-2">
+                      <span class="truncate">{humanizeSegment(group)}</span>
+                      <span class="text-[0.65rem] text-base-content/35 transition-transform group-open/nav:rotate-90" aria-hidden="true">›</span>
+                    </span>
+                  </summary>
+                  <ul class="mb-2 ml-1 space-y-0.5 border-l border-base-300 pl-2">
+                    {items.map((item) => (
+                      <li>
+                        <a
+                          href={hrefFor(item.slugPath)}
+                          data-active={item.slugPath === slugPath ? 'true' : undefined}
+                          class:list={[
+                            'block rounded-md px-2 py-1 text-[0.8125rem] leading-snug text-base-content/75 hover:bg-base-200 hover:text-base-content',
+                            item.slugPath === slugPath && 'bg-primary/10 font-medium text-primary hover:bg-primary/15 hover:text-primary',
+                          ]}
+                          aria-current={item.slugPath === slugPath ? 'page' : undefined}
+                        >
+                          {labelFor(item)}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              );
+            })
+          }
+        </nav>
 
-          <div class="mt-auto space-y-1 border-t border-base-300 pt-3 font-mono text-[0.65rem] text-base-content/50">
-            <p>
-              <a class="link link-hover" href={`${base}docs/${tech}/llms.txt`}>llms.txt</a>
-              <span class="mx-1 opacity-40">·</span>
-              <a class="link link-hover" href={`${base}docs/${tech}/llms-full.txt`}>full</a>
-            </p>
+        <div class="shrink-0 space-y-1 border-t border-base-300 px-4 py-3 font-mono text-[0.65rem] text-base-content/45">
+          <p>
+            <a class="hover:text-primary hover:underline" href={`${base}docs/${tech}/llms.txt`}>llms.txt</a>
+            <span class="mx-1 opacity-40">·</span>
+            <a class="hover:text-primary hover:underline" href={`${base}docs/${tech}/llms-full.txt`}>full</a>
             {
               pack?.source && (
-                <p>
-                  <a class="link link-hover" href={pack.source} target="_blank" rel="noopener noreferrer">
-                    upstream
+                <>
+                  <span class="mx-1 opacity-40">·</span>
+                  <a class="hover:text-primary hover:underline" href={pack.source} target="_blank" rel="noopener noreferrer">
+                    src
                   </a>
-                </p>
+                </>
               )
             }
-          </div>
+          </p>
         </div>
-      </aside>
+      </div>
+    </aside>
 
-      <article class="min-w-0">
-        <header class="mb-8 border-b border-base-300 pb-6">
-          <p class="mb-2 font-mono text-xs font-medium tracking-wide text-primary">{packTitle}</p>
-          <h1 class="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">{title}</h1>
-          {description && <p class="mt-3 max-w-prose text-base-content/80 text-pretty">{description}</p>}
+    {/* Reading column — constrained measure */}
+    <div class="min-w-0 flex-1">
+      <article class="docs-article mx-auto w-full max-w-3xl px-4 py-8 sm:px-6 sm:py-10 lg:px-10">
+        <header class="mb-8">
+          <p class="mb-2 font-mono text-xs text-primary/90">{packTitle}</p>
+          {
+            !hasContentTitle && (
+              <h1 class="font-display text-[1.75rem] font-medium leading-tight tracking-[-0.02em] text-balance sm:text-3xl">
+                {title}
+              </h1>
+            )
+          }
+          {
+            hasContentTitle && (
+              <p class="sr-only">{title}</p>
+            )
+          }
+          {description && !hasContentTitle && (
+            <p class="mt-3 text-base leading-relaxed text-base-content/65 text-pretty">{description}</p>
+          )}
         </header>
-        <div class="prose prose-neutral max-w-none dark:prose-invert prose-headings:font-semibold prose-a:text-primary prose-code:rounded-field prose-code:bg-base-200 prose-code:px-1 prose-code:py-0.5 prose-code:before:content-none prose-code:after:content-none">
+        <div class="docs-prose prose prose-neutral max-w-none dark:prose-invert prose-headings:font-semibold prose-headings:tracking-tight prose-h1:font-display prose-h1:text-3xl prose-h1:font-medium prose-h2:mt-10 prose-h2:text-xl prose-h3:text-lg prose-p:leading-[1.7] prose-li:leading-[1.65] prose-a:font-medium prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-code:rounded prose-code:bg-base-200 prose-code:px-1 prose-code:py-0.5 prose-code:text-[0.875em] prose-code:before:content-none prose-code:after:content-none prose-pre:border prose-pre:border-base-300 prose-pre:bg-base-200/50 prose-img:rounded-md prose-table:text-sm">
           <slot />
         </div>
       </article>
     </div>
   </div>
+
+  <script is:inline>
+    (function () {
+      var el = document.querySelector('[data-docs-nav] [data-active="true"]');
+      if (el && el.scrollIntoView) {
+        try {
+          el.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+        } catch (_) {}
+      }
+    })();
+  </script>
 </BaseLayout>
