@@ -11,15 +11,8 @@ export const getStaticPaths = (async () => {
   return getPacks().map((p) => ({ params: { tech: p.id } }));
 }) satisfies GetStaticPaths;
 
-function stripHtml(html: string): string {
-  return html
-    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim()
-    .slice(0, 12_000);
-}
+/** Cap markdown body in the index (still source text, not HTML). */
+const MAX_BODY_CHARS = 20_000;
 
 export const GET: APIRoute = async ({ params }) => {
   const tech = params.tech;
@@ -38,6 +31,7 @@ export const GET: APIRoute = async ({ params }) => {
       description: 'string',
       slugPath: 'string',
       path: 'string',
+      /** Markdown / MDX source (not rendered HTML) */
       body: 'string',
       tech: 'string',
     },
@@ -46,10 +40,10 @@ export const GET: APIRoute = async ({ params }) => {
   const docs = pages.map((page) => {
     const slugPath = page.slugPath;
     const path = slugPath ? `/docs/${tech}/${slugPath}/` : `/docs/${tech}/`;
-    const body =
-      page.html != null
-        ? stripHtml(page.html)
-        : [page.title, page.description].filter(Boolean).join(' ');
+    const md =
+      page.searchText?.trim() ||
+      [page.title, page.description].filter(Boolean).join('\n\n');
+    const body = md.length > MAX_BODY_CHARS ? md.slice(0, MAX_BODY_CHARS) : md;
     return {
       id: `${tech}:${slugPath || '_index'}`,
       title: page.title,

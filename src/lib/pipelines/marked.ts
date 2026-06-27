@@ -47,6 +47,8 @@ export const markedPipeline: DocPipeline = {
         order: pageOrder(segments),
         Content: null,
         html,
+        // Index source markdown (post title H1 rewrite), not rendered HTML
+        searchText: stripYamlFrontmatter(ensureLeadingH1Markdown(raw, title)),
         headings: [],
         filePath: path,
         pipeline: 'marked',
