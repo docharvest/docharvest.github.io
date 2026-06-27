@@ -3,6 +3,1908 @@
     "/home/runner/work/docharvest.github.io/docharvest.github.io/content/manifest.json": {
       "source_info": "source:config-tree (content/manifest.json.tmpl)"
     },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/SUMMARY.md.in": {
+      "source_info": "module:docs_nix place (content/nix/SUMMARY.md.in)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/_redirects": {
+      "source_info": "module:docs_nix place (content/nix/_redirects)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/advanced-topics/cores-vs-jobs.md": {
+      "source_info": "module:docs_nix place (content/nix/advanced-topics/cores-vs-jobs.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/advanced-topics/diff-hook.md": {
+      "source_info": "module:docs_nix place (content/nix/advanced-topics/diff-hook.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/advanced-topics/distributed-builds.md": {
+      "source_info": "module:docs_nix place (content/nix/advanced-topics/distributed-builds.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/advanced-topics/eval-profiler.md": {
+      "source_info": "module:docs_nix place (content/nix/advanced-topics/eval-profiler.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/advanced-topics/index.md": {
+      "source_info": "module:docs_nix place (content/nix/advanced-topics/index.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/advanced-topics/post-build-hook.md": {
+      "source_info": "module:docs_nix place (content/nix/advanced-topics/post-build-hook.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/architecture/architecture.md": {
+      "source_info": "module:docs_nix place (content/nix/architecture/architecture.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/c-api.md": {
+      "source_info": "module:docs_nix place (content/nix/c-api.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/conf-file-prefix.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/conf-file-prefix.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/env-common.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/env-common.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/experimental-commands.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/experimental-commands.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/files.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/files.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/files/channels.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/files/channels.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/files/default-nix-expression.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/files/default-nix-expression.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/files/manifest.json.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/files/manifest.json.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/files/manifest.nix.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/files/manifest.nix.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/files/profiles.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/files/profiles.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/index.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/index.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/main-commands.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/main-commands.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/meson.build": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/meson.build)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-build.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-build.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-channel.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-channel.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-collect-garbage.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-collect-garbage.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-copy-closure.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-copy-closure.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-daemon.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-daemon.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-env.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-env.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-env/delete-generations.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-env/delete-generations.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-env/env-common.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-env/env-common.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-env/install.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-env/install.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-env/list-generations.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-env/list-generations.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-env/opt-common.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-env/opt-common.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-env/query.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-env/query.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-env/rollback.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-env/rollback.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-env/set-flag.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-env/set-flag.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-env/set.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-env/set.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-env/switch-generation.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-env/switch-generation.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-env/switch-profile.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-env/switch-profile.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-env/uninstall.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-env/uninstall.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-env/upgrade.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-env/upgrade.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-hash.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-hash.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-instantiate.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-instantiate.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-prefetch-url.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-prefetch-url.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-shell.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-shell.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-store.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-store.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-store/add-fixed.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-store/add-fixed.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-store/add.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-store/add.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-store/delete.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-store/delete.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-store/dump-db.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-store/dump-db.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-store/dump.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-store/dump.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-store/export.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-store/export.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-store/gc.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-store/gc.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-store/generate-binary-cache-key.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-store/generate-binary-cache-key.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-store/import.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-store/import.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-store/load-db.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-store/load-db.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-store/opt-common.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-store/opt-common.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-store/optimise.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-store/optimise.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-store/print-env.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-store/print-env.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-store/query.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-store/query.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-store/read-log.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-store/read-log.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-store/realise.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-store/realise.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-store/repair-path.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-store/repair-path.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-store/restore.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-store/restore.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-store/serve.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-store/serve.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-store/verify-path.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-store/verify-path.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/nix-store/verify.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/nix-store/verify.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/opt-common.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/opt-common.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/status-build-failure.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/status-build-failure.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/command-ref/utilities.md": {
+      "source_info": "module:docs_nix place (content/nix/command-ref/utilities.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/development/benchmarking.md": {
+      "source_info": "module:docs_nix place (content/nix/development/benchmarking.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/development/building.md": {
+      "source_info": "module:docs_nix place (content/nix/development/building.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/development/cli-guideline.md": {
+      "source_info": "module:docs_nix place (content/nix/development/cli-guideline.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/development/contributing.md": {
+      "source_info": "module:docs_nix place (content/nix/development/contributing.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/development/cxx.md": {
+      "source_info": "module:docs_nix place (content/nix/development/cxx.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/development/data-modeling.md": {
+      "source_info": "module:docs_nix place (content/nix/development/data-modeling.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/development/debugging.md": {
+      "source_info": "module:docs_nix place (content/nix/development/debugging.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/development/documentation.md": {
+      "source_info": "module:docs_nix place (content/nix/development/documentation.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/development/experimental-features.md": {
+      "source_info": "module:docs_nix place (content/nix/development/experimental-features.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/development/index.md": {
+      "source_info": "module:docs_nix place (content/nix/development/index.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/development/meson.build": {
+      "source_info": "module:docs_nix place (content/nix/development/meson.build)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/development/static-analysis.md": {
+      "source_info": "module:docs_nix place (content/nix/development/static-analysis.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/development/testing.md": {
+      "source_info": "module:docs_nix place (content/nix/development/testing.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/favicon.png": {
+      "source_info": "module:docs_nix place (content/nix/favicon.png)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/favicon.svg": {
+      "source_info": "module:docs_nix place (content/nix/favicon.svg)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/figures/user-environments.png": {
+      "source_info": "module:docs_nix place (content/nix/figures/user-environments.png)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/figures/user-environments.sxd": {
+      "source_info": "module:docs_nix place (content/nix/figures/user-environments.sxd)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/glossary.md": {
+      "source_info": "module:docs_nix place (content/nix/glossary.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/installation/building-source.md": {
+      "source_info": "module:docs_nix place (content/nix/installation/building-source.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/installation/env-variables.md": {
+      "source_info": "module:docs_nix place (content/nix/installation/env-variables.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/installation/index.md": {
+      "source_info": "module:docs_nix place (content/nix/installation/index.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/installation/installing-binary.md": {
+      "source_info": "module:docs_nix place (content/nix/installation/installing-binary.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/installation/installing-docker.md": {
+      "source_info": "module:docs_nix place (content/nix/installation/installing-docker.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/installation/installing-source.md": {
+      "source_info": "module:docs_nix place (content/nix/installation/installing-source.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/installation/multi-user.md": {
+      "source_info": "module:docs_nix place (content/nix/installation/multi-user.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/installation/nix-security.md": {
+      "source_info": "module:docs_nix place (content/nix/installation/nix-security.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/installation/obtaining-source.md": {
+      "source_info": "module:docs_nix place (content/nix/installation/obtaining-source.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/installation/prerequisites-source.md": {
+      "source_info": "module:docs_nix place (content/nix/installation/prerequisites-source.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/installation/single-user.md": {
+      "source_info": "module:docs_nix place (content/nix/installation/single-user.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/installation/supported-platforms.md": {
+      "source_info": "module:docs_nix place (content/nix/installation/supported-platforms.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/installation/uninstall.md": {
+      "source_info": "module:docs_nix place (content/nix/installation/uninstall.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/installation/upgrading.md": {
+      "source_info": "module:docs_nix place (content/nix/installation/upgrading.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/introduction.md": {
+      "source_info": "module:docs_nix place (content/nix/introduction.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/language/advanced-attributes.md": {
+      "source_info": "module:docs_nix place (content/nix/language/advanced-attributes.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/language/builtins-prefix.md": {
+      "source_info": "module:docs_nix place (content/nix/language/builtins-prefix.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/language/builtins-suffix.md": {
+      "source_info": "module:docs_nix place (content/nix/language/builtins-suffix.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/language/constructs.md": {
+      "source_info": "module:docs_nix place (content/nix/language/constructs.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/language/constructs/lookup-path.md": {
+      "source_info": "module:docs_nix place (content/nix/language/constructs/lookup-path.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/language/derivations.md": {
+      "source_info": "module:docs_nix place (content/nix/language/derivations.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/language/evaluation.md": {
+      "source_info": "module:docs_nix place (content/nix/language/evaluation.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/language/identifiers.md": {
+      "source_info": "module:docs_nix place (content/nix/language/identifiers.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/language/import-from-derivation.md": {
+      "source_info": "module:docs_nix place (content/nix/language/import-from-derivation.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/language/index.md": {
+      "source_info": "module:docs_nix place (content/nix/language/index.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/language/meson.build": {
+      "source_info": "module:docs_nix place (content/nix/language/meson.build)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/language/operators.md": {
+      "source_info": "module:docs_nix place (content/nix/language/operators.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/language/scope.md": {
+      "source_info": "module:docs_nix place (content/nix/language/scope.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/language/string-context.md": {
+      "source_info": "module:docs_nix place (content/nix/language/string-context.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/language/string-interpolation.md": {
+      "source_info": "module:docs_nix place (content/nix/language/string-interpolation.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/language/string-literals.md": {
+      "source_info": "module:docs_nix place (content/nix/language/string-literals.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/language/syntax.md": {
+      "source_info": "module:docs_nix place (content/nix/language/syntax.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/language/types.md": {
+      "source_info": "module:docs_nix place (content/nix/language/types.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/language/values.md": {
+      "source_info": "module:docs_nix place (content/nix/language/values.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/language/variables.md": {
+      "source_info": "module:docs_nix place (content/nix/language/variables.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/meson.build": {
+      "source_info": "module:docs_nix place (content/nix/meson.build)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/package-management/binary-cache-substituter.md": {
+      "source_info": "module:docs_nix place (content/nix/package-management/binary-cache-substituter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/package-management/garbage-collection.md": {
+      "source_info": "module:docs_nix place (content/nix/package-management/garbage-collection.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/package-management/garbage-collector-roots.md": {
+      "source_info": "module:docs_nix place (content/nix/package-management/garbage-collector-roots.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/package-management/index.md": {
+      "source_info": "module:docs_nix place (content/nix/package-management/index.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/package-management/profiles.md": {
+      "source_info": "module:docs_nix place (content/nix/package-management/profiles.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/package-management/sharing-packages.md": {
+      "source_info": "module:docs_nix place (content/nix/package-management/sharing-packages.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/package-management/ssh-substituter.md": {
+      "source_info": "module:docs_nix place (content/nix/package-management/ssh-substituter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/binary-cache/index.md": {
+      "source_info": "module:docs_nix place (content/nix/protocols/binary-cache/index.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/binary-cache/narinfo.md": {
+      "source_info": "module:docs_nix place (content/nix/protocols/binary-cache/narinfo.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/binary-cache/nix-cache-info.md": {
+      "source_info": "module:docs_nix place (content/nix/protocols/binary-cache/nix-cache-info.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/derivation-aterm.md": {
+      "source_info": "module:docs_nix place (content/nix/protocols/derivation-aterm.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/index.md": {
+      "source_info": "module:docs_nix place (content/nix/protocols/index.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/build-result.md": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/build-result.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/build-trace-entry.md": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/build-trace-entry.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/content-address.md": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/content-address.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/derivation/index.md": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/derivation/index.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/derivation/options.md": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/derivation/options.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/derivation/resolved.md": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/derivation/resolved.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/deriving-path.md": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/deriving-path.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/file-system-object.md": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/file-system-object.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/fixup-json-schema-generated-doc.sed": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/fixup-json-schema-generated-doc.sed)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/hash.md": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/hash.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/index.md": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/index.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/json-schema-for-humans-config.yaml": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/json-schema-for-humans-config.yaml)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/meson.build": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/meson.build)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/schema/build-result-v1": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/schema/build-result-v1)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/schema/build-result-v1.yaml": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/schema/build-result-v1.yaml)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/schema/build-trace-entry-v3": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/schema/build-trace-entry-v3)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/schema/build-trace-entry-v3.yaml": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/schema/build-trace-entry-v3.yaml)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/schema/content-address-v1": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/schema/content-address-v1)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/schema/content-address-v1.yaml": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/schema/content-address-v1.yaml)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/schema/derivation-options-v1": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/schema/derivation-options-v1)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/schema/derivation-options-v1.yaml": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/schema/derivation-options-v1.yaml)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/schema/derivation-resolved-v4.yaml": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/schema/derivation-resolved-v4.yaml)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/schema/derivation-v4.yaml": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/schema/derivation-v4.yaml)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/schema/deriving-path-v1": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/schema/deriving-path-v1)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/schema/deriving-path-v1.yaml": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/schema/deriving-path-v1.yaml)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/schema/file-system-object-v1": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/schema/file-system-object-v1)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/schema/file-system-object-v1.yaml": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/schema/file-system-object-v1.yaml)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/schema/hash-v1": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/schema/hash-v1)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/schema/hash-v1.yaml": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/schema/hash-v1.yaml)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/schema/nar-info-v2": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/schema/nar-info-v2)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/schema/nar-info-v3": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/schema/nar-info-v3)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/schema/signature-v2.yaml": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/schema/signature-v2.yaml)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/schema/signature-v2/simple.json": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/schema/signature-v2/simple.json)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/schema/store-object-info-v3": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/schema/store-object-info-v3)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/schema/store-object-info-v3.yaml": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/schema/store-object-info-v3.yaml)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/schema/store-path-v1": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/schema/store-path-v1)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/schema/store-path-v1.yaml": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/schema/store-path-v1.yaml)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/schema/store-v1": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/schema/store-v1)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/schema/store-v1.yaml": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/schema/store-v1.yaml)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/signature.md": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/signature.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/store-object-info.md": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/store-object-info.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/store-path.md": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/store-path.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/json/store.md": {
+      "source_info": "module:docs_nix place (content/nix/protocols/json/store.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/meson.build": {
+      "source_info": "module:docs_nix place (content/nix/protocols/meson.build)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/nix-archive/index.md": {
+      "source_info": "module:docs_nix place (content/nix/protocols/nix-archive/index.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/nix-archive/nar.ksy": {
+      "source_info": "module:docs_nix place (content/nix/protocols/nix-archive/nar.ksy)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/nix32.md": {
+      "source_info": "module:docs_nix place (content/nix/protocols/nix32.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/store-path.md": {
+      "source_info": "module:docs_nix place (content/nix/protocols/store-path.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/protocols/tarball-fetcher.md": {
+      "source_info": "module:docs_nix place (content/nix/protocols/tarball-fetcher.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/quick-start.md": {
+      "source_info": "module:docs_nix place (content/nix/quick-start.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/index.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/index.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/meson.build": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/meson.build)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-0.10.1.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-0.10.1.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-0.10.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-0.10.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-0.11.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-0.11.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-0.12.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-0.12.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-0.13.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-0.13.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-0.14.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-0.14.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-0.15.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-0.15.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-0.16.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-0.16.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-0.5.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-0.5.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-0.6.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-0.6.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-0.7.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-0.7.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-0.8.1.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-0.8.1.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-0.8.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-0.8.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-0.9.1.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-0.9.1.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-0.9.2.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-0.9.2.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-0.9.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-0.9.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-1.0.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-1.0.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-1.1.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-1.1.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-1.10.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-1.10.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-1.11.10.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-1.11.10.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-1.11.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-1.11.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-1.2.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-1.2.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-1.3.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-1.3.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-1.4.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-1.4.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-1.5.1.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-1.5.1.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-1.5.2.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-1.5.2.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-1.5.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-1.5.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-1.6.1.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-1.6.1.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-1.6.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-1.6.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-1.7.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-1.7.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-1.8.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-1.8.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-1.9.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-1.9.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.0.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.0.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.1.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.1.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.10.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.10.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.11.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.11.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.12.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.12.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.13.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.13.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.14.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.14.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.15.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.15.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.16.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.16.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.17.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.17.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.18.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.18.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.19.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.19.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.2.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.2.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.20.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.20.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.21.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.21.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.22.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.22.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.23.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.23.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.24.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.24.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.25.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.25.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.26.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.26.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.27.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.27.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.28.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.28.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.29.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.29.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.3.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.3.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.30.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.30.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.31.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.31.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.32.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.32.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.33.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.33.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.34.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.34.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.4.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.4.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.5.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.5.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.6.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.6.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.7.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.7.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.8.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.8.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/release-notes/rl-2.9.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.9.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/store/build-trace.md": {
+      "source_info": "module:docs_nix place (content/nix/store/build-trace.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/store/building.md": {
+      "source_info": "module:docs_nix place (content/nix/store/building.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/store/derivation/index.md": {
+      "source_info": "module:docs_nix place (content/nix/store/derivation/index.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/store/derivation/outputs/content-address.md": {
+      "source_info": "module:docs_nix place (content/nix/store/derivation/outputs/content-address.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/store/derivation/outputs/index.md": {
+      "source_info": "module:docs_nix place (content/nix/store/derivation/outputs/index.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/store/derivation/outputs/input-address.md": {
+      "source_info": "module:docs_nix place (content/nix/store/derivation/outputs/input-address.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/store/file-system-object.md": {
+      "source_info": "module:docs_nix place (content/nix/store/file-system-object.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/store/file-system-object/content-address.md": {
+      "source_info": "module:docs_nix place (content/nix/store/file-system-object/content-address.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/store/file-system-object/os-file-system.md": {
+      "source_info": "module:docs_nix place (content/nix/store/file-system-object/os-file-system.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/store/index.md": {
+      "source_info": "module:docs_nix place (content/nix/store/index.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/store/math-notation.md": {
+      "source_info": "module:docs_nix place (content/nix/store/math-notation.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/store/meson.build": {
+      "source_info": "module:docs_nix place (content/nix/store/meson.build)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/store/resolution.md": {
+      "source_info": "module:docs_nix place (content/nix/store/resolution.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/store/secrets.md": {
+      "source_info": "module:docs_nix place (content/nix/store/secrets.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/store/store-object.md": {
+      "source_info": "module:docs_nix place (content/nix/store/store-object.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/store/store-object/content-address.md": {
+      "source_info": "module:docs_nix place (content/nix/store/store-object/content-address.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/store/store-path.md": {
+      "source_info": "module:docs_nix place (content/nix/store/store-path.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nix/store/types/index.md.in": {
+      "source_info": "module:docs_nix place (content/nix/store/types/index.md.in)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/README.md": {
+      "source_info": "module:docs_nixos place (content/nixos/README.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/administration/boot-problems.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/administration/boot-problems.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/administration/cleaning-store.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/administration/cleaning-store.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/administration/container-networking.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/administration/container-networking.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/administration/containers.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/administration/containers.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/administration/control-groups.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/administration/control-groups.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/administration/declarative-containers.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/administration/declarative-containers.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/administration/imperative-containers.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/administration/imperative-containers.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/administration/logging.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/administration/logging.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/administration/maintenance-mode.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/administration/maintenance-mode.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/administration/network-problems.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/administration/network-problems.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/administration/nixos-state.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/administration/nixos-state.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/administration/rebooting.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/administration/rebooting.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/administration/rollback.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/administration/rollback.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/administration/running.md": {
+      "source_info": "module:docs_nixos place (content/nixos/administration/running.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/administration/service-mgmt.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/administration/service-mgmt.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/administration/store-corruption.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/administration/store-corruption.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/administration/system-state.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/administration/system-state.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/administration/systemd-state.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/administration/systemd-state.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/administration/troubleshooting.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/administration/troubleshooting.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/administration/user-sessions.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/administration/user-sessions.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/administration/zfs-state.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/administration/zfs-state.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/common.nix": {
+      "source_info": "module:docs_nixos place (content/nixos/common.nix)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/abstractions.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/abstractions.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/ad-hoc-network-config.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/ad-hoc-network-config.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/ad-hoc-packages.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/ad-hoc-packages.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/adding-custom-packages.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/adding-custom-packages.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/config-file.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/config-file.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/config-syntax.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/config-syntax.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/configuration.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/configuration.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/customizing-packages.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/customizing-packages.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/declarative-packages.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/declarative-packages.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/file-systems.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/file-systems.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/firewall.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/firewall.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/gpu-accel.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/gpu-accel.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/ipv4-config.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/ipv4-config.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/ipv6-config.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/ipv6-config.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/kubernetes.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/kubernetes.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/linux-kernel.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/linux-kernel.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/luks-file-systems.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/luks-file-systems.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/mattermost.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/mattermost.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/modularity.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/modularity.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/network-manager.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/network-manager.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/networking.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/networking.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/overlayfs.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/overlayfs.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/package-mgmt.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/package-mgmt.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/profiles.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/profiles.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/profiles/all-hardware.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/profiles/all-hardware.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/profiles/base.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/profiles/base.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/profiles/clone-config.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/profiles/clone-config.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/profiles/demo.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/profiles/demo.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/profiles/docker-container.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/profiles/docker-container.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/profiles/graphical.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/profiles/graphical.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/profiles/headless.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/profiles/headless.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/profiles/installation-device.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/profiles/installation-device.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/profiles/minimal.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/profiles/minimal.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/profiles/perlless.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/profiles/perlless.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/profiles/qemu-guest.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/profiles/qemu-guest.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/renaming-interfaces.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/renaming-interfaces.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/ssh.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/ssh.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/sshfs-file-systems.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/sshfs-file-systems.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/subversion.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/subversion.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/user-mgmt.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/user-mgmt.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/wayland.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/wayland.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/wireless.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/wireless.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/x-windows.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/x-windows.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/configuration/xfce.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/xfce.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/contributing-to-this-manual.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/contributing-to-this-manual.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/default.nix": {
+      "source_info": "module:docs_nixos place (content/nixos/default.nix)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/activation-script.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/activation-script.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/assertions.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/assertions.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/bootspec.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/bootspec.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/building-parts.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/building-parts.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/developing-the-test-driver.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/developing-the-test-driver.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/development.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/development.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/etc-overlay.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/etc-overlay.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/freeform-modules.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/freeform-modules.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/importing-modules.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/importing-modules.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/linking-nixos-tests-to-packages.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/linking-nixos-tests-to-packages.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/meta-attributes.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/meta-attributes.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/modular-services.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/modular-services.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/nixos-tests.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/nixos-tests.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/non-switchable-systems.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/non-switchable-systems.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/option-declarations.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/option-declarations.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/option-def.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/option-def.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/option-types.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/option-types.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/replace-modules.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/replace-modules.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/running-nixos-tests-interactively.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/running-nixos-tests-interactively.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/running-nixos-tests.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/running-nixos-tests.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/settings-options.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/settings-options.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/sources.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/sources.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/testing-hardware-features.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/testing-hardware-features.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/testing-installer.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/testing-installer.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/unit-handling.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/unit-handling.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/what-happens-during-a-system-switch.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/what-happens-during-a-system-switch.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/writing-documentation.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/writing-documentation.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/writing-modules.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/writing-modules.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/development/writing-nixos-tests.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/development/writing-nixos-tests.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/installation/building-images-via-nixos-rebuild-build-image.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/installation/building-images-via-nixos-rebuild-build-image.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/installation/building-images-via-systemd-repart.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/installation/building-images-via-systemd-repart.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/installation/building-nixos.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/installation/building-nixos.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/installation/changing-config.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/installation/changing-config.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/installation/installation.md": {
+      "source_info": "module:docs_nixos place (content/nixos/installation/installation.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/installation/installing-behind-a-proxy.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/installation/installing-behind-a-proxy.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/installation/installing-from-other-distro.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/installation/installing-from-other-distro.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/installation/installing-kexec.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/installation/installing-kexec.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/installation/installing-pxe.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/installation/installing-pxe.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/installation/installing-usb.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/installation/installing-usb.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/installation/installing-virtualbox-guest.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/installation/installing-virtualbox-guest.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/installation/installing.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/installation/installing.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/installation/obtaining.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/installation/obtaining.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/installation/upgrading.chapter.md": {
+      "source_info": "module:docs_nixos place (content/nixos/installation/upgrading.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/manual.md": {
+      "source_info": "module:docs_nixos place (content/nixos/manual.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/nixos-options.md": {
+      "source_info": "module:docs_nixos place (content/nixos/nixos-options.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/preface.md": {
+      "source_info": "module:docs_nixos place (content/nixos/preface.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/redirects.json": {
+      "source_info": "module:docs_nixos place (content/nixos/redirects.json)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/release-notes.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/release-notes.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/rl-1310.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/rl-1310.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/rl-1404.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/rl-1404.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/rl-1412.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/rl-1412.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/rl-1509.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/rl-1509.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/rl-1603.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/rl-1603.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/rl-1609.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/rl-1609.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/rl-1703.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/rl-1703.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/rl-1709.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/rl-1709.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/rl-1803.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/rl-1803.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/rl-1809.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/rl-1809.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/rl-1903.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/rl-1903.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/rl-1909.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/rl-1909.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/rl-2003.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/rl-2003.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/rl-2009.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/rl-2009.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/rl-2105.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/rl-2105.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/rl-2111.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/rl-2111.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/rl-2205.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/rl-2205.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/rl-2211.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/rl-2211.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/rl-2305.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/rl-2305.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/rl-2311.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/rl-2311.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/rl-2405.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/rl-2405.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/rl-2411.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/rl-2411.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/rl-2505.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/rl-2505.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/rl-2511.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/rl-2511.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/rl-2605.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/rl-2605.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/release-notes/rl-2611.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/release-notes/rl-2611.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixos/shell.nix": {
+      "source_info": "module:docs_nixos place (content/nixos/shell.nix)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/README.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/README.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/anchor-use.js": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/anchor-use.js)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/anchor.min.js": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/anchor.min.js)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/build-helpers.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/build-helpers.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/build-helpers/dev-shell-tools.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/build-helpers/dev-shell-tools.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/build-helpers/fetchers.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/build-helpers/fetchers.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/build-helpers/fixed-point-arguments.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/build-helpers/fixed-point-arguments.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/build-helpers/images.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/build-helpers/images.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/build-helpers/images/appimagetools.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/build-helpers/images/appimagetools.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/build-helpers/images/binarycache.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/build-helpers/images/binarycache.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/build-helpers/images/dockertools.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/build-helpers/images/dockertools.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/build-helpers/images/makediskimage.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/build-helpers/images/makediskimage.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/build-helpers/images/ocitools.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/build-helpers/images/ocitools.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/build-helpers/images/portableservice.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/build-helpers/images/portableservice.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/build-helpers/special.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/build-helpers/special.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/build-helpers/special/buildenv.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/build-helpers/special/buildenv.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/build-helpers/special/checkpoint-build.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/build-helpers/special/checkpoint-build.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/build-helpers/special/fakenss.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/build-helpers/special/fakenss.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/build-helpers/special/fhs-environments.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/build-helpers/special/fhs-environments.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/build-helpers/special/makesetuphook.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/build-helpers/special/makesetuphook.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/build-helpers/special/mkshell.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/build-helpers/special/mkshell.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/build-helpers/special/vm-tools.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/build-helpers/special/vm-tools.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/build-helpers/testers.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/build-helpers/testers.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/build-helpers/trivial-build-helpers.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/build-helpers/trivial-build-helpers.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/contributing.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/contributing.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/contributing/coding-conventions.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/contributing/coding-conventions.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/contributing/contributing-to-documentation.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/contributing/contributing-to-documentation.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/contributing/quick-start.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/contributing/quick-start.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/contributing/reviewing-contributions.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/contributing/reviewing-contributions.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/contributing/submitting-changes.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/contributing/submitting-changes.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/contributing/vulnerability-roundup.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/contributing/vulnerability-roundup.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/default.nix": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/default.nix)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/development.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/development.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/development/opening-issues.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/development/opening-issues.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/doc-support/epub.nix": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/doc-support/epub.nix)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/doc-support/lib-function-docs.nix": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/doc-support/lib-function-docs.nix)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/doc-support/lib-function-locations.nix": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/doc-support/lib-function-locations.nix)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/doc-support/options-doc.nix": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/doc-support/options-doc.nix)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/doc-support/package.nix": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/doc-support/package.nix)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/doc-support/python-interpreter-table.nix": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/doc-support/python-interpreter-table.nix)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/functions.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/functions.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/functions/debug.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/functions/debug.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/functions/generators.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/functions/generators.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/functions/library.md.in": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/functions/library.md.in)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/functions/nix-gitignore.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/functions/nix-gitignore.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/functions/prefer-remote-fetch.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/functions/prefer-remote-fetch.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/autoconf.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/autoconf.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/automake.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/automake.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/autopatchcil.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/autopatchcil.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/autopatchelf.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/autopatchelf.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/aws-c-common.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/aws-c-common.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/bmake.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/bmake.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/breakpoint.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/breakpoint.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/cernlib.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/cernlib.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/cmake.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/cmake.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/desktop-file-utils.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/desktop-file-utils.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/gdk-pixbuf.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/gdk-pixbuf.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/ghc.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/ghc.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/gnome.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/gnome.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/haredo.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/haredo.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/index.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/index.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/installFonts.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/installFonts.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/installShellFiles.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/installShellFiles.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/juce.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/juce.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/julec.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/julec.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/just.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/just.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/libglycin.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/libglycin.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/libiconv.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/libiconv.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/libxml2.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/libxml2.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/memcached-test-hook.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/memcached-test-hook.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/meson.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/meson.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/mpi-check-hook.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/mpi-check-hook.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/ninja.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/ninja.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/nodejs-install-executables.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/nodejs-install-executables.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/nodejs-install-manuals.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/nodejs-install-manuals.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/npm-build-hook.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/npm-build-hook.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/npm-config-hook.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/npm-config-hook.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/npm-install-hook.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/npm-install-hook.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/patch-rc-path-hooks.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/patch-rc-path-hooks.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/perl.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/perl.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/pkg-config.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/pkg-config.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/pnpm.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/pnpm.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/postgresql-test-hook.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/postgresql-test-hook.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/premake.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/premake.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/python.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/python.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/redis-test-hook.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/redis-test-hook.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/scons.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/scons.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/tauri.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/tauri.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/tetex-tex-live.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/tetex-tex-live.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/udevCheckHook.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/udevCheckHook.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/unzip.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/unzip.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/validatePkgConfig.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/validatePkgConfig.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/versionCheckHook.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/versionCheckHook.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/waf.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/waf.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/writable-tmpdir-as-home-hook.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/writable-tmpdir-as-home-hook.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/xcbuild.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/xcbuild.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/xfce4-dev-tools.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/xfce4-dev-tools.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/hooks/zig.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/zig.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/interoperability.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/interoperability.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/interoperability/cyclonedx.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/interoperability/cyclonedx.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/interoperability/openxr.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/interoperability/openxr.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/agda.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/agda.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/android.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/android.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/astal.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/astal.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/beam.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/beam.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/chicken.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/chicken.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/cosmic.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/cosmic.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/crystal.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/crystal.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/cuda.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/cuda.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/cuelang.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/cuelang.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/dart.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/dart.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/dhall.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/dhall.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/dlang.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/dlang.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/dotnet.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/dotnet.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/emscripten.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/emscripten.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/factor.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/factor.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/gnome.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/gnome.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/go.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/go.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/gradle.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/gradle.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/hare.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/hare.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/haskell.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/haskell.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/hy.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/hy.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/idris.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/idris.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/idris2.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/idris2.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/index.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/index.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/ios.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/ios.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/java.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/java.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/javascript.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/javascript.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/julia.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/julia.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/lean4.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/lean4.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/lisp.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/lisp.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/lua.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/lua.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/maven.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/maven.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/neovim.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/neovim.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/nim.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/nim.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/ocaml.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/ocaml.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/octave.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/octave.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/perl.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/perl.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/php.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/php.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/pkg-config.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/pkg-config.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/python.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/python.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/qt.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/qt.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/r.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/r.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/rocq.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/rocq.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/ruby.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/ruby.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/rust.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/rust.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/scheme.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/scheme.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/swift.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/swift.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/tcl.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/tcl.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/texlive.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/texlive.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/typst.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/typst.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/languages-frameworks/vim.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/languages-frameworks/vim.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/lib.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/lib.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/manpage-urls.json": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/manpage-urls.json)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/manual.md.in": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/manual.md.in)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/module-system/module-system.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/module-system/module-system.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/modules/generic.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/modules/generic.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/modules/index.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/modules/index.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/build-support.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/build-support.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/cataclysm-dda.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/cataclysm-dda.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/citrix.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/citrix.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/darwin-builder.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/darwin-builder.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/dlib.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/dlib.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/eclipse.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/eclipse.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/elm.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/elm.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/emacs.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/emacs.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/etc-files.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/etc-files.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/firefox.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/firefox.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/fish.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/fish.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/friction-graphics.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/friction-graphics.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/fuse.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/fuse.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/geant4.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/geant4.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/ibus.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/ibus.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/index.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/index.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/inkscape.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/inkscape.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/kakoune.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/kakoune.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/krita.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/krita.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/lhapdf.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/lhapdf.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/linux.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/linux.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/locales.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/locales.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/nginx.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/nginx.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/nrfutil.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/nrfutil.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/opengl.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/opengl.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/python-tree-sitter.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/python-tree-sitter.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/shell-helpers.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/shell-helpers.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/steam.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/steam.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/treefmt.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/treefmt.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/urxvt.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/urxvt.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/uv.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/uv.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/vcpkg.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/vcpkg.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/packages/weechat.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/weechat.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/preface.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/preface.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/redirects.json": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/redirects.json)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/release-notes/release-notes.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/release-notes/release-notes.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/release-notes/rl-2505.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/release-notes/rl-2505.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/release-notes/rl-2511.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/release-notes/rl-2511.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/release-notes/rl-2605.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/release-notes/rl-2605.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/release-notes/rl-2611.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/release-notes/rl-2611.section.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/shell.nix": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/shell.nix)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/stdenv.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/stdenv.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/stdenv/cross-compilation.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/stdenv/cross-compilation.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/stdenv/meta.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/stdenv/meta.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/stdenv/multiple-output.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/stdenv/multiple-output.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/stdenv/passthru.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/stdenv/passthru.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/stdenv/platform-notes.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/stdenv/platform-notes.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/stdenv/stdenv.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/stdenv/stdenv.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/style.css": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/style.css)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/styleguide.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/styleguide.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/tests/manpage-urls.nix": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/tests/manpage-urls.nix)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/tests/manpage-urls.py": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/tests/manpage-urls.py)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/toolchains.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/toolchains.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/toolchains/llvm.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/toolchains/llvm.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/using-nixpkgs.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/using-nixpkgs.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/using/configuration.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/using/configuration.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/using/overlays.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/using/overlays.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/using/overrides.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/using/overrides.chapter.md)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/nixpkgs/using/platform-support.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/using/platform-support.chapter.md)"
+    },
     "/home/runner/work/docharvest.github.io/docharvest.github.io/content/opencv4/CMakeLists.txt": {
       "source_info": "module:docs_opencv4 place (content/opencv4/CMakeLists.txt)"
     },

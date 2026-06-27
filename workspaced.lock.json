@@ -1,6 +1,24 @@
 {
   "dependencies": [
     {
+      "kind": "source",
+      "ref": "github:NixOS/nix",
+      "depName": "NixOS/nix",
+      "packageName": "https://github.com/NixOS/nix",
+      "currentValue": "master",
+      "currentDigest": "53f62712aa8d66bf7198c78962cd7574e0667a92",
+      "datasource": "git-refs"
+    },
+    {
+      "kind": "source",
+      "ref": "github:NixOS/nixpkgs",
+      "depName": "NixOS/nixpkgs",
+      "packageName": "https://github.com/NixOS/nixpkgs",
+      "currentValue": "master",
+      "currentDigest": "264668204933db26918d5acb6caa97f3d9756417",
+      "datasource": "git-refs"
+    },
+    {
       "kind": "tool",
       "ref": "github:astral-sh/ruff",
       "depName": "astral-sh/ruff",
