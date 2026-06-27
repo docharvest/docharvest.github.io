@@ -1,65 +1,95 @@
 ---
-const themes = [
-  { id: 'docharvest', label: 'Light' },
-  { id: 'docharvest-dark', label: 'Dark' },
-] as const;
+// Light / dark toggle (docharvest ↔ docharvest-dark)
 ---
 
-<div class="dropdown dropdown-end" data-theme-chooser>
-  <div tabindex="0" role="button" class="btn btn-ghost btn-sm gap-2" aria-label="Choose theme">
-    <svg xmlns="http://www.w3.org/2000/svg" class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1.5M12 19.5V21M4.22 4.22l1.06 1.06M18.72 18.72l1.06 1.06M3 12h1.5M19.5 12H21M4.22 19.78l1.06-1.06M18.72 5.28l1.06-1.06M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-    </svg>
-    <span class="hidden sm:inline">Theme</span>
-  </div>
-  <ul tabindex="0" class="dropdown-content menu bg-base-100 border border-base-300 rounded-box z-50 w-40 p-2 shadow-none">
-    {
-      themes.map((t) => (
-        <li>
-          <label class="flex cursor-pointer items-center gap-2">
-            <input
-              type="radio"
-              name="theme-chooser"
-              class="theme-controller radio radio-sm radio-primary"
-              value={t.id}
-              data-theme-option={t.id}
-            />
-            <span>{t.label}</span>
-          </label>
-        </li>
-      ))
-    }
-  </ul>
-</div>
+<button
+  type="button"
+  class="btn btn-ghost btn-sm btn-square"
+  data-theme-toggle
+  aria-label="Toggle light and dark theme"
+>
+  <!-- Sun: shown in dark mode (click → light) -->
+  <svg
+    data-theme-icon="sun"
+    xmlns="http://www.w3.org/2000/svg"
+    class="size-4 hidden"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    stroke-width="2"
+    aria-hidden="true"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      d="M12 3v1.5M12 19.5V21M4.22 4.22l1.06 1.06M18.72 18.72l1.06 1.06M3 12h1.5M19.5 12H21M4.22 19.78l1.06-1.06M18.72 5.28l1.06-1.06M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+    ></path>
+  </svg>
+  <!-- Moon: shown in light mode (click → dark) -->
+  <svg
+    data-theme-icon="moon"
+    xmlns="http://www.w3.org/2000/svg"
+    class="size-4"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    stroke-width="2"
+    aria-hidden="true"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"
+    ></path>
+  </svg>
+</button>
 
 <script is:inline>
   (function () {
-    const KEY = 'docharvest-theme';
-    const allowed = new Set(['docharvest', 'docharvest-dark']);
+    var KEY = 'docharvest-theme';
+    var LIGHT = 'docharvest';
+    var DARK = 'docharvest-dark';
+
     function preferred() {
       try {
-        const saved = localStorage.getItem(KEY);
-        if (saved && allowed.has(saved)) return saved;
+        var saved = localStorage.getItem(KEY);
+        if (saved === LIGHT || saved === DARK) return saved;
       } catch (_) {}
-      return window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'docharvest-dark'
-        : 'docharvest';
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? DARK : LIGHT;
     }
+
+    function syncIcons(theme) {
+      var dark = theme === DARK;
+      document.querySelectorAll('[data-theme-icon="sun"]').forEach(function (el) {
+        el.classList.toggle('hidden', !dark);
+      });
+      document.querySelectorAll('[data-theme-icon="moon"]').forEach(function (el) {
+        el.classList.toggle('hidden', dark);
+      });
+      document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
+        btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+        btn.setAttribute(
+          'aria-label',
+          dark ? 'Switch to light theme' : 'Switch to dark theme',
+        );
+      });
+    }
+
     function apply(theme) {
       document.documentElement.setAttribute('data-theme', theme);
-      document.querySelectorAll('[data-theme-option]').forEach(function (el) {
-        el.checked = el.value === theme;
-      });
+      syncIcons(theme);
       try {
         localStorage.setItem(KEY, theme);
       } catch (_) {}
     }
+
     apply(preferred());
-    document.addEventListener('change', function (e) {
-      const t = e.target;
-      if (t && t.classList && t.classList.contains('theme-controller') && allowed.has(t.value)) {
-        apply(t.value);
-      }
+
+    document.addEventListener('click', function (e) {
+      var btn = e.target && e.target.closest && e.target.closest('[data-theme-toggle]');
+      if (!btn) return;
+      var cur = document.documentElement.getAttribute('data-theme');
+      apply(cur === DARK ? LIGHT : DARK);
     });
   })();
 </script>
