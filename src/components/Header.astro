@@ -1,4 +1,5 @@
 ---
+import SearchPalette from './SearchPalette.astro';
 import ThemeChooser from './ThemeChooser.astro';
 import { ORG, orgLogoUrl } from '../lib/brand';
 
@@ -53,6 +54,7 @@ const links = [
       </nav>
     </div>
     <div class="navbar-end gap-1">
+      <SearchPalette />
       <ThemeChooser />
       <div class="dropdown dropdown-end md:hidden">
         <div tabindex="0" role="button" class="btn btn-ghost btn-sm" aria-label="Menu">

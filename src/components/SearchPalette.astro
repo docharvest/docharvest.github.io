@@ -1,0 +1,210 @@
+---
+/**
+ * Ctrl/Cmd+K palette. One Orama **dataset per documentation pack**
+ * (`/search-indexes/<tech>.json`). Never a mixed global index.
+ */
+import { getPacks } from '../lib/docs';
+
+const packs = getPacks().map((p) => ({ id: p.id, title: p.title }));
+---
+
+<button
+  type="button"
+  class="btn btn-ghost btn-sm gap-2 font-normal text-base-content/70"
+  data-search-open
+  aria-haspopup="dialog"
+  aria-controls="search-palette"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" class="size-4 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 18a7 7 0 100-14 7 7 0 000 14z"></path>
+  </svg>
+  <span class="hidden sm:inline">Search</span>
+  <kbd class="kbd kbd-sm hidden opacity-60 md:inline-flex">⌘K</kbd>
+</button>
+
+<dialog id="search-palette" class="modal" data-search-dialog>
+  <div class="modal-box flex max-h-[min(32rem,85dvh)] flex-col gap-3 border border-base-300 bg-base-100 p-0 shadow-none sm:max-w-lg">
+    <div class="flex items-center gap-2 border-b border-base-300 px-3 py-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="size-4 shrink-0 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 18a7 7 0 100-14 7 7 0 000 14z"></path>
+      </svg>
+      <input
+        type="search"
+        class="input input-ghost h-10 min-w-0 flex-1 border-0 bg-transparent px-0 text-base focus:outline-none"
+        placeholder="Search this pack only…"
+        data-search-input
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <kbd class="kbd kbd-sm shrink-0 opacity-50">esc</kbd>
+    </div>
+    <div class="px-3 pb-1">
+      <label class="flex items-center gap-2 text-xs text-base-content/50">
+        <span class="shrink-0">Pack</span>
+        <select class="select select-bordered select-xs w-full max-w-xs border-base-300 bg-base-100" data-search-pack aria-label="Documentation pack">
+          {packs.map((p) => <option value={p.id}>{p.title}</option>)}
+        </select>
+      </label>
+      <p class="mt-1 font-mono text-[0.65rem] text-base-content/40" data-search-status>
+        One Orama dataset per project — results never cross packs.
+      </p>
+    </div>
+    <ul class="menu max-h-72 flex-1 flex-nowrap gap-0 overflow-y-auto px-2 pb-3" data-search-results role="listbox"></ul>
+  </div>
+  <form method="dialog" class="modal-backdrop bg-neutral/40">
+    <button type="submit" class="cursor-default">close</button>
+  </form>
+</dialog>
+
+<script>
+  import { restore } from '@orama/plugin-data-persistence';
+
+  const dialog = document.querySelector('[data-search-dialog]');
+  const input = document.querySelector('[data-search-input]');
+  const packSelect = document.querySelector('[data-search-pack]');
+  const resultsEl = document.querySelector('[data-search-results]');
+  const statusEl = document.querySelector('[data-search-status]');
+  if (!dialog || !input || !packSelect || !resultsEl || !statusEl) throw new Error('search UI missing');
+
+  /** @type {Map<string, Promise<import('@orama/orama').AnyOrama | null>>} */
+  const dbByTech = new Map();
+
+  function techFromLocation() {
+    const m = location.pathname.match(/\/docs\/([^/]+)/);
+    return m ? m[1] : '';
+  }
+
+  function syncPackFromRoute() {
+    const t = techFromLocation();
+    if (t && [...packSelect.options].some((o) => o.value === t)) {
+      packSelect.value = t;
+    }
+  }
+
+  function loadDb(tech) {
+    if (!tech) return Promise.resolve(null);
+    const hit = dbByTech.get(tech);
+    if (hit) return hit;
+    const p = fetch(`/search-indexes/${encodeURIComponent(tech)}.json`)
+      .then((res) => {
+        if (!res.ok) throw new Error(`index ${tech} HTTP ${res.status}`);
+        return res.text();
+      })
+      .then((text) => restore('json', text))
+      .catch((err) => {
+        dbByTech.delete(tech);
+        statusEl.textContent = `Failed to load index for “${tech}”.`;
+        console.error(err);
+        return null;
+      });
+    dbByTech.set(tech, p);
+    return p;
+  }
+
+  function renderHits(hits) {
+    resultsEl.innerHTML = '';
+    if (!hits?.length) {
+      const empty = document.createElement('li');
+      empty.className = 'px-3 py-2 text-sm text-base-content/50';
+      empty.textContent = input.value.trim()
+        ? 'No matches in this pack.'
+        : 'Type to search — only the selected pack is queried.';
+      resultsEl.appendChild(empty);
+      return;
+    }
+    for (const hit of hits) {
+      const doc = hit.document;
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = doc.path;
+      a.setAttribute('role', 'option');
+      a.className = 'flex flex-col gap-0.5 rounded-lg px-3 py-2';
+      const t = document.createElement('span');
+      t.className = 'font-medium';
+      t.textContent = doc.title;
+      const s = document.createElement('span');
+      s.className = 'font-mono text-[0.65rem] text-base-content/45';
+      s.textContent = doc.path;
+      a.append(t, s);
+      li.appendChild(a);
+      resultsEl.appendChild(li);
+    }
+  }
+
+  let searchTimer = 0;
+  function runSearch() {
+    const tech = packSelect.value;
+    const term = input.value.trim();
+    if (!tech) {
+      renderHits([]);
+      return;
+    }
+    statusEl.textContent = `Dataset: ${tech} only (no cross-pack mix)`;
+    if (!term) {
+      renderHits([]);
+      return;
+    }
+    loadDb(tech).then((db) => {
+      if (!db) return null;
+      return db.search({
+        term,
+        limit: 12,
+        properties: ['title', 'description', 'body', 'slugPath'],
+      });
+    }).then((res) => {
+      if (res) renderHits(res.hits);
+    });
+  }
+
+  function openPalette() {
+    syncPackFromRoute();
+    dialog.showModal();
+    input.value = '';
+    renderHits([]);
+    const tech = packSelect.value;
+    statusEl.textContent = tech ? `Loading “${tech}” index…` : 'Select a pack.';
+    if (tech) {
+      loadDb(tech).then(() => {
+        statusEl.textContent = `Dataset: ${tech} only (no cross-pack mix)`;
+        input.focus();
+      });
+    } else {
+      input.focus();
+    }
+  }
+
+  document.querySelectorAll('[data-search-open]').forEach((btn) => {
+    btn.addEventListener('click', openPalette);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      if (dialog.open) dialog.close();
+      else openPalette();
+    }
+  });
+
+  input.addEventListener('input', () => {
+    window.clearTimeout(searchTimer);
+    searchTimer = window.setTimeout(runSearch, 120);
+  });
+
+  packSelect.addEventListener('change', () => {
+    input.value = '';
+    renderHits([]);
+    const tech = packSelect.value;
+    statusEl.textContent = tech ? `Loading “${tech}” index…` : 'Select a pack.';
+    if (tech) {
+      loadDb(tech).then(() => {
+        statusEl.textContent = `Dataset: ${tech} only (no cross-pack mix)`;
+        input.focus();
+      });
+    }
+  });
+
+  resultsEl.addEventListener('click', (e) => {
+    const a = e.target.closest('a');
+    if (a?.href) dialog.close();
+  });
+</script>
