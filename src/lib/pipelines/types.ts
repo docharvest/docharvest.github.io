@@ -7,6 +7,13 @@ export type DocPack = {
   description: string;
   source: string;
   repo: string;
+  /** owner/repo from workspaced.cue (optional in older manifests) */
+  github?: string;
+  /**
+   * Project mark — defaults to the GitHub owner avatar for `github` / `repo`
+   * (`https://github.com/{owner}.png`), i.e. the org/user icon for that repo.
+   */
+  logo: string;
   /** How this pack’s files under `content/<id>/` are turned into pages. */
   pipeline: PipelineId;
 };
@@ -18,9 +25,7 @@ export type DocPage = {
   title: string;
   description: string;
   order: number;
-  /** Astro MD/MDX component (astro-md pipeline) */
   Content: unknown | null;
-  /** Pre-rendered HTML (marked pipeline) */
   html: string | null;
   headings: { depth: number; slug: string; text: string }[];
   filePath: string;
@@ -31,10 +36,6 @@ export type PipelineContext = {
   pack: DocPack;
 };
 
-/**
- * One rendering strategy for a documentation pack.
- * Prefer `collect` when fully sync; use `collectAsync` when highlighting needs await (Shiki).
- */
 export type DocPipeline = {
   id: PipelineId;
   collect?(ctx: PipelineContext): DocPage[];

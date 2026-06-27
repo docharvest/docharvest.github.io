@@ -10,7 +10,8 @@
       "description": {{ printf "%q" .description }},
       "pipeline": {{ printf "%q" .pipeline }},
       "repo": {{ printf "%q" (printf "https://github.com/%s" .github) }},
-      "source": {{ printf "%q" (printf "https://github.com/%s/tree/%s/%s" .github .treeRef .origin) }}
+      "source": {{ printf "%q" (printf "https://github.com/%s/tree/%s/%s" .github .treeRef .origin) }},
+      "github": {{ printf "%q" .github }}
     }
 {{- $sep = "," }}
 {{- end }}

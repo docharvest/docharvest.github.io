@@ -17,13 +17,32 @@ export { getPipeline, listPipelines } from './pipelines/registry';
 
 const DEFAULT_PIPELINE: PipelineId = 'astro-md';
 
+/** GitHub owner avatar — what you see as the org/user icon on the repo. */
+export function logoFromGithub(githubOrRepo: string, size = 128): string {
+  let owner = githubOrRepo.trim();
+  if (owner.startsWith('https://github.com/')) {
+    owner = owner.slice('https://github.com/'.length);
+  }
+  owner = owner.replace(/\.git$/, '').split('/')[0] || owner;
+  if (!owner) return '';
+  return `https://github.com/${owner}.png?size=${size}`;
+}
+
 function normalizePack(raw: Partial<DocPack> & { id: string }): DocPack {
+  const github = raw.github ?? '';
+  const repo = raw.repo ?? (github ? `https://github.com/${github}` : '');
+  const logo =
+    raw.logo ||
+    logoFromGithub(github || repo) ||
+    '';
   return {
     id: raw.id,
     title: raw.title ?? raw.id,
     description: raw.description ?? '',
     source: raw.source ?? '',
-    repo: raw.repo ?? '',
+    repo,
+    github: github || undefined,
+    logo,
     pipeline: (raw.pipeline as PipelineId | undefined) ?? DEFAULT_PIPELINE,
   };
 }

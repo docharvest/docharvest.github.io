@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PackLogo from '../../components/PackLogo.astro';
 import { getAllPagesAsync, getPacks, getPagesForTech } from '../../lib/docs';
 
 await getAllPagesAsync();
@@ -17,8 +18,7 @@ const packs = getPacks().map((p) => ({
       <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">Documentation packs</h1>
       <p class="mt-3 text-base-content/80 text-pretty">
         Each pack is a tech id under <code class="rounded-field bg-base-200 px-1.5 py-0.5 text-sm">/docs/:tech</code>.
-        Agent-oriented indexes are <strong>tech-specific only</strong> — open
-        <code class="rounded-field bg-base-200 px-1.5 py-0.5 text-sm">/docs/:tech/llms.txt</code>.
+        Marks are the GitHub owner avatar for the upstream repo.
       </p>
     </header>
     <ul class="divide-y divide-base-300 rounded-box border border-base-300 bg-base-100">
@@ -27,12 +27,15 @@ const packs = getPacks().map((p) => ({
           <li>
             <a
               href={`${base}docs/${p.id}/`}
-              class="flex flex-col gap-1 px-5 py-4 transition-colors hover:bg-base-200/50 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
+              class="flex flex-col gap-3 px-5 py-4 transition-colors hover:bg-base-200/50 sm:flex-row sm:items-center sm:gap-4"
             >
-              <span class="font-medium">{p.title}</span>
-              <span class="text-sm text-base-content/70 sm:text-right">
-                {p.description}
-                {p.pageCount > 0 ? ` · ${p.pageCount} pages` : ''}
+              <PackLogo logo={p.logo} title={p.title} size={36} />
+              <span class="min-w-0 flex-1">
+                <span class="font-medium">{p.title}</span>
+                <span class="mt-1 block text-sm text-base-content/70 text-pretty">
+                  {p.description}
+                  {p.pageCount > 0 ? ` · ${p.pageCount} pages` : ''}
+                </span>
               </span>
             </a>
           </li>

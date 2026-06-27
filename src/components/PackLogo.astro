@@ -1,0 +1,42 @@
+---
+interface Props {
+  logo: string;
+  title: string;
+  /** pixel size of the square mark */
+  size?: number;
+  class?: string;
+}
+
+const { logo, title, size = 32, class: className = '' } = Astro.props;
+const dim = `${size}px`;
+---
+
+{
+  logo ? (
+    <img
+      src={logo}
+      alt=""
+      width={size}
+      height={size}
+      loading="lazy"
+      decoding="async"
+      class:list={[
+        'shrink-0 rounded-md border border-base-300 bg-base-200 object-cover',
+        className,
+      ]}
+      style={`width:${dim};height:${dim}`}
+      title={title}
+    />
+  ) : (
+    <span
+      class:list={[
+        'inline-flex shrink-0 items-center justify-center rounded-md border border-base-300 bg-base-200 font-mono text-xs font-semibold text-base-content/60',
+        className,
+      ]}
+      style={`width:${dim};height:${dim}`}
+      aria-hidden="true"
+    >
+      {title.slice(0, 1).toUpperCase()}
+    </span>
+  )
+}
