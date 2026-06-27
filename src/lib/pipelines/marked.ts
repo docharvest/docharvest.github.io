@@ -7,6 +7,7 @@
 import { marked } from 'marked';
 import type { DocPage, DocPipeline, PipelineContext } from './types';
 import {
+  ensureLeadingH1Markdown,
   pageOrder,
   parseContentPath,
   stripYamlFrontmatter,
@@ -34,7 +35,8 @@ export const markedPipeline: DocPipeline = {
       const { tech, segments } = parsed;
       const slugPath = segments.join('/');
       const title = titleFromDocSource(raw, segments, slugPath);
-      const html = renderMarkdown(raw);
+      // Chosen title is also the first H1 in the rendered body (nav + article agree)
+      const html = renderMarkdown(ensureLeadingH1Markdown(raw, title));
 
       pages.push({
         tech,

@@ -95,3 +95,29 @@ export function titleFromDocSource(raw: string, segments: string[], slugPath = '
 
   return fromSlug;
 }
+
+/**
+ * Make `title` the first ATX H1 in the markdown body (after frontmatter).
+ * Replaces an existing leading `# …` line, or inserts one before the rest.
+ * Keeps YAML frontmatter intact when present.
+ */
+export function ensureLeadingH1Markdown(raw: string, title: string): string {
+  const safe = title.replace(/\r?\n/g, ' ').trim() || 'Overview';
+  const yaml = raw.match(/^(---\r?\n[\s\S]*?\r?\n---\r?\n)/);
+  const prefix = yaml ? yaml[1] : '';
+  let body = yaml ? raw.slice(prefix.length) : raw;
+
+  const lines = body.split(/\r?\n/);
+  let i = 0;
+  while (i < lines.length && lines[i]!.trim() === '') i++;
+
+  if (i < lines.length && /^#\s+/.test(lines[i]!.trim()) && !/^##/.test(lines[i]!.trim())) {
+    lines[i] = `# ${safe}`;
+    body = lines.join('\n');
+  } else {
+    const rest = body.replace(/^\s*\n/, '');
+    body = `# ${safe}\n\n${rest}`;
+  }
+
+  return prefix + body;
+}
