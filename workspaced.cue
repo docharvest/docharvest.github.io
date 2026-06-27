@@ -3,6 +3,9 @@ package workspaced
 // Documentation packs placed via core:place under content/<destination>/.
 // Each entry is one "tech" shown at /docs/:tech on the Astro site.
 // `version` is the git ref (branch / tag / SHA) for the github input.
+//
+// Site rendering pipeline is chosen in content/manifest.json (`pipeline`), not here.
+// Keep destination id aligned with manifest pack id.
 #docs: {
 	renovate: {
 		from:        "github:renovatebot/renovate"

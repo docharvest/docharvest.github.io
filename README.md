@@ -19,10 +19,13 @@ There is **no** site-wide `/llms.txt`.
 
 Packs are managed like [lewtec/skills](https://github.com/lewtec/skills) but under `#docs` in [`workspaced.cue`](workspaced.cue).
 
-1. Add an entry under `#docs` (and mirror metadata in [`content/manifest.json`](content/manifest.json) for titles shown on the site).
-2. Run `workspaced mod lock` (or let Renovate refresh [`workspaced.lock.json`](workspaced.lock.json)).
-3. Run `workspaced codebase apply` to place files under `content/<destination>/`.
-4. Build the site — Astro picks up `content/**/*.{md,mdx}`.
+1. Add an entry under `#docs` (destination id = pack id).
+2. Mirror metadata in [`content/manifest.json`](content/manifest.json), including **`pipeline`**:
+   - `astro-md` — Astro/Vite Markdown & MDX (default for normal `.md` trees).
+   - `marked` — plain `marked` on file text (`.md` / `.markdown`; no dialect transforms). Use when Astro’s MD loader cannot handle the tree.
+3. Implement extra pipelines under [`src/lib/pipelines/`](src/lib/pipelines/) and register them in `registry.ts` if needed.
+4. Run `workspaced mod lock` then `workspaced codebase apply` → `content/<id>/`.
+5. `npm run build`.
 
 First pack: **renovate** from [`renovatebot/renovate` `docs/`](https://github.com/renovatebot/renovate/tree/main/docs).
 
