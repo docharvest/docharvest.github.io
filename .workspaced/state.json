@@ -1,5 +1,8 @@
 {
   "files": {
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/manifest.json": {
+      "source_info": "source:config-tree (content/manifest.json.tmpl)"
+    },
     "/home/runner/work/docharvest.github.io/docharvest.github.io/content/opencv4/CMakeLists.txt": {
       "source_info": "module:docs_opencv4 place (content/opencv4/CMakeLists.txt)"
     },
