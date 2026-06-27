@@ -142,3 +142,10 @@ html[data-theme="docharvest-dark"] .astro-code span {
 .font-mono {
   font-family: var(--font-mono);
 }
+
+/* Docs sidebar: lock scroll while mobile drawer is open */
+@media (max-width: 1023px) {
+  body:has(#docs-sidebar-toggle:checked) {
+    overflow: hidden;
+  }
+}
