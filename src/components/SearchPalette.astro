@@ -32,10 +32,19 @@
         data-search-input
         autocomplete="off"
         spellcheck="false"
+        role="combobox"
+        aria-autocomplete="list"
+        aria-controls="search-palette-results"
+        aria-expanded="false"
       />
       <kbd class="kbd kbd-sm shrink-0 opacity-50">esc</kbd>
     </div>
-    <ul class="max-h-72 list-none overflow-y-auto p-2" data-search-results role="listbox"></ul>
+    <ul
+      id="search-palette-results"
+      class="max-h-72 list-none overflow-y-auto p-2"
+      data-search-results
+      role="listbox"
+    ></ul>
   </div>
 </dialog>
 
@@ -45,6 +54,9 @@
   }
   .search-palette-dialog::backdrop {
     background: color-mix(in oklab, #000 45%, transparent);
+  }
+  .search-palette-dialog [data-search-results] a[data-active='true'] {
+    background-color: color-mix(in oklab, var(--color-primary, #2d6a4f) 18%, var(--color-base-200, #eee));
   }
 </style>
 
@@ -58,6 +70,9 @@
   if (dialog instanceof HTMLDialogElement && input instanceof HTMLInputElement && resultsEl) {
     /** @type {Map<string, Promise<MiniSearch | null>>} */
     const cache = new Map();
+    /** @type {{ title: string, path: string }[]} */
+    let currentHits = [];
+    let activeIndex = -1;
     let searchTimer = 0;
 
     function techFromLocation() {
@@ -96,22 +111,56 @@
       return p;
     }
 
+    function resultLinks() {
+      return [...resultsEl.querySelectorAll('a[href]')];
+    }
+
+    function setActive(index) {
+      const links = resultLinks();
+      if (!links.length) {
+        activeIndex = -1;
+        input.removeAttribute('aria-activedescendant');
+        return;
+      }
+      activeIndex = ((index % links.length) + links.length) % links.length;
+      links.forEach((a, i) => {
+        const on = i === activeIndex;
+        a.toggleAttribute('data-active', on);
+        a.setAttribute('aria-selected', on ? 'true' : 'false');
+        if (on) {
+          if (!a.id) a.id = `search-hit-${i}`;
+          input.setAttribute('aria-activedescendant', a.id);
+          a.scrollIntoView({ block: 'nearest' });
+        }
+      });
+    }
+
     function renderHits(rows) {
+      currentHits = rows || [];
+      activeIndex = -1;
       resultsEl.innerHTML = '';
+      input.setAttribute('aria-expanded', currentHits.length ? 'true' : 'false');
+
       const tech = techFromLocation();
-      if (!rows?.length) {
+      if (!currentHits.length) {
         const empty = document.createElement('li');
         empty.className = 'px-3 py-2 text-sm text-base-content/50';
         if (!tech) empty.textContent = 'Open a documentation pack (/docs/…) to search.';
         else if (!input.value.trim()) empty.textContent = 'Type to search this pack only.';
         else empty.textContent = 'No matches.';
         resultsEl.appendChild(empty);
+        input.removeAttribute('aria-activedescendant');
         return;
       }
-      for (const doc of rows) {
+
+      currentHits.forEach((doc, i) => {
         const li = document.createElement('li');
+        li.setAttribute('role', 'presentation');
         const a = document.createElement('a');
         a.href = doc.path;
+        a.id = `search-hit-${i}`;
+        a.setAttribute('role', 'option');
+        a.setAttribute('aria-selected', 'false');
         a.className =
           'block rounded-md px-3 py-2 hover:bg-base-200 focus:bg-base-200 focus:outline-none';
         const t = document.createElement('span');
@@ -123,7 +172,10 @@
         a.append(t, s);
         li.appendChild(a);
         resultsEl.appendChild(li);
-      }
+      });
+
+      // Highlight first result by default (palette UX)
+      setActive(0);
     }
 
     function runSearch() {
@@ -142,6 +194,14 @@
       });
     }
 
+    function goActive() {
+      const links = resultLinks();
+      if (activeIndex < 0 || !links[activeIndex]) return;
+      const href = links[activeIndex].href;
+      closePalette();
+      location.assign(href);
+    }
+
     function openPalette() {
       const tech = techFromLocation();
       try {
@@ -157,6 +217,8 @@
 
     function closePalette() {
       if (dialog.open) dialog.close();
+      activeIndex = -1;
+      input.removeAttribute('aria-activedescendant');
     }
 
     document.querySelectorAll('[data-search-open]').forEach((btn) => {
@@ -180,6 +242,39 @@
       else openPalette();
     });
 
+    // Arrow / Enter while focus is in the search field (or dialog)
+    input.addEventListener('keydown', (e) => {
+      const links = resultLinks();
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        if (!links.length) return;
+        setActive(activeIndex < 0 ? 0 : activeIndex + 1);
+        return;
+      }
+      if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (!links.length) return;
+        setActive(activeIndex < 0 ? links.length - 1 : activeIndex - 1);
+        return;
+      }
+      if (e.key === 'Enter') {
+        if (activeIndex >= 0 && links[activeIndex]) {
+          e.preventDefault();
+          goActive();
+        }
+        return;
+      }
+      if (e.key === 'Home' && links.length) {
+        e.preventDefault();
+        setActive(0);
+        return;
+      }
+      if (e.key === 'End' && links.length) {
+        e.preventDefault();
+        setActive(links.length - 1);
+      }
+    });
+
     dialog.addEventListener('click', (e) => {
       if (e.target === dialog) closePalette();
     });
@@ -187,6 +282,14 @@
     input.addEventListener('input', () => {
       window.clearTimeout(searchTimer);
       searchTimer = window.setTimeout(runSearch, 100);
+    });
+
+    resultsEl.addEventListener('mousemove', (e) => {
+      const a = e.target instanceof Element ? e.target.closest('a[href]') : null;
+      if (!a || !resultsEl.contains(a)) return;
+      const links = resultLinks();
+      const i = links.indexOf(a);
+      if (i >= 0 && i !== activeIndex) setActive(i);
     });
 
     resultsEl.addEventListener('click', (e) => {
