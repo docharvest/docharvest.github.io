@@ -37,12 +37,18 @@ export function getPack(tech: string): DocPack | undefined {
   return getPacks().find((p) => p.id === tech);
 }
 
-function buildPages(): DocPage[] {
+async function buildPagesAsync(): Promise<DocPage[]> {
   const pages: DocPage[] = [];
 
   for (const pack of getPacks()) {
     const pipeline = getPipeline(pack.pipeline);
-    pages.push(...pipeline.collect({ pack }));
+    if (pipeline.collectAsync) {
+      pages.push(...(await pipeline.collectAsync({ pack })));
+    } else if (pipeline.collect) {
+      pages.push(...pipeline.collect({ pack }));
+    } else {
+      throw new Error(`Pipeline ${pipeline.id} has neither collect nor collectAsync`);
+    }
   }
 
   const byKey = new Map<string, DocPage>();
@@ -62,11 +68,26 @@ function buildPages(): DocPage[] {
   );
 }
 
-let _pages: DocPage[] | null = null;
+// Eager async init at module load (Astro build / Vite SSR supports top-level await).
+const pagesPromise = buildPagesAsync();
+
+export async function getAllPagesAsync(): Promise<DocPage[]> {
+  return pagesPromise;
+}
+
+/** Sync accessor — only valid after pagesPromise settled; prefer getAllPagesAsync in async contexts. */
+let _pagesSync: DocPage[] | null = null;
+pagesPromise.then((p) => {
+  _pagesSync = p;
+});
 
 export function getAllPages(): DocPage[] {
-  if (!_pages) _pages = buildPages();
-  return _pages;
+  if (!_pagesSync) {
+    throw new Error(
+      'Doc pages not ready yet (Shiki warm-up). Use getAllPagesAsync() in getStaticPaths / async frontmatter.',
+    );
+  }
+  return _pagesSync;
 }
 
 export function getPagesForTech(tech: string): DocPage[] {

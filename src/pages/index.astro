@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getPacks, getPagesForTech } from '../lib/docs';
+import { getAllPagesAsync, getPacks, getPagesForTech } from '../lib/docs';
+
+await getAllPagesAsync();
 
 const base = import.meta.env.BASE_URL;
 const packs = getPacks().map((p) => ({
@@ -44,10 +46,7 @@ const packs = getPacks().map((p) => ({
                 </span>
                 <span class="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-xs text-base-content/50 sm:justify-end">
                   <span>{p.pageCount > 0 ? `${p.pageCount} pages` : 'pending'}</span>
-                  <span
-                    class="text-base-content/40 group-hover:text-primary"
-                    title={`llms.txt for ${p.id}`}
-                  >
+                  <span class="text-base-content/40 group-hover:text-primary" title={`llms.txt for ${p.id}`}>
                     llms.txt
                   </span>
                 </span>

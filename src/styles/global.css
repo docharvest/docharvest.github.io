@@ -174,3 +174,20 @@ html[data-theme="docharvest-dark"] .astro-code span {
     overflow: hidden;
   }
 }
+
+/* Shiki dual-theme (marked pipeline + Astro MD) */
+html[data-theme="docharvest-dark"] .astro-code.shiki,
+html[data-theme="docharvest-dark"] .astro-code.shiki span,
+html[data-theme="docharvest-dark"] pre.shiki,
+html[data-theme="docharvest-dark"] pre.shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
+}
+
+.docs-prose :where(pre.astro-code, pre.shiki) {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}

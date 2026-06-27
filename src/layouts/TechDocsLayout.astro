@@ -1,6 +1,8 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import { getPack, getTechNav, humanizeSegment } from '../lib/docs';
+import { getAllPagesAsync, getPack, getTechNav, humanizeSegment } from '../lib/docs';
+
+await getAllPagesAsync();
 
 interface Props {
   tech: string;

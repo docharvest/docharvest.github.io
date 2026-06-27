@@ -33,9 +33,10 @@ export type PipelineContext = {
 
 /**
  * One rendering strategy for a documentation pack.
- * Pipelines must not apply dialect-specific rewrites unless that is the pipeline’s explicit job.
+ * Prefer `collect` when fully sync; use `collectAsync` when highlighting needs await (Shiki).
  */
 export type DocPipeline = {
   id: PipelineId;
-  collect(ctx: PipelineContext): DocPage[];
+  collect?(ctx: PipelineContext): DocPage[];
+  collectAsync?(ctx: PipelineContext): Promise<DocPage[]>;
 };

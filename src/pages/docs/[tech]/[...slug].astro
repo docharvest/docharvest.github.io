@@ -1,10 +1,11 @@
 ---
 import DocContent from '../../../components/DocContent.astro';
 import TechDocsLayout from '../../../layouts/TechDocsLayout.astro';
-import { getAllPages } from '../../../lib/docs';
+import { getAllPagesAsync } from '../../../lib/docs';
 
-export function getStaticPaths() {
-  return getAllPages()
+export async function getStaticPaths() {
+  const all = await getAllPagesAsync();
+  return all
     .filter((p) => p.slugPath)
     .map((page) => ({
       params: { tech: page.tech, slug: page.slugPath },
@@ -13,10 +14,8 @@ export function getStaticPaths() {
 }
 
 const { page } = Astro.props;
-// Astro MD often starts with # Title matching frontmatter; OpenCV html has <h1>
 const hasContentTitle = Boolean(
-  page.html?.includes('<h1') ||
-    (page.headings?.some((h) => h.depth === 1)),
+  page.html?.includes('<h1') || page.headings?.some((h) => h.depth === 1),
 );
 ---
 
