@@ -1,6 +1,33 @@
 {
   "packs": [
     {
+      "id": "nix",
+      "title": "Nix",
+      "description": "Nix package manager manual (source) from NixOS/nix on master.",
+      "pipeline": "marked",
+      "repo": "https://github.com/NixOS/nix",
+      "source": "https://github.com/NixOS/nix/tree/master/doc/manual/source",
+      "github": "NixOS/nix"
+    }
+,    {
+      "id": "nixos",
+      "title": "NixOS",
+      "description": "NixOS manual from NixOS/nixpkgs on master (nixos/doc/manual).",
+      "pipeline": "marked",
+      "repo": "https://github.com/NixOS/nixpkgs",
+      "source": "https://github.com/NixOS/nixpkgs/tree/master/nixos/doc/manual",
+      "github": "NixOS/nixpkgs"
+    }
+,    {
+      "id": "nixpkgs",
+      "title": "Nixpkgs",
+      "description": "Nixpkgs documentation from NixOS/nixpkgs on master (doc/).",
+      "pipeline": "marked",
+      "repo": "https://github.com/NixOS/nixpkgs",
+      "source": "https://github.com/NixOS/nixpkgs/tree/master/doc",
+      "github": "NixOS/nixpkgs"
+    }
+,    {
       "id": "opencv4",
       "title": "OpenCV 4",
       "description": "OpenCV 4.x documentation and tutorials from the opencv/opencv 4.x branch (doc/).",
