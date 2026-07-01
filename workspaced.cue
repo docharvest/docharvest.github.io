@@ -76,14 +76,17 @@ package workspaced
 		pipeline:    "marked"
 	}
 	astro: {
-		from: "github:withastro/docs"
-		github: "withastro/docs"
-		version: "main"
-		origin: "src/content/docs/en"
+		from:        "github:withastro/docs"
+		github:      "withastro/docs"
+		version:     "main"
+		origin:      "src/content/docs/en"
 		destination: "astro"
-		title: "Astro"
+		title:       "Astro"
+		// marked (+ .mdx): Starlight/~/components imports cannot compile under this site
+		pipeline:    "marked"
 	}
 }
+
 
 #docs: [string]: {
 	from:        string | *""

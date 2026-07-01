@@ -4,7 +4,7 @@
       "id": "astro",
       "title": "Astro",
       "description": "",
-      "pipeline": "astro-md",
+      "pipeline": "marked",
       "repo": "https://github.com/withastro/docs",
       "source": "https://github.com/withastro/docs/tree/main/src/content/docs/en",
       "github": "withastro/docs"
