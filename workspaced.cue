@@ -75,6 +75,14 @@ package workspaced
 		description: "NixOS manual from NixOS/nixpkgs on master (nixos/doc/manual)."
 		pipeline:    "marked"
 	}
+	astro: {
+		from: "github:withastro/docs"
+		github: "withastro/docs"
+		version: "main"
+		origin: "src/content/docs/en"
+		destination: "astro"
+		title: "Astro"
+	}
 }
 
 #docs: [string]: {
