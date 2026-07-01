@@ -1,6 +1,15 @@
 {
   "packs": [
     {
+      "id": "astro",
+      "title": "Astro",
+      "description": "",
+      "pipeline": "astro-md",
+      "repo": "https://github.com/withastro/docs",
+      "source": "https://github.com/withastro/docs/tree/main/src/content/docs/en",
+      "github": "withastro/docs"
+    }
+,    {
       "id": "nix",
       "title": "Nix",
       "description": "Nix package manager manual (source) from NixOS/nix on master.",

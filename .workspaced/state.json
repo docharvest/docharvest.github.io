@@ -1,5 +1,1253 @@
 {
   "files": {
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/astro-courses.mdx": {
+      "source_info": "module:docs_astro place (content/astro/astro-courses.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/basics/astro-components.mdx": {
+      "source_info": "module:docs_astro place (content/astro/basics/astro-components.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/basics/astro-pages.mdx": {
+      "source_info": "module:docs_astro place (content/astro/basics/astro-pages.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/basics/layouts.mdx": {
+      "source_info": "module:docs_astro place (content/astro/basics/layouts.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/basics/project-structure.mdx": {
+      "source_info": "module:docs_astro place (content/astro/basics/project-structure.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/concepts/islands.mdx": {
+      "source_info": "module:docs_astro place (content/astro/concepts/islands.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/concepts/why-astro.mdx": {
+      "source_info": "module:docs_astro place (content/astro/concepts/why-astro.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/contribute.mdx": {
+      "source_info": "module:docs_astro place (content/astro/contribute.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/develop-and-build.mdx": {
+      "source_info": "module:docs_astro place (content/astro/develop-and-build.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/editor-setup.mdx": {
+      "source_info": "module:docs_astro place (content/astro/editor-setup.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/getting-started.mdx": {
+      "source_info": "module:docs_astro place (content/astro/getting-started.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/actions.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/actions.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/authentication.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/authentication.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/backend/appwrite.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/backend/appwrite.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/backend/firebase.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/backend/firebase.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/backend/index.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/backend/index.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/backend/neon.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/backend/neon.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/backend/prisma-postgres.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/backend/prisma-postgres.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/backend/scalekit.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/backend/scalekit.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/backend/sentry.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/backend/sentry.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/backend/supabase.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/backend/supabase.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/backend/turso.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/backend/turso.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/backend/xata.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/backend/xata.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/build-with-ai.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/build-with-ai.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/caching.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/caching.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/client-side-scripts.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/client-side-scripts.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/apostrophecms.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/apostrophecms.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/builderio.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/builderio.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/buttercms.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/buttercms.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/caisy.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/caisy.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/cloudcannon.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/cloudcannon.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/contentful.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/contentful.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/cosmic.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/cosmic.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/craft-cms.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/craft-cms.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/craft-cross-cms.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/craft-cross-cms.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/crystallize.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/crystallize.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/datocms.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/datocms.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/decap-cms.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/decap-cms.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/directus.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/directus.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/drupal.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/drupal.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/flotiq.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/flotiq.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/frontmatter-cms.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/frontmatter-cms.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/ghost.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/ghost.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/gitcms.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/gitcms.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/hashnode.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/hashnode.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/hygraph.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/hygraph.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/index.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/index.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/jekyllpad.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/jekyllpad.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/keystatic.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/keystatic.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/keystonejs.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/keystonejs.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/kontent-ai.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/kontent-ai.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/microcms.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/microcms.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/optimizely.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/optimizely.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/pages-cms.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/pages-cms.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/payload.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/payload.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/preprcms.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/preprcms.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/prismic.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/prismic.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/sanity.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/sanity.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/sitecore.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/sitecore.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/sitepins.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/sitepins.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/spinal.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/spinal.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/statamic.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/statamic.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/storyblok.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/storyblok.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/strapi.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/strapi.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/studiocms.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/studiocms.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/tina-cms.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/tina-cms.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/umbraco.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/umbraco.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/vault-cms.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/vault-cms.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/wordpress.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/wordpress.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/cms/zero.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/cms/zero.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/configuring-astro.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/configuring-astro.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/content-collections.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/content-collections.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/data-fetching.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/data-fetching.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/aws-via-flightcontrol.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/aws-via-flightcontrol.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/aws-via-sst.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/aws-via-sst.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/aws.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/aws.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/azion.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/azion.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/buddy.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/buddy.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/cleavr.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/cleavr.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/clever-cloud.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/clever-cloud.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/cloudflare.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/cloudflare.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/cloudray.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/cloudray.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/deno.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/deno.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/deployhq.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/deployhq.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/edgeone-pages.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/edgeone-pages.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/firebase.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/firebase.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/fleek.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/fleek.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/flyio.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/flyio.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/github.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/github.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/gitlab.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/gitlab.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/google-cloud.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/google-cloud.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/heroku.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/heroku.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/hostinger.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/hostinger.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/index.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/index.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/microsoft-azure.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/microsoft-azure.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/netlify.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/netlify.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/railway.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/railway.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/render.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/render.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/seenode.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/seenode.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/sevalla.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/sevalla.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/stormkit.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/stormkit.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/surge.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/surge.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/vercel.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/vercel.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/zeabur.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/zeabur.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/zephyr.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/zephyr.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/deploy/zerops.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/deploy/zerops.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/dev-toolbar.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/dev-toolbar.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/ecommerce.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/ecommerce.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/endpoints.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/endpoints.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/environment-variables.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/environment-variables.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/fonts.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/fonts.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/framework-components.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/framework-components.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/images.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/images.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/imports.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/imports.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/integrations-guide/alpinejs.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/integrations-guide/alpinejs.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/integrations-guide/cloudflare.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/integrations-guide/cloudflare.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/integrations-guide/db.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/integrations-guide/db.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/integrations-guide/deno.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/integrations-guide/deno.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/integrations-guide/lit.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/integrations-guide/lit.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/integrations-guide/markdoc.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/integrations-guide/markdoc.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/integrations-guide/mdx.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/integrations-guide/mdx.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/integrations-guide/netlify.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/integrations-guide/netlify.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/integrations-guide/node.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/integrations-guide/node.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/integrations-guide/partytown.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/integrations-guide/partytown.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/integrations-guide/preact.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/integrations-guide/preact.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/integrations-guide/prefetch.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/integrations-guide/prefetch.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/integrations-guide/react.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/integrations-guide/react.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/integrations-guide/sitemap.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/integrations-guide/sitemap.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/integrations-guide/solid-js.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/integrations-guide/solid-js.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/integrations-guide/svelte.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/integrations-guide/svelte.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/integrations-guide/tailwind.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/integrations-guide/tailwind.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/integrations-guide/vercel.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/integrations-guide/vercel.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/integrations-guide/vue.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/integrations-guide/vue.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/integrations.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/integrations.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/internationalization.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/internationalization.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/markdown-content.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/markdown-content.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/media/cloudinary.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/media/cloudinary.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/media/imagekit.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/media/imagekit.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/media/index.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/media/index.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/media/mux.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/media/mux.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/middleware.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/middleware.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/migrate-to-astro/from-create-react-app.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/migrate-to-astro/from-create-react-app.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/migrate-to-astro/from-docusaurus.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/migrate-to-astro/from-docusaurus.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/migrate-to-astro/from-eleventy.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/migrate-to-astro/from-eleventy.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/migrate-to-astro/from-gatsby.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/migrate-to-astro/from-gatsby.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/migrate-to-astro/from-gitbook.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/migrate-to-astro/from-gitbook.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/migrate-to-astro/from-gridsome.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/migrate-to-astro/from-gridsome.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/migrate-to-astro/from-hugo.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/migrate-to-astro/from-hugo.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/migrate-to-astro/from-jekyll.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/migrate-to-astro/from-jekyll.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/migrate-to-astro/from-nextjs.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/migrate-to-astro/from-nextjs.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/migrate-to-astro/from-nuxtjs.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/migrate-to-astro/from-nuxtjs.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/migrate-to-astro/from-pelican.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/migrate-to-astro/from-pelican.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/migrate-to-astro/from-sveltekit.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/migrate-to-astro/from-sveltekit.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/migrate-to-astro/from-vuepress.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/migrate-to-astro/from-vuepress.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/migrate-to-astro/from-wordpress.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/migrate-to-astro/from-wordpress.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/migrate-to-astro/index.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/migrate-to-astro/index.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/on-demand-rendering.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/on-demand-rendering.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/prefetch.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/prefetch.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/routing.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/routing.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/server-islands.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/server-islands.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/sessions.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/sessions.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/styling.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/styling.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/syntax-highlighting.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/syntax-highlighting.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/testing.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/testing.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/troubleshooting.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/troubleshooting.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/typescript.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/typescript.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/upgrade-to/v1.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/upgrade-to/v1.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/upgrade-to/v2.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/upgrade-to/v2.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/upgrade-to/v3.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/upgrade-to/v3.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/upgrade-to/v4.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/upgrade-to/v4.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/upgrade-to/v5.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/upgrade-to/v5.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/upgrade-to/v6.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/upgrade-to/v6.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/upgrade-to/v7.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/upgrade-to/v7.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/guides/view-transitions.mdx": {
+      "source_info": "module:docs_astro place (content/astro/guides/view-transitions.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/install-and-setup.mdx": {
+      "source_info": "module:docs_astro place (content/astro/install-and-setup.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/recipes/add-yaml-support.mdx": {
+      "source_info": "module:docs_astro place (content/astro/recipes/add-yaml-support.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/recipes/analyze-bundle-size.mdx": {
+      "source_info": "module:docs_astro place (content/astro/recipes/analyze-bundle-size.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/recipes/build-custom-img-component.mdx": {
+      "source_info": "module:docs_astro place (content/astro/recipes/build-custom-img-component.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/recipes/build-forms-api.mdx": {
+      "source_info": "module:docs_astro place (content/astro/recipes/build-forms-api.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/recipes/build-forms.mdx": {
+      "source_info": "module:docs_astro place (content/astro/recipes/build-forms.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/recipes/bun.mdx": {
+      "source_info": "module:docs_astro place (content/astro/recipes/bun.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/recipes/call-endpoints.mdx": {
+      "source_info": "module:docs_astro place (content/astro/recipes/call-endpoints.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/recipes/captcha.mdx": {
+      "source_info": "module:docs_astro place (content/astro/recipes/captcha.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/recipes/customizing-output-filenames.mdx": {
+      "source_info": "module:docs_astro place (content/astro/recipes/customizing-output-filenames.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/recipes/docker.mdx": {
+      "source_info": "module:docs_astro place (content/astro/recipes/docker.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/recipes/dynamically-importing-images.mdx": {
+      "source_info": "module:docs_astro place (content/astro/recipes/dynamically-importing-images.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/recipes/external-links.mdx": {
+      "source_info": "module:docs_astro place (content/astro/recipes/external-links.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/recipes/i18n.mdx": {
+      "source_info": "module:docs_astro place (content/astro/recipes/i18n.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/recipes/index.mdx": {
+      "source_info": "module:docs_astro place (content/astro/recipes/index.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/recipes/making-toolbar-apps.mdx": {
+      "source_info": "module:docs_astro place (content/astro/recipes/making-toolbar-apps.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/recipes/modified-time.mdx": {
+      "source_info": "module:docs_astro place (content/astro/recipes/modified-time.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/recipes/reading-time.mdx": {
+      "source_info": "module:docs_astro place (content/astro/recipes/reading-time.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/recipes/rss.mdx": {
+      "source_info": "module:docs_astro place (content/astro/recipes/rss.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/recipes/sharing-state-islands.mdx": {
+      "source_info": "module:docs_astro place (content/astro/recipes/sharing-state-islands.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/recipes/sharing-state.mdx": {
+      "source_info": "module:docs_astro place (content/astro/recipes/sharing-state.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/recipes/streaming-improve-page-performance.mdx": {
+      "source_info": "module:docs_astro place (content/astro/recipes/streaming-improve-page-performance.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/recipes/tailwind-rendered-markdown.mdx": {
+      "source_info": "module:docs_astro place (content/astro/recipes/tailwind-rendered-markdown.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/adapter-reference.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/adapter-reference.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/api-reference.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/api-reference.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/astro-syntax.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/astro-syntax.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/cache-provider-reference.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/cache-provider-reference.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/cli-reference.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/cli-reference.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/configuration-reference.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/configuration-reference.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/container-reference.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/container-reference.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/content-loader-reference.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/content-loader-reference.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/dev-toolbar-app-reference.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/dev-toolbar-app-reference.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/directives-reference.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/directives-reference.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/error-reference.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/error-reference.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/action-called-from-server-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/action-called-from-server-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/action-not-found-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/action-not-found-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/action-query-string-invalid-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/action-query-string-invalid-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/actions-cant-be-loaded.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/actions-cant-be-loaded.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/actions-returned-invalid-data-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/actions-returned-invalid-data-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/actions-used-with-for-get-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/actions-used-with-for-get-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/actions-without-server-output-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/actions-without-server-output-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/adapter-support-output-mismatch.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/adapter-support-output-mismatch.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/astro-glob-no-match.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/astro-glob-no-match.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/astro-glob-used-outside.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/astro-glob-used-outside.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/astro-response-headers-reassigned.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/astro-response-headers-reassigned.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/cache-not-enabled.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/cache-not-enabled.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/cache-provider-not-found.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/cache-provider-not-found.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/cache-query-config-conflict.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/cache-query-config-conflict.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/cannot-determine-weight-and-style-from-font-file.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/cannot-determine-weight-and-style-from-font-file.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/cannot-extract-font-type.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/cannot-extract-font-type.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/cannot-fetch-font-file.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/cannot-fetch-font-file.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/cannot-optimize-svg.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/cannot-optimize-svg.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/cant-render-page.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/cant-render-page.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/cant-use-astro-config-module-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/cant-use-astro-config-module-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/client-address-not-available.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/client-address-not-available.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/collection-does-not-exist-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/collection-does-not-exist-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/config-legacy-key.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/config-legacy-key.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/config-not-found.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/config-not-found.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/content-collection-invalid-type.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/content-collection-invalid-type.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/content-collection-missing-loader.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/content-collection-missing-loader.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/content-collection-type-mismatch-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/content-collection-type-mismatch-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/content-entry-data-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/content-entry-data-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/content-loader-invalid-data-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/content-loader-invalid-data-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/content-loader-returns-invalid-id.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/content-loader-returns-invalid-id.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/content-schema-contains-slug-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/content-schema-contains-slug-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/could-not-transform-image.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/could-not-transform-image.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/csp-not-enabled.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/csp-not-enabled.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/csssyntax-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/csssyntax-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/data-collection-entry-parse-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/data-collection-entry-parse-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/duplicate-content-entry-slug-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/duplicate-content-entry-slug-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/endpoint-did-not-return-aresponse.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/endpoint-did-not-return-aresponse.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/env-invalid-variable.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/env-invalid-variable.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/env-invalid-variables.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/env-invalid-variables.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/env-prefix-conflicts-with-secret.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/env-prefix-conflicts-with-secret.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/env-unsupported-get-secret.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/env-unsupported-get-secret.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/expected-image-options.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/expected-image-options.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/expected-image.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/expected-image.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/expected-not-esmimage.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/expected-not-esmimage.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/failed-to-fetch-remote-image-dimensions.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/failed-to-fetch-remote-image-dimensions.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/failed-to-find-page-map-ssr.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/failed-to-find-page-map-ssr.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/failed-to-load-module-ssr.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/failed-to-load-module-ssr.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/file-glob-not-supported.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/file-glob-not-supported.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/file-parser-not-found.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/file-parser-not-found.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/font-family-not-found.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/font-family-not-found.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/font-file-url-not-found.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/font-file-url-not-found.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/forbidden-rewrite.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/forbidden-rewrite.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/generate-content-types-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/generate-content-types-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/get-entry-deprecation-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/get-entry-deprecation-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/get-image-not-used-on-server.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/get-image-not-used-on-server.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/get-static-paths-expected-params.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/get-static-paths-expected-params.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/get-static-paths-invalid-route-param.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/get-static-paths-invalid-route-param.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/get-static-paths-removed-rsshelper.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/get-static-paths-removed-rsshelper.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/get-static-paths-required.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/get-static-paths-required.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/i18n-no-locale-found-in-path.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/i18n-no-locale-found-in-path.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/i18n-not-enabled.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/i18n-not-enabled.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/image-missing-alt.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/image-missing-alt.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/image-not-found.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/image-not-found.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/incompatible-descriptor-options.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/incompatible-descriptor-options.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/incorrect-strategy-for-i18n.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/incorrect-strategy-for-i18n.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/invalid-component-args.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/invalid-component-args.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/invalid-content-entry-data-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/invalid-content-entry-data-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/invalid-content-entry-frontmatter-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/invalid-content-entry-frontmatter-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/invalid-content-entry-slug-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/invalid-content-entry-slug-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/invalid-dynamic-route.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/invalid-dynamic-route.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/invalid-frontmatter-injection-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/invalid-frontmatter-injection-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/invalid-get-static-path-param.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/invalid-get-static-path-param.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/invalid-get-static-paths-entry.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/invalid-get-static-paths-entry.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/invalid-get-static-paths-return.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/invalid-get-static-paths-return.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/invalid-glob.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/invalid-glob.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/invalid-i18n-middleware-configuration.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/invalid-i18n-middleware-configuration.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/invalid-image-service.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/invalid-image-service.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/invalid-prerender-export.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/invalid-prerender-export.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/invalid-redirect-destination.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/invalid-redirect-destination.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/invalid-rewrite404.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/invalid-rewrite404.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/legacy-content-config-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/legacy-content-config-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/live-content-config-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/live-content-config-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/local-image-used-wrongly.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/local-image-used-wrongly.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/locals-not-an-object.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/locals-not-an-object.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/locals-not-serializable.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/locals-not-serializable.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/locals-reassigned.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/locals-reassigned.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/logger-configuration-not-serializable.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/logger-configuration-not-serializable.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/markdown-content-schema-validation-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/markdown-content-schema-validation-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/markdown-frontmatter-parse-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/markdown-frontmatter-parse-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/markdown-image-not-found.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/markdown-image-not-found.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/mdx-integration-missing-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/mdx-integration-missing-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/middleware-cant-be-loaded.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/middleware-cant-be-loaded.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/middleware-no-data-or-next-called.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/middleware-no-data-or-next-called.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/middleware-not-aresponse.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/middleware-not-aresponse.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/missing-get-font-file-request-url.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/missing-get-font-file-request-url.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/missing-image-dimension.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/missing-image-dimension.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/missing-index-for-internationalization.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/missing-index-for-internationalization.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/missing-locale.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/missing-locale.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/missing-media-query-directive.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/missing-media-query-directive.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/missing-middleware-for-internationalization.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/missing-middleware-for-internationalization.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/missing-sharp.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/missing-sharp.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/mixed-content-data-collection-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/mixed-content-data-collection-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/no-adapter-installed-server-islands.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/no-adapter-installed-server-islands.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/no-adapter-installed.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/no-adapter-installed.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/no-client-entrypoint.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/no-client-entrypoint.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/no-client-only-hint.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/no-client-only-hint.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/no-image-metadata.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/no-image-metadata.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/no-matching-import.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/no-matching-import.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/no-matching-renderer.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/no-matching-renderer.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/no-matching-static-path-found.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/no-matching-static-path-found.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/no-prerendered-routes-with-domains.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/no-prerendered-routes-with-domains.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/only-response-can-be-returned.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/only-response-can-be-returned.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/page-number-param-not-found.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/page-number-param-not-found.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/prerender-client-address-not-available.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/prerender-client-address-not-available.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/prerender-dynamic-endpoint-path-collide.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/prerender-dynamic-endpoint-path-collide.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/prerender-route-conflict.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/prerender-route-conflict.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/redirect-with-no-location.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/redirect-with-no-location.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/remote-image-not-allowed.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/remote-image-not-allowed.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/render-undefined-entry-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/render-undefined-entry-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/reserved-slot-name.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/reserved-slot-name.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/response-sent-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/response-sent-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/rewrite-encountered-an-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/rewrite-encountered-an-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/rewrite-with-body-used.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/rewrite-with-body-used.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/route-not-found.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/route-not-found.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/server-only-module.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/server-only-module.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/session-config-missing-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/session-config-missing-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/session-config-without-flag-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/session-config-without-flag-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/session-storage-init-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/session-storage-init-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/session-storage-save-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/session-storage-save-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/session-without-supported-adapter-output-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/session-without-supported-adapter-output-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/static-client-address-not-available.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/static-client-address-not-available.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/static-redirect-not-available.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/static-redirect-not-available.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/unable-to-load-logger.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/unable-to-load-logger.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/unavailable-astro-global.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/unavailable-astro-global.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/unhandled-rejection.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/unhandled-rejection.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/unknown-clierror.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/unknown-clierror.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/unknown-compiler-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/unknown-compiler-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/unknown-config-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/unknown-config-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/unknown-content-collection-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/unknown-content-collection-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/unknown-csserror.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/unknown-csserror.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/unknown-filesystem-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/unknown-filesystem-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/unknown-markdown-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/unknown-markdown-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/unknown-vite-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/unknown-vite-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/unsupported-config-transform-error.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/unsupported-config-transform-error.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/unsupported-external-redirect.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/unsupported-external-redirect.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/unsupported-image-conversion.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/unsupported-image-conversion.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/errors/unsupported-image-format.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/errors/unsupported-image-format.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/experimental-flags/chrome-devtools-workspace.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/experimental-flags/chrome-devtools-workspace.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/experimental-flags/client-prerender.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/experimental-flags/client-prerender.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/experimental-flags/content-intellisense.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/experimental-flags/content-intellisense.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/experimental-flags/index.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/experimental-flags/index.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/experimental-flags/svg-optimization.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/experimental-flags/svg-optimization.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/font-provider-reference.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/font-provider-reference.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/image-service-reference.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/image-service-reference.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/integrations-reference.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/integrations-reference.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/legacy-flags.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/legacy-flags.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/logger-reference.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/logger-reference.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/modules/astro-actions.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/modules/astro-actions.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/modules/astro-app.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/modules/astro-app.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/modules/astro-assets.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/modules/astro-assets.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/modules/astro-config.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/modules/astro-config.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/modules/astro-content.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/modules/astro-content.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/modules/astro-env.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/modules/astro-env.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/modules/astro-fetch.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/modules/astro-fetch.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/modules/astro-hono.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/modules/astro-hono.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/modules/astro-i18n.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/modules/astro-i18n.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/modules/astro-middleware.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/modules/astro-middleware.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/modules/astro-static-paths.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/modules/astro-static-paths.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/modules/astro-transitions.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/modules/astro-transitions.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/modules/astro-zod.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/modules/astro-zod.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/programmatic-reference.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/programmatic-reference.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/renderer-reference.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/renderer-reference.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/routing-reference.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/routing-reference.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/reference/session-driver-reference.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/session-driver-reference.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/0-introduction/1.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/0-introduction/1.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/0-introduction/index.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/0-introduction/index.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/1-setup/1.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/1-setup/1.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/1-setup/2.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/1-setup/2.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/1-setup/3.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/1-setup/3.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/1-setup/4.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/1-setup/4.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/1-setup/5.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/1-setup/5.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/1-setup/index.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/1-setup/index.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/2-pages/1.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/2-pages/1.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/2-pages/2.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/2-pages/2.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/2-pages/3.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/2-pages/3.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/2-pages/4.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/2-pages/4.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/2-pages/5.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/2-pages/5.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/2-pages/index.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/2-pages/index.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/3-components/1.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/3-components/1.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/3-components/2.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/3-components/2.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/3-components/3.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/3-components/3.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/3-components/4.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/3-components/4.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/3-components/index.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/3-components/index.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/4-layouts/1.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/4-layouts/1.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/4-layouts/2.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/4-layouts/2.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/4-layouts/3.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/4-layouts/3.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/4-layouts/index.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/4-layouts/index.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/5-astro-api/1.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/5-astro-api/1.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/5-astro-api/2.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/5-astro-api/2.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/5-astro-api/3.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/5-astro-api/3.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/5-astro-api/4.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/5-astro-api/4.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/5-astro-api/index.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/5-astro-api/index.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/6-islands/1.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/6-islands/1.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/6-islands/2.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/6-islands/2.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/6-islands/3.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/6-islands/3.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/6-islands/4.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/6-islands/4.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/tutorial/6-islands/index.mdx": {
+      "source_info": "module:docs_astro place (content/astro/tutorial/6-islands/index.mdx)"
+    },
+    "/home/runner/work/docharvest.github.io/docharvest.github.io/content/astro/upgrade-astro.mdx": {
+      "source_info": "module:docs_astro place (content/astro/upgrade-astro.mdx)"
+    },
     "/home/runner/work/docharvest.github.io/docharvest.github.io/content/manifest.json": {
       "source_info": "source:config-tree (content/manifest.json.tmpl)"
     },
