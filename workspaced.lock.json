@@ -15,7 +15,7 @@
       "depName": "NixOS/nixpkgs",
       "packageName": "https://github.com/NixOS/nixpkgs",
       "currentValue": "master",
-      "currentDigest": "2e1eda53dff9bab92fc0baaa2931c00fdeaee2dd",
+      "currentDigest": "6f0d45a61e26ea874e70a42717d1eb2480b14b86",
       "datasource": "git-refs"
     },
     {
@@ -37,8 +37,8 @@
       "ref": "github:opencv/opencv",
       "depName": "opencv/opencv",
       "packageName": "https://github.com/opencv/opencv",
-      "currentValue": "4.x",
-      "currentDigest": "dd541965e9fc406f03cd6b56f1d62ecfc6cac4ab",
+      "currentValue": "5.x",
+      "currentDigest": "c7b8fb28b61b27a93ce0aeb0bc8db8f714d78fcd",
       "datasource": "git-refs"
     },
     {
@@ -47,7 +47,7 @@
       "depName": "renovatebot/renovate",
       "packageName": "https://github.com/renovatebot/renovate",
       "currentValue": "main",
-      "currentDigest": "bcd44b991fe6c2de266c87c9a84c4e75520543ed",
+      "currentDigest": "5ddd565c4eb1c41cbb34cd3b960a903d47161a53",
       "datasource": "git-refs"
     },
     {
@@ -72,7 +72,7 @@
       "depName": "withastro/docs",
       "packageName": "https://github.com/withastro/docs",
       "currentValue": "main",
-      "currentDigest": "9ba44389b92b91d257c781686ffaef151f24d619",
+      "currentDigest": "a9230161905fea39b0085030e672a1cbdcfb5e5e",
       "datasource": "git-refs"
     },
     {
