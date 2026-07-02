@@ -1,9 +1,8 @@
 ---
 /**
  * Fixed top reading progress bar.
- * Tracks scroll against an end-of-article anchor (not full page height),
- * so the bar hits 100% when the article ends—before a long footer.
- * Technique: https://daviddalbusco.com/blog/a-progress-bar-for-blog-posts
+ * 100% when the bottom of the viewport reaches the end-of-article anchor
+ * (same approach as lucasew.github.io ProgressBar).
  */
 ---
 
@@ -30,25 +29,33 @@
     pointer-events: none;
   }
 
-  /* Firefox: filled portion */
   .reading-progress::-moz-progress-bar {
     background: currentColor;
   }
 
-  /* Chrome & Safari: track */
   .reading-progress::-webkit-progress-bar {
     background: transparent;
   }
 
-  /* Chrome & Safari: filled portion */
   .reading-progress::-webkit-progress-value {
     background: currentColor;
   }
 </style>
 
 <script>
-  // Module script: runs once per full load; re-bind after Astro client navigations.
   let teardown = null;
+
+  function documentOffsetTop(el) {
+    // Walk offsetParent chain — offsetTop alone is only relative to the
+    // nearest positioned ancestor, which is wrong inside nested docs layout.
+    let top = 0;
+    let node = el;
+    while (node) {
+      top += node.offsetTop;
+      node = node.offsetParent;
+    }
+    return top;
+  }
 
   function bindReadingProgress() {
     if (typeof teardown === 'function') {
@@ -56,41 +63,50 @@
       teardown = null;
     }
 
-    const bar = document.getElementById('reading-progress');
-    const anchor = document.querySelector('[data-reading-end]');
-    if (!(bar instanceof HTMLProgressElement) || !(anchor instanceof HTMLElement)) {
+    const progress = document.getElementById('reading-progress');
+    const anchor = document.getElementById('article-end');
+
+    if (!(progress instanceof HTMLProgressElement)) return;
+
+    if (!(anchor instanceof HTMLElement)) {
+      progress.style.display = 'none';
       return;
     }
+    progress.style.display = 'block';
 
     const onscroll = () => {
-      // Document-relative top (offsetTop is only offsetParent-relative).
-      const anchorTop = anchor.getBoundingClientRect().top + window.scrollY;
-      // Everything below the anchor (footer, etc.).
-      const delta = document.documentElement.scrollHeight - anchorTop;
-      // Scroll distance that maps to "finished reading the article".
-      const scrollLength = anchorTop - delta;
+      // Scrollable distance until the bottom of the viewport reaches the anchor.
+      const scrollLength = documentOffsetTop(anchor) - window.innerHeight;
 
       if (scrollLength <= 0) {
-        bar.value = 100;
+        progress.value = 100;
         return;
       }
 
       const y = (window.scrollY * 100) / scrollLength;
-      bar.value = Math.min(100, Math.max(0, Math.floor(y)));
+      progress.value = Math.min(100, Math.max(0, Math.floor(y)));
     };
 
     window.addEventListener('scroll', onscroll, { passive: true });
     window.addEventListener('resize', onscroll, { passive: true });
     onscroll();
 
-    teardown = () => {
-      // Only `capture` matters for matching removeEventListener (not passive).
-      // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener#matching_event_listeners_for_removal
+    const onBeforeSwap = () => {
       window.removeEventListener('scroll', onscroll, false);
       window.removeEventListener('resize', onscroll, false);
     };
+    document.addEventListener('astro:before-swap', onBeforeSwap, { once: true });
+
+    teardown = () => {
+      onBeforeSwap();
+    };
   }
 
-  bindReadingProgress();
   document.addEventListener('astro:page-load', bindReadingProgress);
+  // First paint / no view transitions:
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bindReadingProgress, { once: true });
+  } else {
+    bindReadingProgress();
+  }
 </script>
