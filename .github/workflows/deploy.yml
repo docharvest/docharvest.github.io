@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+  pull_request:
   workflow_dispatch:
 
 permissions:
@@ -12,18 +12,12 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  # Single job: build → upload Pages artifact → queue deploy (no status poll).
-  # Two jobs are only the official starter pattern (separate env protection / permissions);
-  # the Pages API does not require a second runner.
-  deploy:
+  site:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -40,15 +34,17 @@ jobs:
       - name: Build
         run: npm run build
 
-      # Pages publishes from an Actions artifact, not from the runner filesystem.
+      # Pages deploys from an Actions artifact, not the runner filesystem.
       - name: Upload Pages artifact
+        if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
-      # Create deployment only — do not poll. deploy-pages waits ~10m and cancels on timeout.
+      # Create deployment only — no status poll (deploy-pages waits/cancels on timeout).
       - name: Queue GitHub Pages deployment
         id: deployment
+        if: github.ref == 'refs/heads/main'
         uses: actions/github-script@v7
         with:
           script: |
