@@ -15,7 +15,7 @@
       "depName": "NixOS/nixpkgs",
       "packageName": "https://github.com/NixOS/nixpkgs",
       "currentValue": "master",
-      "currentDigest": "2e1eda53dff9bab92fc0baaa2931c00fdeaee2dd",
+      "currentDigest": "52855536ee46e2fcd540fa805a9087707b4e7594",
       "datasource": "git-refs"
     },
     {
@@ -38,7 +38,7 @@
       "depName": "opencv/opencv",
       "packageName": "https://github.com/opencv/opencv",
       "currentValue": "4.x",
-      "currentDigest": "dd541965e9fc406f03cd6b56f1d62ecfc6cac4ab",
+      "currentDigest": "c77286749ae8daff65b5dfa1f4d0608c613174ea",
       "datasource": "git-refs"
     },
     {
@@ -47,7 +47,7 @@
       "depName": "renovatebot/renovate",
       "packageName": "https://github.com/renovatebot/renovate",
       "currentValue": "main",
-      "currentDigest": "bcd44b991fe6c2de266c87c9a84c4e75520543ed",
+      "currentDigest": "a84fb3de11b209e0559b5800a5c4f8658ff8f651",
       "datasource": "git-refs"
     },
     {
@@ -63,7 +63,7 @@
       "depName": "sveltejs/svelte",
       "packageName": "https://github.com/sveltejs/svelte",
       "currentValue": "main",
-      "currentDigest": "eae50dfd1c2269e37258ef5c09527003bcf61573",
+      "currentDigest": "b1cadd1eae6a709fc5bdc596256b617986a71aaf",
       "datasource": "git-refs"
     },
     {
@@ -72,7 +72,7 @@
       "depName": "withastro/docs",
       "packageName": "https://github.com/withastro/docs",
       "currentValue": "main",
-      "currentDigest": "9ba44389b92b91d257c781686ffaef151f24d619",
+      "currentDigest": "9f939081b05e143aaba5f8b0d432fc422a676aaf",
       "datasource": "git-refs"
     },
     {
