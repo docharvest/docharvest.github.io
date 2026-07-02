@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: read
+  actions: read # list this run's upload-pages-artifact for create-deployment
   pages: write
   id-token: write
 
@@ -45,6 +46,60 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
+      # Create the Pages deployment only — do not poll status.
+      # actions/deploy-pages waits up to 10m and *cancels* the deploy on timeout,
+      # which made slow queues fail CI and abort an otherwise valid publish.
+      - name: Queue GitHub Pages deployment
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const artifactName = 'github-pages';
+
+            const listed = await github.paginate(
+              github.rest.actions.listWorkflowRunArtifacts,
+              {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                run_id: context.runId,
+                per_page: 100,
+              },
+            );
+            const artifact = listed.find((a) => a.name === artifactName);
+            if (!artifact) {
+              core.setFailed(
+                `No artifact named "${artifactName}" in this run. Did upload-pages-artifact run?`,
+              );
+              return;
+            }
+
+            core.info(`Using artifact id=${artifact.id} size=${artifact.size_in_bytes ?? artifact.size ?? '?'}`);
+
+            let idToken;
+            try {
+              idToken = await core.getIDToken();
+            } catch (e) {
+              core.setFailed(
+                'Failed to mint OIDC token. Ensure permissions include id-token: write.',
+              );
+              return;
+            }
+
+            const { data } = await github.request(
+              'POST /repos/{owner}/{repo}/pages/deployments',
+              {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                artifact_id: artifact.id,
+                pages_build_version: context.sha,
+                oidc_token: idToken,
+              },
+            );
+
+            core.info(`Queued Pages deployment (no wait): ${JSON.stringify(data)}`);
+            const pageUrl =
+              data.page_url ||
+              `https://${context.repo.owner}.github.io/${
+                context.repo.repo === `${context.repo.owner}.github.io` ? '' : context.repo.repo + '/'
+              }`;
+            core.setOutput('page_url', pageUrl);
