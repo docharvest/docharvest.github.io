@@ -1,0 +1,96 @@
+---
+/**
+ * Fixed top reading progress bar.
+ * Tracks scroll against an end-of-article anchor (not full page height),
+ * so the bar hits 100% when the article ends—before a long footer.
+ * Technique: https://daviddalbusco.com/blog/a-progress-bar-for-blog-posts
+ */
+---
+
+<progress
+  id="reading-progress"
+  class="reading-progress"
+  value="0"
+  max="100"
+  aria-label="Reading progress"
+></progress>
+
+<style>
+  .reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.25rem;
+    z-index: 50;
+    appearance: none;
+    border: none;
+    color: var(--color-primary);
+    background: transparent;
+    pointer-events: none;
+  }
+
+  /* Firefox: filled portion */
+  .reading-progress::-moz-progress-bar {
+    background: currentColor;
+  }
+
+  /* Chrome & Safari: track */
+  .reading-progress::-webkit-progress-bar {
+    background: transparent;
+  }
+
+  /* Chrome & Safari: filled portion */
+  .reading-progress::-webkit-progress-value {
+    background: currentColor;
+  }
+</style>
+
+<script>
+  // Module script: runs once per full load; re-bind after Astro client navigations.
+  let teardown = null;
+
+  function bindReadingProgress() {
+    if (typeof teardown === 'function') {
+      teardown();
+      teardown = null;
+    }
+
+    const bar = document.getElementById('reading-progress');
+    const anchor = document.querySelector('[data-reading-end]');
+    if (!(bar instanceof HTMLProgressElement) || !(anchor instanceof HTMLElement)) {
+      return;
+    }
+
+    const onscroll = () => {
+      // Document-relative top (offsetTop is only offsetParent-relative).
+      const anchorTop = anchor.getBoundingClientRect().top + window.scrollY;
+      // Everything below the anchor (footer, etc.).
+      const delta = document.documentElement.scrollHeight - anchorTop;
+      // Scroll distance that maps to "finished reading the article".
+      const scrollLength = anchorTop - delta;
+
+      if (scrollLength <= 0) {
+        bar.value = 100;
+        return;
+      }
+
+      const y = (window.scrollY * 100) / scrollLength;
+      bar.value = Math.min(100, Math.max(0, Math.floor(y)));
+    };
+
+    window.addEventListener('scroll', onscroll, { passive: true });
+    window.addEventListener('resize', onscroll, { passive: true });
+    onscroll();
+
+    teardown = () => {
+      // Only `capture` matters for matching removeEventListener (not passive).
+      // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener#matching_event_listeners_for_removal
+      window.removeEventListener('scroll', onscroll, false);
+      window.removeEventListener('resize', onscroll, false);
+    };
+  }
+
+  bindReadingProgress();
+  document.addEventListener('astro:page-load', bindReadingProgress);
+</script>

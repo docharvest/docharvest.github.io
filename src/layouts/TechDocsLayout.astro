@@ -1,6 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import PackLogo from '../components/PackLogo.astro';
+import ReadingProgress from '../components/ReadingProgress.astro';
 import { getAllPagesAsync, getPack, getTechNav, humanizeSegment } from '../lib/docs';
 
 await getAllPagesAsync();
@@ -48,6 +49,7 @@ function labelFor(item: NavItem) {
 ---
 
 <BaseLayout title={title} description={description || pack?.description}>
+  <ReadingProgress />
   <div class="docs-shell mx-auto flex w-full max-w-[90rem] flex-col lg:flex-row">
     {/* Mobile bar */}
     <div class="sticky top-12 z-30 flex items-center gap-3 border-b border-base-300 bg-base-100/95 px-4 py-2.5 backdrop-blur-md lg:hidden">
@@ -194,6 +196,8 @@ function labelFor(item: NavItem) {
         <div class="docs-prose prose prose-neutral max-w-none dark:prose-invert prose-headings:font-semibold prose-headings:tracking-tight prose-h1:font-display prose-h1:text-3xl prose-h1:font-medium prose-h2:mt-10 prose-h2:text-xl prose-h3:text-lg prose-p:leading-[1.7] prose-li:leading-[1.65] prose-a:font-medium prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-code:rounded prose-code:bg-base-200 prose-code:px-1 prose-code:py-0.5 prose-code:text-[0.875em] prose-code:before:content-none prose-code:after:content-none prose-pre:border prose-pre:border-base-300 prose-pre:bg-base-200/50 prose-img:rounded-md prose-table:text-sm">
           <slot />
         </div>
+        {/* End-of-article marker for reading progress (excludes site footer). */}
+        <div data-reading-end aria-hidden="true"></div>
       </article>
     </div>
   </div>
