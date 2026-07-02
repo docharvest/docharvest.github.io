@@ -16,8 +16,14 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  # Single job: build → upload Pages artifact → queue deploy (no status poll).
+  # Two jobs are only the official starter pattern (separate env protection / permissions);
+  # the Pages API does not require a second runner.
+  deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -34,21 +40,13 @@ jobs:
       - name: Build
         run: npm run build
 
+      # Pages publishes from an Actions artifact, not from the runner filesystem.
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      # Create the Pages deployment only — do not poll status.
-      # actions/deploy-pages waits up to 10m and *cancels* the deploy on timeout,
-      # which made slow queues fail CI and abort an otherwise valid publish.
+      # Create deployment only — do not poll. deploy-pages waits ~10m and cancels on timeout.
       - name: Queue GitHub Pages deployment
         id: deployment
         uses: actions/github-script@v7
