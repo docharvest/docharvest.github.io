@@ -139,30 +139,48 @@ export async function highlightCode(code: string, lang?: string | null): Promise
   return html.replace(/<pre class="shiki/g, '<pre class="astro-code shiki');
 }
 
+function langFromPreCodeAttrs(preAttrs: string, codeAttrs: string): string | null {
+  const classLang =
+    codeAttrs.match(/class="([^"]*)"/i)?.[1] ??
+    codeAttrs.match(/class='([^']*)'/i)?.[1] ??
+    preAttrs.match(/class="([^"]*)"/i)?.[1] ??
+    preAttrs.match(/class='([^']*)'/i)?.[1] ??
+    '';
+  const langClass = classLang.split(/\s+/).find((c) => c.startsWith('language-') || c.startsWith('lang-'));
+  if (langClass) return langClass.replace(/^language-|^lang-/, '');
+
+  return (
+    codeAttrs.match(/data-language="([^"]*)"/i)?.[1] ??
+    codeAttrs.match(/data-language='([^']*)'/i)?.[1] ??
+    preAttrs.match(/data-language="([^"]*)"/i)?.[1] ??
+    preAttrs.match(/data-language='([^']*)'/i)?.[1] ??
+    null
+  );
+}
+
 /**
  * Walk an HTML fragment and replace every unhighlighted <pre><code>…</code></pre>
  * with Shiki output. Skips blocks already carrying .astro-code / .shiki (e.g. astro-md).
- * Safe to run on any backend’s HTML.
+ * Uses match indices (not String.replace) so identical snippets each get highlighted.
  */
 export async function finalizeDocHtml(html: string): Promise<string> {
   if (!html || !html.includes('<pre')) return html;
 
   await warmHighlighter();
 
-  // Match <pre…><code…>…</code></pre> including optional attrs on either tag.
   const preCodeRe =
     /<pre(\b[^>]*)>(\s*)<code(\b[^>]*)>([\s\S]*?)<\/code>(\s*)<\/pre>/gi;
 
   const matches = [...html.matchAll(preCodeRe)];
   if (matches.length === 0) return html;
 
-  let out = html;
-  // Replace from the end so indices stay valid… easier: rebuild via sequential async map on unique.
-  // Do sequential replace of each full match string (may duplicate — replace one at a time from last).
-  const replacements: { from: string; to: string }[] = [];
+  const replacements: { start: number; end: number; to: string }[] = [];
 
   for (const m of matches) {
     const full = m[0];
+    const start = m.index;
+    if (start == null) continue;
+
     const preAttrs = m[1] ?? '';
     const codeAttrs = m[3] ?? '';
     const inner = m[4] ?? '';
@@ -171,29 +189,21 @@ export async function finalizeDocHtml(html: string): Promise<string> {
       continue;
     }
 
-    let lang: string | null = null;
-    const classLang =
-      codeAttrs.match(/class="([^"]*)"/i)?.[1] ??
-      codeAttrs.match(/class='([^']*)'/i)?.[1] ??
-      preAttrs.match(/class="([^"]*)"/i)?.[1] ??
-      '';
-    const langClass = classLang.split(/\s+/).find((c) => c.startsWith('language-') || c.startsWith('lang-'));
-    if (langClass) lang = langClass.replace(/^language-|^lang-/, '');
-
-    const dataLang =
-      codeAttrs.match(/data-language="([^"]*)"/i)?.[1] ??
-      preAttrs.match(/data-language="([^"]*)"/i)?.[1];
-    if (dataLang) lang = dataLang;
-
     const code = decodeBasicEntities(inner.replace(/<[^>]+>/g, ''));
-    const highlighted = await highlightCode(code, lang);
-    replacements.push({ from: full, to: highlighted });
+    const highlighted = await highlightCode(code, langFromPreCodeAttrs(preAttrs, codeAttrs));
+    replacements.push({ start, end: start + full.length, to: highlighted });
   }
 
-  for (const { from, to } of replacements) {
-    out = out.replace(from, to);
-  }
+  if (replacements.length === 0) return html;
 
+  let out = '';
+  let cursor = 0;
+  for (const { start, end, to } of replacements) {
+    out += html.slice(cursor, start);
+    out += to;
+    cursor = end;
+  }
+  out += html.slice(cursor);
   return out;
 }
 
