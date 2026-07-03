@@ -1,7 +1,8 @@
 /**
- * Shared Shiki highlighting for every HTML-producing pipeline.
+ * Shared Shiki 4 highlighting for every HTML-producing pipeline.
  * Themes match astro.config markdown.shikiConfig (github-light / github-dark,
- * defaultColor: false) so the site theme toggle works.
+ * defaultColor: false) so the site theme toggle works via --shiki-light* /
+ * --shiki-dark* CSS variables (see global.css).
  *
  * Pipelines should emit ordinary Markdown → HTML; call `finalizeDocHtml` on the
  * result so fences, indented blocks, and future backends all get the same treatment.
@@ -136,7 +137,8 @@ export async function highlightCode(code: string, lang?: string | null): Promise
     defaultColor: false,
   });
 
-  return html.replace(/<pre class="shiki/g, '<pre class="astro-code shiki');
+  // Match Astro MD output class prefix for shared theme CSS.
+  return html.replace(/<pre class="shiki\b/g, '<pre class="astro-code shiki');
 }
 
 function langFromPreCodeAttrs(preAttrs: string, codeAttrs: string): string | null {

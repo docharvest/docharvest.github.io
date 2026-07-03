@@ -112,13 +112,28 @@ body {
   text-wrap: pretty;
 }
 
-html[data-theme="docharvest-dark"] .astro-code,
-html[data-theme="docharvest-dark"] .astro-code span {
-  color: var(--shiki-dark) !important;
-  background-color: var(--shiki-dark-bg) !important;
-  font-style: var(--shiki-dark-font-style) !important;
-  font-weight: var(--shiki-dark-font-weight) !important;
-  text-decoration: var(--shiki-dark-text-decoration) !important;
+/* Shiki 4 defaultColor:false emits --shiki-light* / --shiki-dark* vars only (no inline color).
+   Astro 7 MD uses `astro-code astro-code-themes`; marked pipeline uses `astro-code shiki shiki-themes`. */
+pre.astro-code,
+pre.astro-code span,
+pre.shiki,
+pre.shiki span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg, transparent);
+  font-style: var(--shiki-light-font-style, inherit);
+  font-weight: var(--shiki-light-font-weight, inherit);
+  text-decoration: var(--shiki-light-text-decoration, inherit);
+}
+
+html[data-theme="docharvest-dark"] pre.astro-code,
+html[data-theme="docharvest-dark"] pre.astro-code span,
+html[data-theme="docharvest-dark"] pre.shiki,
+html[data-theme="docharvest-dark"] pre.shiki span {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg, transparent);
+  font-style: var(--shiki-dark-font-style, inherit);
+  font-weight: var(--shiki-dark-font-weight, inherit);
+  text-decoration: var(--shiki-dark-text-decoration, inherit);
 }
 
 .astro-code {
@@ -173,18 +188,6 @@ html[data-theme="docharvest-dark"] .astro-code span {
   body:has(#docs-sidebar-toggle:checked) {
     overflow: hidden;
   }
-}
-
-/* Shiki dual-theme (marked pipeline + Astro MD) */
-html[data-theme="docharvest-dark"] .astro-code.shiki,
-html[data-theme="docharvest-dark"] .astro-code.shiki span,
-html[data-theme="docharvest-dark"] pre.shiki,
-html[data-theme="docharvest-dark"] pre.shiki span {
-  color: var(--shiki-dark) !important;
-  background-color: var(--shiki-dark-bg) !important;
-  font-style: var(--shiki-dark-font-style) !important;
-  font-weight: var(--shiki-dark-font-weight) !important;
-  text-decoration: var(--shiki-dark-text-decoration) !important;
 }
 
 .docs-prose :where(pre.astro-code, pre.shiki) {
