@@ -27,7 +27,7 @@ export type DocPage = {
   order: number;
   Content: unknown | null;
   html: string | null;
-  /** Markdown/MDX source for Orama (not HTML). */
+  /** Plain Markdown/MDX body for client MiniSearch indexes (not HTML). */
   searchText: string | null;
   headings: { depth: number; slug: string; text: string }[];
   filePath: string;

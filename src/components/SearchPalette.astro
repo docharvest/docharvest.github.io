@@ -62,6 +62,7 @@
 
 <script>
   import MiniSearch from 'minisearch';
+  import { sitePath } from '../lib/site';
 
   const dialog = document.getElementById('search-palette-dialog');
   const input = dialog?.querySelector('[data-search-input]');
@@ -84,7 +85,7 @@
       if (!tech) return Promise.resolve(null);
       const hit = cache.get(tech);
       if (hit) return hit;
-      const p = fetch(`/search-indexes/${encodeURIComponent(tech)}.json`)
+      const p = fetch(sitePath(`search-indexes/${encodeURIComponent(tech)}.json`))
         .then((res) => {
           if (!res.ok) throw new Error(`index HTTP ${res.status}`);
           return res.json();

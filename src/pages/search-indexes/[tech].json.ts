@@ -1,9 +1,10 @@
 import type { APIRoute, GetStaticPaths } from 'astro';
 import { getAllPagesAsync, getPacks, getPagesForTech } from '../../lib/docs';
+import { sitePath } from '../../lib/site';
 
 export const prerender = true;
 
-/** One document list per pack (markdown text). Client builds MiniSearch — no Orama in the browser. */
+/** Per-pack document list (`searchText`). Client builds MiniSearch in the browser. */
 export const getStaticPaths = (async () => {
   await getAllPagesAsync();
   return getPacks().map((p) => ({ params: { tech: p.id } }));
@@ -23,7 +24,7 @@ export const GET: APIRoute = async ({ params }) => {
 
   const documents = pages.map((page) => {
     const slugPath = page.slugPath;
-    const path = slugPath ? `/docs/${tech}/${slugPath}/` : `/docs/${tech}/`;
+    const path = slugPath ? sitePath(`docs/${tech}/${slugPath}/`) : sitePath(`docs/${tech}/`);
     const md =
       page.searchText?.trim() ||
       [page.title, page.description].filter(Boolean).join('\n\n');

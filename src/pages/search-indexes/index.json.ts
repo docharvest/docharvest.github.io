@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { getAllPagesAsync, getPacks, getPagesForTech } from '../../lib/docs';
+import { sitePath } from '../../lib/site';
 
 export const prerender = true;
 
@@ -9,7 +10,7 @@ export const GET: APIRoute = async () => {
     id: p.id,
     title: p.title,
     pages: getPagesForTech(p.id).length,
-    indexUrl: `/search-indexes/${p.id}.json`,
+    indexUrl: sitePath(`search-indexes/${p.id}.json`),
   }));
   return new Response(JSON.stringify({ packs }), {
     headers: { 'Content-Type': 'application/json; charset=utf-8' },
