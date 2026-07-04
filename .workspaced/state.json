@@ -2622,6 +2622,9 @@
     "content/nixpkgs/doc-support/python-interpreter-table.nix": {
       "source_info": "module:docs_nixpkgs place (content/nixpkgs/doc-support/python-interpreter-table.nix)"
     },
+    "content/nixpkgs/first-package.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/first-package.chapter.md)"
+    },
     "content/nixpkgs/functions.md": {
       "source_info": "module:docs_nixpkgs place (content/nixpkgs/functions.md)"
     },
@@ -2975,6 +2978,9 @@
     },
     "content/nixpkgs/modules/index.md": {
       "source_info": "module:docs_nixpkgs place (content/nixpkgs/modules/index.md)"
+    },
+    "content/nixpkgs/nav.json": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/nav.json)"
     },
     "content/nixpkgs/packages/build-support.md": {
       "source_info": "module:docs_nixpkgs place (content/nixpkgs/packages/build-support.md)"
