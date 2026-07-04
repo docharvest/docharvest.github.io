@@ -2,9 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import PackLogo from '../components/PackLogo.astro';
 import ReadingProgress from '../components/ReadingProgress.astro';
-import { getAllPagesAsync, getPack, getTechNav, humanizeSegment } from '../lib/docs';
-
-await getAllPagesAsync();
+import { getPack, getTechNav, humanizeSegment } from '../lib/docs';
 
 interface Props {
   tech: string;
@@ -17,7 +15,7 @@ interface Props {
 
 const { tech, title, description = '', slugPath = '', hasContentTitle = false } = Astro.props;
 const pack = getPack(tech);
-const nav = getTechNav(tech);
+const nav = await getTechNav(tech);
 const base = import.meta.env.BASE_URL;
 const packTitle = pack?.title ?? tech;
 const activeGroup = slugPath.split('/')[0] || '_root';

@@ -37,6 +37,5 @@ export type PipelineContext = {
 
 export type DocPipeline = {
   id: PipelineId;
-  collect?(ctx: PipelineContext): DocPage[];
-  collectAsync?(ctx: PipelineContext): Promise<DocPage[]>;
+  collect(ctx: PipelineContext): DocPage[];
 };

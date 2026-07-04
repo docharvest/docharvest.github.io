@@ -2,22 +2,18 @@
 
 const DOC_EXT = /\.(md|mdx|markdown)$/i;
 
-export function humanize(slug: string): string {
-  return slug
+export function humanizeSegment(seg: string): string {
+  return seg
     .replace(/\.markdown$/i, '')
     .replace(/[_-]+/g, ' ')
     .replace(/\b\w/g, (c) => c.toUpperCase())
     .trim();
 }
 
-export function humanizeSegment(seg: string): string {
-  return humanize(seg);
-}
-
 export function titleFromSlug(slugPath: string, segments: string[]): string {
   const leaf = segments[segments.length - 1] ?? slugPath;
   if (!leaf) return 'Overview';
-  return humanize(leaf);
+  return humanizeSegment(leaf);
 }
 
 /**

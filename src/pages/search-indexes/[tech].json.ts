@@ -1,12 +1,11 @@
 import type { APIRoute, GetStaticPaths } from 'astro';
-import { getAllPagesAsync, getPacks, getPagesForTech } from '../../lib/docs';
+import { getPack, getPacks, getPagesForTech } from '../../lib/docs';
 import { sitePath } from '../../lib/site';
 
 export const prerender = true;
 
 /** Per-pack document list (`searchText`). Client builds MiniSearch in the browser. */
 export const getStaticPaths = (async () => {
-  await getAllPagesAsync();
   return getPacks().map((p) => ({ params: { tech: p.id } }));
 }) satisfies GetStaticPaths;
 
@@ -18,9 +17,8 @@ export const GET: APIRoute = async ({ params }) => {
     return new Response(JSON.stringify({ error: 'missing tech' }), { status: 400 });
   }
 
-  await getAllPagesAsync();
-  const pack = getPacks().find((p) => p.id === tech);
-  const pages = getPagesForTech(tech);
+  const pack = getPack(tech);
+  const pages = await getPagesForTech(tech);
 
   const documents = pages.map((page) => {
     const slugPath = page.slugPath;

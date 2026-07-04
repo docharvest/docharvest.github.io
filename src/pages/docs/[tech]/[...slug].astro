@@ -1,10 +1,10 @@
 ---
 import DocContent from '../../../components/DocContent.astro';
 import TechDocsLayout from '../../../layouts/TechDocsLayout.astro';
-import { getAllPagesAsync } from '../../../lib/docs';
+import { getAllPages } from '../../../lib/docs';
 
 export async function getStaticPaths() {
-  const all = await getAllPagesAsync();
+  const all = await getAllPages();
   return all
     .filter((p) => p.slugPath)
     .map((page) => ({

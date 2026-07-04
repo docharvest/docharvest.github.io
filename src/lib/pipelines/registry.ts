@@ -14,7 +14,3 @@ export function getPipeline(id: PipelineId): DocPipeline {
   }
   return p;
 }
-
-export function listPipelines(): DocPipeline[] {
-  return Object.values(pipelines);
-}

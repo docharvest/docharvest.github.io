@@ -4,35 +4,19 @@
  * `finalizeDocHtml` so code blocks share one Shiki setup.
  */
 import manifestJson from '../../content/manifest.json';
-import { finalizeDocHtml, warmHighlighter } from './pipelines/highlight';
+import { logoFromGithub } from './brand';
+import { finalizeDocHtml } from './pipelines/highlight';
 import { getPipeline } from './pipelines/registry';
-import { humanizeSegment } from './pipelines/path';
 import type { DocPack, DocPage, PipelineId } from './pipelines/types';
 
 export type { DocPack, DocPage, PipelineId } from './pipelines/types';
 export { humanizeSegment } from './pipelines/path';
-export { getPipeline, listPipelines } from './pipelines/registry';
 
 const DEFAULT_PIPELINE: PipelineId = 'astro-md';
-
-/** GitHub owner avatar URL (`https://github.com/{owner}.png`). */
-export function logoFromGithub(githubOrRepo: string, size = 128): string {
-  let owner = githubOrRepo.trim();
-  if (owner.startsWith('https://github.com/')) {
-    owner = owner.slice('https://github.com/'.length);
-  }
-  owner = owner.replace(/\.git$/, '').split('/')[0] || owner;
-  if (!owner) return '';
-  return `https://github.com/${owner}.png?size=${size}`;
-}
 
 function normalizePack(raw: Partial<DocPack> & { id: string }): DocPack {
   const github = raw.github ?? '';
   const repo = raw.repo ?? (github ? `https://github.com/${github}` : '');
-  const logo =
-    raw.logo ||
-    logoFromGithub(github || repo) ||
-    '';
   return {
     id: raw.id,
     title: raw.title ?? raw.id,
@@ -40,7 +24,7 @@ function normalizePack(raw: Partial<DocPack> & { id: string }): DocPack {
     source: raw.source ?? '',
     repo,
     github: github || undefined,
-    logo,
+    logo: raw.logo || logoFromGithub(github || repo) || '',
     pipeline: (raw.pipeline as PipelineId | undefined) ?? DEFAULT_PIPELINE,
   };
 }
@@ -54,37 +38,22 @@ export function getPack(tech: string): DocPack | undefined {
   return getPacks().find((p) => p.id === tech);
 }
 
-async function buildPagesAsync(): Promise<DocPage[]> {
-  await warmHighlighter();
-
+async function buildPages(): Promise<DocPage[]> {
   const pages: DocPage[] = [];
 
   for (const pack of getPacks()) {
-    const pipeline = getPipeline(pack.pipeline);
-    if (pipeline.collectAsync) {
-      pages.push(...(await pipeline.collectAsync({ pack })));
-    } else if (pipeline.collect) {
-      pages.push(...pipeline.collect({ pack }));
-    } else {
-      throw new Error(`Pipeline ${pipeline.id} has neither collect nor collectAsync`);
-    }
+    pages.push(...getPipeline(pack.pipeline).collect({ pack }));
   }
 
-  // Universal pass: any page with HTML body gets shared Shiki on <pre><code>
-  for (let i = 0; i < pages.length; i++) {
-    const page = pages[i]!;
-    if (page.html) {
-      pages[i] = { ...page, html: await finalizeDocHtml(page.html) };
-    }
-  }
+  const highlighted = await Promise.all(
+    pages.map(async (page) =>
+      page.html ? { ...page, html: await finalizeDocHtml(page.html) } : page,
+    ),
+  );
 
   const byKey = new Map<string, DocPage>();
-  for (const page of pages) {
-    const key = `${page.tech}\0${page.slugPath}`;
-    const prev = byKey.get(key);
-    if (!prev || (prev.pipeline === 'marked' && page.pipeline === 'astro-md')) {
-      byKey.set(key, page);
-    }
+  for (const page of highlighted) {
+    byKey.set(`${page.tech}\0${page.slugPath}`, page);
   }
 
   return [...byKey.values()].sort(
@@ -95,41 +64,23 @@ async function buildPagesAsync(): Promise<DocPage[]> {
   );
 }
 
-const pagesPromise = buildPagesAsync();
+const pagesPromise = buildPages();
 
-export async function getAllPagesAsync(): Promise<DocPage[]> {
+export function getAllPages(): Promise<DocPage[]> {
   return pagesPromise;
 }
 
-let _pagesSync: DocPage[] | null = null;
-pagesPromise.then((p) => {
-  _pagesSync = p;
-});
-
-export function getAllPages(): DocPage[] {
-  if (!_pagesSync) {
-    throw new Error(
-      'Doc pages not ready yet. Use getAllPagesAsync() in getStaticPaths / async frontmatter.',
-    );
-  }
-  return _pagesSync;
+export async function getPagesForTech(tech: string): Promise<DocPage[]> {
+  return (await getAllPages()).filter((p) => p.tech === tech);
 }
 
-export function getPagesForTech(tech: string): DocPage[] {
-  return getAllPages().filter((p) => p.tech === tech);
-}
-
-export function getPage(tech: string, slugPath: string): DocPage | undefined {
+export async function getPage(tech: string, slugPath: string): Promise<DocPage | undefined> {
   const norm = slugPath.replace(/^\/+|\/+$/g, '');
-  return getPagesForTech(tech).find((p) => p.slugPath === norm);
+  return (await getPagesForTech(tech)).find((p) => p.slugPath === norm);
 }
 
-export function getTechsWithContent(): string[] {
-  return [...new Set(getAllPages().map((p) => p.tech))].sort();
-}
-
-export function getTechNav(tech: string) {
-  return getPagesForTech(tech).map(({ slugPath, title, description, order, segments }) => ({
+export async function getTechNav(tech: string) {
+  return (await getPagesForTech(tech)).map(({ slugPath, title, description, order, segments }) => ({
     slugPath,
     title,
     description,
@@ -137,5 +88,3 @@ export function getTechNav(tech: string) {
     segments,
   }));
 }
-
-void humanizeSegment;

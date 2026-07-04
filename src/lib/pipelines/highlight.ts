@@ -139,23 +139,25 @@ export async function highlightCode(code: string, lang?: string | null): Promise
   return html.replace(/<pre class="shiki\b/g, '<pre class="astro-code shiki');
 }
 
-function langFromPreCodeAttrs(preAttrs: string, codeAttrs: string): string | null {
-  const classLang =
-    codeAttrs.match(/class="([^"]*)"/i)?.[1] ??
-    codeAttrs.match(/class='([^']*)'/i)?.[1] ??
-    preAttrs.match(/class="([^"]*)"/i)?.[1] ??
-    preAttrs.match(/class='([^']*)'/i)?.[1] ??
-    '';
-  const langClass = classLang.split(/\s+/).find((c) => c.startsWith('language-') || c.startsWith('lang-'));
-  if (langClass) return langClass.replace(/^language-|^lang-/, '');
-
+function attrValue(attrs: string, name: string): string | null {
   return (
-    codeAttrs.match(/data-language="([^"]*)"/i)?.[1] ??
-    codeAttrs.match(/data-language='([^']*)'/i)?.[1] ??
-    preAttrs.match(/data-language="([^"]*)"/i)?.[1] ??
-    preAttrs.match(/data-language='([^']*)'/i)?.[1] ??
+    attrs.match(new RegExp(`${name}="([^"]*)"`, 'i'))?.[1] ??
+    attrs.match(new RegExp(`${name}='([^']*)'`, 'i'))?.[1] ??
     null
   );
+}
+
+function langFromPreCodeAttrs(preAttrs: string, codeAttrs: string): string | null {
+  for (const attrs of [codeAttrs, preAttrs]) {
+    const classNames = attrValue(attrs, 'class') ?? '';
+    const langClass = classNames
+      .split(/\s+/)
+      .find((c) => c.startsWith('language-') || c.startsWith('lang-'));
+    if (langClass) return langClass.replace(/^language-|^lang-/, '');
+    const dataLang = attrValue(attrs, 'data-language');
+    if (dataLang) return dataLang;
+  }
+  return null;
 }
 
 /**
@@ -166,47 +168,40 @@ function langFromPreCodeAttrs(preAttrs: string, codeAttrs: string): string | nul
 export async function finalizeDocHtml(html: string): Promise<string> {
   if (!html || !html.includes('<pre')) return html;
 
-  await warmHighlighter();
-
   const preCodeRe =
-    /<pre(\b[^>]*)>(\s*)<code(\b[^>]*)>([\s\S]*?)<\/code>(\s*)<\/pre>/gi;
+    /<pre(\b[^>]*)>\s*<code(\b[^>]*)>([\s\S]*?)<\/code>\s*<\/pre>/gi;
 
   const matches = [...html.matchAll(preCodeRe)];
   if (matches.length === 0) return html;
 
-  const replacements: { start: number; end: number; to: string }[] = [];
+  const replacements = await Promise.all(
+    matches.map(async (m) => {
+      const start = m.index;
+      if (start == null) return null;
 
-  for (const m of matches) {
-    const full = m[0];
-    const start = m.index;
-    if (start == null) continue;
+      const full = m[0];
+      const preAttrs = m[1] ?? '';
+      const codeAttrs = m[2] ?? '';
+      const inner = m[3] ?? '';
 
-    const preAttrs = m[1] ?? '';
-    const codeAttrs = m[3] ?? '';
-    const inner = m[4] ?? '';
+      if (/\b(astro-code|shiki)\b/i.test(preAttrs) || /\b(astro-code|shiki)\b/i.test(codeAttrs)) {
+        return null;
+      }
 
-    if (/\b(astro-code|shiki)\b/i.test(preAttrs) || /\b(astro-code|shiki)\b/i.test(codeAttrs)) {
-      continue;
-    }
-
-    const code = decodeBasicEntities(inner.replace(/<[^>]+>/g, ''));
-    const highlighted = await highlightCode(code, langFromPreCodeAttrs(preAttrs, codeAttrs));
-    replacements.push({ start, end: start + full.length, to: highlighted });
-  }
-
-  if (replacements.length === 0) return html;
+      const code = decodeBasicEntities(inner.replace(/<[^>]+>/g, ''));
+      const to = await highlightCode(code, langFromPreCodeAttrs(preAttrs, codeAttrs));
+      return { start, end: start + full.length, to };
+    }),
+  );
 
   let out = '';
   let cursor = 0;
-  for (const { start, end, to } of replacements) {
-    out += html.slice(cursor, start);
-    out += to;
-    cursor = end;
+  for (const rep of replacements) {
+    if (!rep) continue;
+    out += html.slice(cursor, rep.start);
+    out += rep.to;
+    cursor = rep.end;
   }
   out += html.slice(cursor);
   return out;
-}
-
-export async function warmHighlighter(): Promise<void> {
-  await getHighlighter();
 }

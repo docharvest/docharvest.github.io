@@ -1,14 +1,13 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PackLogo from '../../components/PackLogo.astro';
-import { getAllPagesAsync, getPacks, getPagesForTech } from '../../lib/docs';
-
-await getAllPagesAsync();
+import { getAllPages, getPacks } from '../../lib/docs';
 
 const base = import.meta.env.BASE_URL;
+const pages = await getAllPages();
 const packs = getPacks().map((p) => ({
   ...p,
-  pageCount: getPagesForTech(p.id).length,
+  pageCount: pages.filter((page) => page.tech === p.id).length,
 }));
 ---
 

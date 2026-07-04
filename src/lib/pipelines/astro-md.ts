@@ -6,7 +6,7 @@
  * with `pipeline: "astro-md"`, add matching globs under `modules` and `sources`.
  */
 import type { DocPage, DocPipeline, PipelineContext } from './types';
-import { pageOrder, parseContentPath, titleFromSlug } from './path';
+import { pageOrder, parseContentPath, stripYamlFrontmatter, titleFromSlug } from './path';
 
 type MdModule = {
   frontmatter: {
@@ -31,11 +31,6 @@ const sources = {
     import: 'default',
   }),
 } as Record<string, string>;
-
-function stripYamlFrontmatter(raw: string): string {
-  const yaml = raw.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n/);
-  return yaml ? raw.slice(yaml[0].length) : raw;
-}
 
 export const astroMdPipeline: DocPipeline = {
   id: 'astro-md',
