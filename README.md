@@ -36,6 +36,7 @@ npm run dev
 ```
 
 ```bash
+npm run check   # astro check (strict TS on src/)
 npm run build   # also writes per-tech llms.txt under dist/docs/<tech>/
 ```
 

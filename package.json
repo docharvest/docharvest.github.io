@@ -11,10 +11,10 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check": "astro check"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.9",
     "@astrojs/mdx": "^7.0.2",
     "@tailwindcss/vite": "^4.3.1",
     "astro": "^7.0.6",
@@ -23,11 +23,12 @@
     "node-html-parser": "^7.0.1",
     "shiki": "^4.3.1",
     "tailwindcss": "^4.3.1",
-    "turndown": "^7.2.0",
-    "typescript": "^6.0.3"
+    "turndown": "^7.2.0"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.9",
     "@tailwindcss/typography": "^0.5.20",
-    "daisyui": "^5.6.3"
+    "daisyui": "^5.6.3",
+    "typescript": "^6.0.3"
   }
 }

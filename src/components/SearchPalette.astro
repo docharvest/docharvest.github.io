@@ -64,34 +64,43 @@
   import MiniSearch from 'minisearch';
   import { sitePath } from '../lib/site';
 
-  const dialog = document.getElementById('search-palette-dialog');
-  const input = dialog?.querySelector('[data-search-input]');
-  const resultsEl = dialog?.querySelector('[data-search-results]');
+  type SearchHit = { title: string; path: string };
+  type PackIndex = { documents?: SearchHit[] };
 
-  if (dialog instanceof HTMLDialogElement && input instanceof HTMLInputElement && resultsEl) {
-    /** @type {Map<string, Promise<MiniSearch | null>>} */
-    const cache = new Map();
-    /** @type {{ title: string, path: string }[]} */
-    let currentHits = [];
+  const dialogEl = document.getElementById('search-palette-dialog');
+  const inputEl = dialogEl?.querySelector('[data-search-input]');
+  const resultsNode = dialogEl?.querySelector('[data-search-results]');
+
+  if (
+    dialogEl instanceof HTMLDialogElement &&
+    inputEl instanceof HTMLInputElement &&
+    resultsNode instanceof HTMLElement
+  ) {
+    const dialog = dialogEl;
+    const input = inputEl;
+    const resultsEl = resultsNode;
+
+    const cache = new Map<string, Promise<MiniSearch<SearchHit> | null>>();
+    let currentHits: SearchHit[] = [];
     let activeIndex = -1;
     let searchTimer = 0;
 
-    function techFromLocation() {
+    function techFromLocation(): string {
       const m = location.pathname.match(/\/docs\/([^/]+)/);
-      return m ? m[1] : '';
+      return m?.[1] ?? '';
     }
 
-    function loadPack(tech) {
+    function loadPack(tech: string): Promise<MiniSearch<SearchHit> | null> {
       if (!tech) return Promise.resolve(null);
       const hit = cache.get(tech);
       if (hit) return hit;
       const p = fetch(sitePath(`search-indexes/${encodeURIComponent(tech)}.json`))
         .then((res) => {
           if (!res.ok) throw new Error(`index HTTP ${res.status}`);
-          return res.json();
+          return res.json() as Promise<PackIndex>;
         })
         .then((data) => {
-          const mini = new MiniSearch({
+          const mini = new MiniSearch<SearchHit>({
             fields: ['title', 'description', 'body', 'slugPath'],
             storeFields: ['title', 'path', 'slugPath', 'tech'],
             searchOptions: {
@@ -103,7 +112,7 @@
           mini.addAll(data.documents || []);
           return mini;
         })
-        .catch((err) => {
+        .catch((err: unknown) => {
           cache.delete(tech);
           console.error('[search]', err);
           return null;
@@ -112,11 +121,11 @@
       return p;
     }
 
-    function resultLinks() {
-      return [...resultsEl.querySelectorAll('a[href]')];
+    function resultLinks(): HTMLAnchorElement[] {
+      return [...resultsEl.querySelectorAll<HTMLAnchorElement>('a[href]')];
     }
 
-    function setActive(index) {
+    function setActive(index: number) {
       const links = resultLinks();
       if (!links.length) {
         activeIndex = -1;
@@ -136,7 +145,7 @@
       });
     }
 
-    function renderHits(rows) {
+    function renderHits(rows: SearchHit[] | null | undefined) {
       currentHits = rows || [];
       activeIndex = -1;
       resultsEl.innerHTML = '';
@@ -175,7 +184,6 @@
         resultsEl.appendChild(li);
       });
 
-      // Highlight first result by default (palette UX)
       setActive(0);
     }
 
@@ -186,19 +194,24 @@
         renderHits([]);
         return;
       }
-      loadPack(tech).then((mini) => {
+      void loadPack(tech).then((mini) => {
         if (!mini) {
           renderHits([]);
           return;
         }
-        renderHits(mini.search(term).slice(0, 12));
+        const rows = mini.search(term).slice(0, 12).map((r) => {
+          const stored = r as { title?: string; path?: string };
+          return { title: stored.title ?? '', path: stored.path ?? '' };
+        });
+        renderHits(rows);
       });
     }
 
     function goActive() {
       const links = resultLinks();
-      if (activeIndex < 0 || !links[activeIndex]) return;
-      const href = links[activeIndex].href;
+      const active = links[activeIndex];
+      if (activeIndex < 0 || !active) return;
+      const href = active.href;
       closePalette();
       location.assign(href);
     }
@@ -212,7 +225,7 @@
       }
       input.value = '';
       renderHits([]);
-      if (tech) loadPack(tech);
+      if (tech) void loadPack(tech);
       queueMicrotask(() => input.focus());
     }
 
@@ -233,17 +246,18 @@
       const isK = e.key === 'k' || e.key === 'K' || e.code === 'KeyK';
       if (!(e.metaKey || e.ctrlKey) || !isK) return;
       const el = e.target;
-      const tag = el && el.tagName;
       const otherField =
-        (tag === 'INPUT' || tag === 'TEXTAREA' || el?.isContentEditable) &&
-        !(el instanceof HTMLElement && el.hasAttribute('data-search-input'));
+        el instanceof HTMLElement &&
+        (el instanceof HTMLInputElement ||
+          el instanceof HTMLTextAreaElement ||
+          el.isContentEditable) &&
+        !el.hasAttribute('data-search-input');
       if (otherField) return;
       e.preventDefault();
       if (dialog.open) closePalette();
       else openPalette();
     });
 
-    // Arrow / Enter while focus is in the search field (or dialog)
     input.addEventListener('keydown', (e) => {
       const links = resultLinks();
       if (e.key === 'ArrowDown') {
@@ -287,7 +301,7 @@
 
     resultsEl.addEventListener('mousemove', (e) => {
       const a = e.target instanceof Element ? e.target.closest('a[href]') : null;
-      if (!a || !resultsEl.contains(a)) return;
+      if (!(a instanceof HTMLAnchorElement) || !resultsEl.contains(a)) return;
       const links = resultLinks();
       const i = links.indexOf(a);
       if (i >= 0 && i !== activeIndex) setActive(i);
@@ -295,7 +309,7 @@
 
     resultsEl.addEventListener('click', (e) => {
       const a = e.target instanceof Element ? e.target.closest('a') : null;
-      if (a?.href) closePalette();
+      if (a instanceof HTMLAnchorElement && a.href) closePalette();
     });
   }
 </script>

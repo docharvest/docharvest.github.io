@@ -43,25 +43,24 @@
 </style>
 
 <script>
-  let teardown = null;
+  let teardown: (() => void) | null = null;
 
-  function documentOffsetTop(el) {
+  function documentOffsetTop(el: HTMLElement): number {
     // Walk offsetParent chain. offsetTop alone is relative to the nearest
     // positioned ancestor, which is wrong inside the nested docs layout.
     let top = 0;
-    let node = el;
+    let node: HTMLElement | null = el;
     while (node) {
       top += node.offsetTop;
-      node = node.offsetParent;
+      const parent: Element | null = node.offsetParent;
+      node = parent instanceof HTMLElement ? parent : null;
     }
     return top;
   }
 
   function bindReadingProgress() {
-    if (typeof teardown === 'function') {
-      teardown();
-      teardown = null;
-    }
+    teardown?.();
+    teardown = null;
 
     const progress = document.getElementById('reading-progress');
     const anchor = document.getElementById('article-end');
@@ -92,8 +91,8 @@
     onscroll();
 
     const onBeforeSwap = () => {
-      window.removeEventListener('scroll', onscroll, false);
-      window.removeEventListener('resize', onscroll, false);
+      window.removeEventListener('scroll', onscroll);
+      window.removeEventListener('resize', onscroll);
     };
     document.addEventListener('astro:before-swap', onBeforeSwap, { once: true });
 
@@ -103,7 +102,6 @@
   }
 
   document.addEventListener('astro:page-load', bindReadingProgress);
-  // First paint / no view transitions:
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', bindReadingProgress, { once: true });
   } else {
