@@ -144,7 +144,7 @@ export default function techLlmsTxt(options = {}) {
             writeFile(join(techDir, 'llms.txt'), BOM + indexLines.join('\n'), 'utf-8'),
             writeFile(join(techDir, 'llms-full.txt'), BOM + fullLines.join('\n'), 'utf-8'),
           ]);
-          logger.info(`[tech-llms-txt] docs/${tech}/llms.txt (+ full) — ${pages.length} pages`);
+          logger.info(`[tech-llms-txt] docs/${tech}/llms.txt (+ full): ${pages.length} pages`);
         }
 
         if (byTech.size === 0) {

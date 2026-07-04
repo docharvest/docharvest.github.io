@@ -1,11 +1,11 @@
 /**
- * Shared Shiki 4 highlighting for every HTML-producing pipeline.
- * Themes match astro.config markdown.shikiConfig (github-light / github-dark,
- * defaultColor: false) so the site theme toggle works via --shiki-light* /
- * --shiki-dark* CSS variables (see global.css).
+ * Shared Shiki 4 highlighting for HTML pipelines.
+ * Themes match `astro.config` `markdown.shikiConfig` (github-light / github-dark,
+ * `defaultColor: false`) so the theme toggle can use `--shiki-light*` /
+ * `--shiki-dark*` (see `global.css`).
  *
- * Pipelines should emit ordinary Markdown → HTML; call `finalizeDocHtml` on the
- * result so fences, indented blocks, and future backends all get the same treatment.
+ * Pipelines emit ordinary Markdown HTML, then call `finalizeDocHtml` so fences
+ * and indented blocks get the same treatment.
  */
 import { createHighlighter, type Highlighter } from 'shiki';
 
@@ -119,9 +119,7 @@ function decodeBasicEntities(s: string): string {
     .replace(/&nbsp;/g, ' ');
 }
 
-/**
- * Highlight a source string (not HTML) to a themed <pre class="astro-code shiki">…</pre>.
- */
+/** Highlight source (not HTML) to a themed `<pre class="astro-code shiki">...</pre>`. */
 export async function highlightCode(code: string, lang?: string | null): Promise<string> {
   const highlighter = await getHighlighter();
   const normalized = normalizeLang(lang ?? undefined);
@@ -161,9 +159,9 @@ function langFromPreCodeAttrs(preAttrs: string, codeAttrs: string): string | nul
 }
 
 /**
- * Walk an HTML fragment and replace every unhighlighted <pre><code>…</code></pre>
- * with Shiki output. Skips blocks already carrying .astro-code / .shiki (e.g. astro-md).
- * Uses match indices (not String.replace) so identical snippets each get highlighted.
+ * Replace unhighlighted `<pre><code>...</code></pre>` blocks with Shiki output.
+ * Skips blocks that already have `.astro-code` / `.shiki` (e.g. astro-md).
+ * Uses match indices so identical snippets each get highlighted.
  */
 export async function finalizeDocHtml(html: string): Promise<string> {
   if (!html || !html.includes('<pre')) return html;

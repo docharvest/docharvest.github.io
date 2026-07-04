@@ -11,7 +11,7 @@ interface Props {
 
 const {
   title = 'docharvest',
-  description = 'Harvested documentation packs for tools and ecosystems, with per-tech llms.txt for agents.',
+  description = 'Vendored documentation packs. Browse /docs/:tech; agents use that pack\'s llms.txt.',
 } = Astro.props;
 
 const pageTitle = title === 'docharvest' ? title : `${title} · docharvest`;

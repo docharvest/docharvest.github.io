@@ -195,7 +195,7 @@ html[data-theme="docharvest-dark"] pre.shiki span {
   margin-bottom: 1.25em;
 }
 
-/* Inline code in docs — follow theme tokens (not fixed gray) */
+/* Inline code in docs follows theme tokens (not fixed gray). */
 .docs-prose :where(:not(pre) > code) {
   color: var(--color-base-content);
   background-color: color-mix(in oklab, var(--color-base-content) 8%, var(--color-base-200));

@@ -1,12 +1,9 @@
 /**
- * Pipeline: astro-md
+ * astro-md pipeline: Vite compiles `.md` / `.mdx` into components.
+ * Use when the pack is ordinary Markdown/MDX (no host-only imports).
  *
- * Vite/Astro processes `.md` / `.mdx` into components (syntax highlighting, assets).
- * Use for packs that are ordinary Markdown/MDX without Astro-hostile paths.
- *
- * Vite limitation: import.meta.glob patterns must be static string literals.
- * When you add a pack with pipeline "astro-md" in workspaced.cue #docs, also add a
- * matching import.meta.glob for content/PACK_ID (md and mdx) into `modules` below.
+ * `import.meta.glob` patterns must be static literals. For each `#docs` entry
+ * with `pipeline: "astro-md"`, add matching globs under `modules` and `sources`.
  */
 import type { DocPage, DocPipeline, PipelineContext } from './types';
 import { pageOrder, parseContentPath, titleFromSlug } from './path';
@@ -21,12 +18,12 @@ type MdModule = {
   getHeadings?: () => { depth: number; slug: string; text: string }[];
 };
 
-/** One glob per astro-md pack (keep in sync with #docs pipeline: "astro-md"). */
+/** One glob per astro-md pack (keep in sync with `#docs`). */
 const modules = {
   ...import.meta.glob('../../../content/renovate/**/*.{md,mdx}', { eager: true }),
 } as Record<string, MdModule>;
 
-/** Raw source for search — same paths as `modules`, text only. */
+/** Raw source for search; same paths as `modules`, text only. */
 const sources = {
   ...import.meta.glob('../../../content/renovate/**/*.{md,mdx}', {
     eager: true,

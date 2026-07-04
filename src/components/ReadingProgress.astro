@@ -46,8 +46,8 @@
   let teardown = null;
 
   function documentOffsetTop(el) {
-    // Walk offsetParent chain — offsetTop alone is only relative to the
-    // nearest positioned ancestor, which is wrong inside nested docs layout.
+    // Walk offsetParent chain. offsetTop alone is relative to the nearest
+    // positioned ancestor, which is wrong inside the nested docs layout.
     let top = 0;
     let node = el;
     while (node) {

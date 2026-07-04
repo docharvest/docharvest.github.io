@@ -14,17 +14,17 @@ const packs = getPacks().map((p) => ({
 
 <BaseLayout
   title="docharvest"
-  description="Documentation packs vendored with workspaced. Browse /docs/:tech; agents use per-tech llms.txt only."
+  description="Vendored documentation packs. Browse /docs/:tech; agents use that pack's llms.txt."
 >
   <div class="mx-auto max-w-6xl px-4 py-10 sm:py-12">
     <header class="mb-8 max-w-2xl border-b border-base-300 pb-6">
       <h1 class="font-display text-3xl font-medium tracking-[-0.02em] sm:text-4xl">Packs</h1>
       <p class="mt-2 text-sm leading-relaxed text-base-content/70 text-pretty sm:text-base">
-        Upstream docs under <code class="rounded bg-base-200 px-1 font-mono text-[0.85em]">/docs/:tech</code>.
-        Agents fetch that pack’s <code class="rounded bg-base-200 px-1 font-mono text-[0.85em]">llms.txt</code> — no site-wide index.
-        Declared in <code class="rounded bg-base-200 px-1 font-mono text-[0.85em]">workspaced.cue</code>
+        Upstream docs live under <code class="rounded bg-base-200 px-1 font-mono text-[0.85em]">/docs/:tech</code>.
+        Agents fetch that pack's <code class="rounded bg-base-200 px-1 font-mono text-[0.85em]">llms.txt</code> (per tech only).
+        Packs are declared in <code class="rounded bg-base-200 px-1 font-mono text-[0.85em]">workspaced.cue</code>
         (<a class="link link-primary" href="https://github.com/lucasew/workspaced" target="_blank" rel="noopener noreferrer">workspaced</a>).
-        Logos are the GitHub owner avatar for each pack’s repo.
+        Logos use the GitHub owner avatar for each pack's repo.
       </p>
     </header>
 

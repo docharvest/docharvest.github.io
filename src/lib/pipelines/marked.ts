@@ -1,12 +1,10 @@
 /**
- * Pipeline: marked
+ * marked pipeline: plain text to HTML. Highlighting happens later in
+ * `finalizeDocHtml` (shared across HTML backends).
  *
- * Plain text → marked → HTML. Syntax highlighting is applied later for all
- * HTML backends via `finalizeDocHtml` in docs.ts (not dialect-specific).
- *
- * Also accepts `.mdx` as **raw source** (imports/exports stripped). Use this for
- * packs that ship MDX but depend on host-only components (e.g. Starlight) that
- * cannot compile under this site — prefer `astro-md` only when the MDX is self-contained.
+ * `.mdx` is accepted as raw source with imports/exports stripped. Use this when
+ * upstream MDX needs host-only components (e.g. Starlight). Prefer `astro-md`
+ * only when the MDX is self-contained.
  */
 import { marked } from 'marked';
 import type { DocPage, DocPipeline, PipelineContext } from './types';

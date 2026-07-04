@@ -11,7 +11,7 @@ interface Props {
   title: string;
   description?: string;
   slugPath?: string;
-  /** When true, content already has a top-level title — omit layout H1 to avoid doubles */
+  /** Skip layout H1 when the body already starts with one. */
   hasContentTitle?: boolean;
 }
 
@@ -172,7 +172,7 @@ function labelFor(item: NavItem) {
       </div>
     </aside>
 
-    {/* Reading column — constrained measure */}
+    {/* Reading column with constrained measure */}
     <div class="min-w-0 flex-1">
       <article class="docs-article mx-auto w-full max-w-3xl px-4 py-8 sm:px-6 sm:py-10 lg:px-10">
         <header class="mb-8">

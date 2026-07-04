@@ -1,9 +1,9 @@
 package workspaced
 
-// Documentation packs: single source of truth for vendoring + site metadata + pipeline.
+// Documentation packs: vendoring, site metadata, and render pipeline.
 // Place: content/<destination>/ via core:place.
 // Manifest: .workspaced/config/content/manifest.json.tmpl on `workspaced codebase apply`
-// (config-tree). Template reads module config.pack — inspect with:
+// (config-tree). Template reads module config.pack; inspect with:
 //   workspaced codebase config dump
 #docs: {
 	renovate: {
@@ -125,7 +125,7 @@ workspaced: {
 					items: {
 						"content/\(packId)": "docs_\(name):\(value.origin)"
 					}
-					// Surfaced on config dump → template .root.modules.<name>.config.pack
+					// On config dump: template .root.modules.<name>.config.pack
 					pack: {
 						id:          packId
 						title:       [

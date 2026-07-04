@@ -9,12 +9,9 @@ export type DocPack = {
   repo: string;
   /** owner/repo from workspaced.cue (optional in older manifests) */
   github?: string;
-  /**
-   * Project mark — defaults to the GitHub owner avatar for `github` / `repo`
-   * (`https://github.com/{owner}.png`), i.e. the org/user icon for that repo.
-   */
+  /** Logo URL; defaults to `https://github.com/{owner}.png` from `github` / `repo`. */
   logo: string;
-  /** How this pack’s files under `content/<id>/` are turned into pages. */
+  /** How files under `content/<id>/` become pages. */
   pipeline: PipelineId;
 };
 

@@ -1,9 +1,7 @@
 /**
- * Documentation packs + page index.
- *
- * Pack metadata and pipeline are defined in `workspaced.cue` (`#docs`).
- * HTML backends emit body HTML; `finalizeDocHtml` applies shared Shiki highlighting
- * so every pipeline (marked / future) gets the same code treatment as astro-md.
+ * Pack metadata and page index.
+ * Packs come from `workspaced.cue` (`#docs`). HTML pipelines run through
+ * `finalizeDocHtml` so code blocks share one Shiki setup.
  */
 import manifestJson from '../../content/manifest.json';
 import { finalizeDocHtml, warmHighlighter } from './pipelines/highlight';
@@ -17,7 +15,7 @@ export { getPipeline, listPipelines } from './pipelines/registry';
 
 const DEFAULT_PIPELINE: PipelineId = 'astro-md';
 
-/** GitHub owner avatar — what you see as the org/user icon on the repo. */
+/** GitHub owner avatar URL (`https://github.com/{owner}.png`). */
 export function logoFromGithub(githubOrRepo: string, size = 128): string {
   let owner = githubOrRepo.trim();
   if (owner.startsWith('https://github.com/')) {

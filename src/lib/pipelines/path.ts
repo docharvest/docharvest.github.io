@@ -1,4 +1,4 @@
-/** Shared path → URL segment helpers (no content rewriting). */
+/** Path to URL segment helpers (no content rewriting). */
 
 const DOC_EXT = /\.(md|mdx|markdown)$/i;
 
@@ -21,7 +21,7 @@ export function titleFromSlug(slugPath: string, segments: string[]): string {
 }
 
 /**
- * Parse `…/content/<tech>/…/file.ext` into route segments under that tech.
+ * Parse `.../content/<tech>/.../file.ext` into route segments under that tech.
  * Returns null if the path is not a doc file for the given tech (when `tech` is set).
  */
 export function parseContentPath(
@@ -66,12 +66,12 @@ function titleFromYamlFrontmatter(raw: string): string | undefined {
 /**
  * Page title for a doc source file:
  * 1. YAML frontmatter `title:` if set
- * 2. Else if the first non-empty line (after frontmatter) is an ATX H1 (`# …`),
- *    use that text — unless the unslugified file name is longer (e.g. man pages
- *    with `# Name` vs `nix-env` → prefer "Nix Env")
+ * 2. Else if the first non-empty line (after frontmatter) is an ATX H1 (`# ...`),
+ *    use that text unless the unslugified file name is longer (e.g. man pages
+ *    with `# Name` vs `nix-env`; prefer "Nix Env")
  * 3. Else unslugify the file name (last path segment)
  *
- * Does not scan later headings — avoids picking a random `#` in the body.
+ * Does not scan later headings (avoids a random `#` deeper in the body).
  */
 export function titleFromDocSource(raw: string, segments: string[], slugPath = ''): string {
   const fromFm = titleFromYamlFrontmatter(raw);
@@ -98,7 +98,7 @@ export function titleFromDocSource(raw: string, segments: string[], slugPath = '
 
 /**
  * Make `title` the first ATX H1 in the markdown body (after frontmatter).
- * Replaces an existing leading `# …` line, or inserts one before the rest.
+ * Replaces an existing leading `# ...` line, or inserts one before the rest.
  * Keeps YAML frontmatter intact when present.
  */
 export function ensureLeadingH1Markdown(raw: string, title: string): string {

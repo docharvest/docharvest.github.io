@@ -1,5 +1,5 @@
 ---
-/** Ctrl/Cmd+K — search box + results; pack from /docs/<tech>/ only */
+/** Ctrl/Cmd+K search for the open /docs/<tech>/ pack only. */
 ---
 
 <button
@@ -28,7 +28,7 @@
       <input
         type="search"
         class="min-h-10 min-w-0 flex-1 border-0 bg-transparent text-base text-base-content outline-none placeholder:text-base-content/40"
-        placeholder="Search this pack…"
+        placeholder="Search this pack..."
         data-search-input
         autocomplete="off"
         spellcheck="false"
@@ -146,8 +146,8 @@
       if (!currentHits.length) {
         const empty = document.createElement('li');
         empty.className = 'px-3 py-2 text-sm text-base-content/50';
-        if (!tech) empty.textContent = 'Open a documentation pack (/docs/…) to search.';
-        else if (!input.value.trim()) empty.textContent = 'Type to search this pack only.';
+        if (!tech) empty.textContent = 'Open a pack under /docs/<tech>/ to search.';
+        else if (!input.value.trim()) empty.textContent = 'Type to search this pack.';
         else empty.textContent = 'No matches.';
         resultsEl.appendChild(empty);
         input.removeAttribute('aria-activedescendant');
