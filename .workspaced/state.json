@@ -1998,6 +1998,9 @@
     "content/nix/release-notes/rl-2.34.md": {
       "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.34.md)"
     },
+    "content/nix/release-notes/rl-2.35.md": {
+      "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.35.md)"
+    },
     "content/nix/release-notes/rl-2.4.md": {
       "source_info": "module:docs_nix place (content/nix/release-notes/rl-2.4.md)"
     },
