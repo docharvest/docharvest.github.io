@@ -2742,6 +2742,9 @@
     "content/nixpkgs/hooks/npm-install-hook.section.md": {
       "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/npm-install-hook.section.md)"
     },
+    "content/nixpkgs/hooks/openmp-check-hook.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/openmp-check-hook.section.md)"
+    },
     "content/nixpkgs/hooks/patch-rc-path-hooks.section.md": {
       "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/patch-rc-path-hooks.section.md)"
     },
