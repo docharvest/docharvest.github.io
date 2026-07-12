@@ -13,7 +13,7 @@
     <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 18a7 7 0 100-14 7 7 0 000 14z"></path>
   </svg>
   <span class="hidden sm:inline">Search</span>
-  <kbd class="kbd kbd-sm hidden opacity-60 md:inline-flex">⌘K</kbd>
+  <kbd class="kbd kbd-sm hidden opacity-60 md:inline-flex" data-search-kbd>Ctrl+K</kbd>
 </button>
 
 <dialog
@@ -63,6 +63,12 @@
 <script>
   import MiniSearch, { type SearchResult } from 'minisearch';
   import { sitePath } from '../lib/site';
+
+  // Match keydown (metaKey || ctrlKey): show ⌘ on Apple platforms, Ctrl elsewhere.
+  const isApple = /Mac|iPhone|iPad|iPod/i.test(navigator.platform || navigator.userAgent);
+  document.querySelectorAll('[data-search-kbd]').forEach((el) => {
+    el.textContent = isApple ? '⌘K' : 'Ctrl+K';
+  });
 
   /** Full document shape written by search-indexes/[tech].json. */
   type SearchDocument = {
