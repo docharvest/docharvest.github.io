@@ -82,6 +82,7 @@ package workspaced
 		origin:      "src/content/docs/en"
 		destination: "astro"
 		title:       "Astro"
+		description: "Astro documentation (guides, recipes, reference, tutorials) from withastro/docs on main (src/content/docs/en)."
 		// marked (+ .mdx): Starlight/~/components imports cannot compile under this site
 		pipeline:    "marked"
 	}
