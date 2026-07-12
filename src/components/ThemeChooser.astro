@@ -1,5 +1,6 @@
 ---
 // Single control: one icon always; toggles data-theme only (no icon swap on click).
+import { THEME_DARK, THEME_LIGHT, THEME_STORAGE_KEY } from '../lib/theme';
 ---
 
 <button
@@ -33,11 +34,13 @@
   </svg>
 </button>
 
-<script is:inline>
+<script
+  is:inline
+  set:html={`
   (function () {
-    var KEY = 'docharvest-theme';
-    var LIGHT = 'docharvest';
-    var DARK = 'docharvest-dark';
+    var KEY = ${JSON.stringify(THEME_STORAGE_KEY)};
+    var LIGHT = ${JSON.stringify(THEME_LIGHT)};
+    var DARK = ${JSON.stringify(THEME_DARK)};
 
     function preferred() {
       try {
@@ -71,4 +74,5 @@
       apply(cur === DARK ? LIGHT : DARK);
     });
   })();
-</script>
+`}
+/>
