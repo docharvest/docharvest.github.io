@@ -5,11 +5,9 @@ on:
   pull_request:
   workflow_dispatch:
 
+# Default: read-only for PR/build runs. Write tokens only on the main deploy job.
 permissions:
   contents: read
-  actions: read # list this run's upload-pages-artifact for create-deployment
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages-${{ github.ref }}
@@ -44,10 +42,20 @@ jobs:
         with:
           path: dist
 
+  # Elevated token only when actually deploying (main). PR runs never get pages/id-token write.
+  deploy:
+    needs: site
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read # list this run's upload-pages-artifact for create-deployment
+      pages: write
+      id-token: write
+    steps:
       # Create deployment only — no status poll (deploy-pages waits/cancels on timeout).
       - name: Queue GitHub Pages deployment
         id: deployment
-        if: github.ref == 'refs/heads/main'
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
           script: |
