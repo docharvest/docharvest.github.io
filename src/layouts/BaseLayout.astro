@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { orgLogoUrl } from '../lib/brand';
+import { THEME_DARK, THEME_LIGHT, THEME_STORAGE_KEY } from '../lib/theme';
 
 interface Props {
   title?: string;
@@ -20,7 +21,7 @@ const brandLogo = orgLogoUrl(256);
 ---
 
 <!doctype html>
-<html lang="en" data-theme="docharvest">
+<html lang="en" data-theme={THEME_LIGHT}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -44,18 +45,24 @@ const brandLogo = orgLogoUrl(256);
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:image" content={brandLogo} />
     <title>{pageTitle}</title>
-    <script is:inline>
+    <script
+      is:inline
+      set:html={`
       (function () {
+        var KEY = ${JSON.stringify(THEME_STORAGE_KEY)};
+        var LIGHT = ${JSON.stringify(THEME_LIGHT)};
+        var DARK = ${JSON.stringify(THEME_DARK)};
         try {
-          var t = localStorage.getItem('docharvest-theme');
-          if (t === 'docharvest' || t === 'docharvest-dark') {
+          var t = localStorage.getItem(KEY);
+          if (t === LIGHT || t === DARK) {
             document.documentElement.setAttribute('data-theme', t);
           } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.setAttribute('data-theme', 'docharvest-dark');
+            document.documentElement.setAttribute('data-theme', DARK);
           }
         } catch (e) {}
       })();
-    </script>
+    `}
+    />
   </head>
   <body class="flex min-h-dvh flex-col bg-base-100 text-base-content antialiased">
     <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-field focus:bg-primary focus:px-3 focus:py-2 focus:text-primary-content">
