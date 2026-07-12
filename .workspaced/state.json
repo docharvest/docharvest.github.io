@@ -8676,6 +8676,9 @@
     "content/opencv5/tutorials/features/trackingmotion/harris_detector/images/Harris_Detector_Result.jpg": {
       "source_info": "module:docs_opencv5 place (content/opencv5/tutorials/features/trackingmotion/harris_detector/images/Harris_Detector_Result.jpg)"
     },
+    "content/opencv5/tutorials/geometry/convex_hull/convex_hull.markdown": {
+      "source_info": "module:docs_opencv5 place (content/opencv5/tutorials/geometry/convex_hull/convex_hull.markdown)"
+    },
     "content/opencv5/tutorials/geometry/table_of_content_geometry.markdown": {
       "source_info": "module:docs_opencv5 place (content/opencv5/tutorials/geometry/table_of_content_geometry.markdown)"
     },
@@ -9602,6 +9605,9 @@
     },
     "content/opencv5/tutorials/introduction/transition_guide/transition_guide.markdown": {
       "source_info": "module:docs_opencv5 place (content/opencv5/tutorials/introduction/transition_guide/transition_guide.markdown)"
+    },
+    "content/opencv5/tutorials/introduction/using_prebuilt_binaries/using_prebuilt_binaries.markdown": {
+      "source_info": "module:docs_opencv5 place (content/opencv5/tutorials/introduction/using_prebuilt_binaries/using_prebuilt_binaries.markdown)"
     },
     "content/opencv5/tutorials/introduction/windows_armpl/windows_armpl_opencv.markdown": {
       "source_info": "module:docs_opencv5 place (content/opencv5/tutorials/introduction/windows_armpl/windows_armpl_opencv.markdown)"
