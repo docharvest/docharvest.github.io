@@ -50,6 +50,17 @@ export function countPagesByTech(pages: DocPage[]): Map<string, number> {
   return counts;
 }
 
+export type PackSummary = DocPack & { pageCount: number };
+
+/** Packs with pageCount from a single scan of all pages. */
+export async function getPackSummaries(): Promise<PackSummary[]> {
+  const counts = countPagesByTech(await getAllPages());
+  return getPacks().map((p) => ({
+    ...p,
+    pageCount: counts.get(p.id) ?? 0,
+  }));
+}
+
 async function buildPages(): Promise<DocPage[]> {
   const pages: DocPage[] = [];
 
