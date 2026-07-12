@@ -61,11 +61,26 @@
 </style>
 
 <script>
-  import MiniSearch from 'minisearch';
+  import MiniSearch, { type SearchResult } from 'minisearch';
   import { sitePath } from '../lib/site';
 
-  type SearchHit = { title: string; path: string };
-  type PackIndex = { documents?: SearchHit[] };
+  /** Full document shape written by search-indexes/[tech].json. */
+  type SearchDocument = {
+    id: string;
+    title: string;
+    description: string;
+    body: string;
+    slugPath: string;
+    path: string;
+    tech: string;
+  };
+
+  /** Fields needed to render a hit (subset of storeFields). */
+  type SearchHit = Pick<SearchDocument, 'title' | 'path'>;
+  type PackIndex = { documents?: SearchDocument[] };
+
+  const SEARCH_DEBOUNCE_MS = 100;
+  const SEARCH_RESULT_LIMIT = 12;
 
   const dialogEl = document.getElementById('search-palette-dialog');
   const inputEl = dialogEl?.querySelector('[data-search-input]');
@@ -80,17 +95,19 @@
     const input = inputEl;
     const resultsEl = resultsNode;
 
-    const cache = new Map<string, Promise<MiniSearch<SearchHit> | null>>();
+    const cache = new Map<string, Promise<MiniSearch<SearchDocument> | null>>();
     let currentHits: SearchHit[] = [];
     let activeIndex = -1;
     let searchTimer = 0;
+    /** Monotonic seq so late loadPack/search results cannot overwrite a newer query. */
+    let searchGeneration = 0;
 
     function techFromLocation(): string {
       const m = location.pathname.match(/\/docs\/([^/]+)/);
       return m?.[1] ?? '';
     }
 
-    function loadPack(tech: string): Promise<MiniSearch<SearchHit> | null> {
+    function loadPack(tech: string): Promise<MiniSearch<SearchDocument> | null> {
       if (!tech) return Promise.resolve(null);
       const hit = cache.get(tech);
       if (hit) return hit;
@@ -100,7 +117,7 @@
           return res.json() as Promise<PackIndex>;
         })
         .then((data) => {
-          const mini = new MiniSearch<SearchHit>({
+          const mini = new MiniSearch<SearchDocument>({
             fields: ['title', 'description', 'body', 'slugPath'],
             storeFields: ['title', 'path', 'slugPath', 'tech'],
             searchOptions: {
@@ -187,22 +204,31 @@
       setActive(0);
     }
 
+    function hitFromResult(r: SearchResult): SearchHit {
+      // storeFields put title/path on the result; MiniSearch types them via index signature.
+      const title = r['title'];
+      const path = r['path'];
+      return {
+        title: typeof title === 'string' ? title : '',
+        path: typeof path === 'string' ? path : '',
+      };
+    }
+
     function runSearch() {
       const tech = techFromLocation();
       const term = input.value.trim();
+      const generation = ++searchGeneration;
       if (!tech || !term) {
         renderHits([]);
         return;
       }
       void loadPack(tech).then((mini) => {
+        if (generation !== searchGeneration) return;
         if (!mini) {
           renderHits([]);
           return;
         }
-        const rows = mini.search(term).slice(0, 12).map((r) => {
-          const stored = r as { title?: string; path?: string };
-          return { title: stored.title ?? '', path: stored.path ?? '' };
-        });
+        const rows = mini.search(term).slice(0, SEARCH_RESULT_LIMIT).map(hitFromResult);
         renderHits(rows);
       });
     }
@@ -224,6 +250,7 @@
         dialog.setAttribute('open', '');
       }
       input.value = '';
+      searchGeneration++;
       renderHits([]);
       if (tech) void loadPack(tech);
       queueMicrotask(() => input.focus());
@@ -296,7 +323,7 @@
 
     input.addEventListener('input', () => {
       window.clearTimeout(searchTimer);
-      searchTimer = window.setTimeout(runSearch, 100);
+      searchTimer = window.setTimeout(runSearch, SEARCH_DEBOUNCE_MS);
     });
 
     resultsEl.addEventListener('mousemove', (e) => {
