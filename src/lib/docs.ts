@@ -87,14 +87,26 @@ async function buildPages(): Promise<DocPage[]> {
   );
 }
 
+/** Group sorted pages by tech (order within each tech is preserved). */
+function indexPagesByTech(pages: DocPage[]): Map<string, DocPage[]> {
+  const byTech = new Map<string, DocPage[]>();
+  for (const page of pages) {
+    const list = byTech.get(page.tech);
+    if (list) list.push(page);
+    else byTech.set(page.tech, [page]);
+  }
+  return byTech;
+}
+
 const pagesPromise = buildPages();
+const pagesByTechPromise = pagesPromise.then(indexPagesByTech);
 
 export function getAllPages(): Promise<DocPage[]> {
   return pagesPromise;
 }
 
 export async function getPagesForTech(tech: string): Promise<DocPage[]> {
-  return (await getAllPages()).filter((p) => p.tech === tech);
+  return (await pagesByTechPromise).get(tech) ?? [];
 }
 
 export async function getPage(tech: string, slugPath: string): Promise<DocPage | undefined> {
