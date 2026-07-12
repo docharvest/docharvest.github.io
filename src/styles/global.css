@@ -184,12 +184,6 @@ html[data-theme="docharvest-dark"] pre.shiki span {
   overflow-x: auto;
 }
 
-@media (max-width: 1023px) {
-  body:has(#docs-sidebar-toggle:checked) {
-    overflow: hidden;
-  }
-}
-
 .docs-prose :where(pre.astro-code, pre.shiki) {
   margin-top: 1.25em;
   margin-bottom: 1.25em;
