@@ -9,7 +9,11 @@
  */
 import { createHighlighter, type Highlighter } from 'shiki';
 
-const THEMES = ['github-light', 'github-dark'] as const;
+/** Light/dark theme ids — shared by createHighlighter and codeToHtml. */
+const THEMES = {
+  light: 'github-light',
+  dark: 'github-dark',
+} as const;
 
 /**
  * Languages loaded into the shared highlighter.
@@ -73,7 +77,7 @@ let highlighterPromise: Promise<Highlighter> | null = null;
 function getHighlighter(): Promise<Highlighter> {
   if (!highlighterPromise) {
     highlighterPromise = createHighlighter({
-      themes: [...THEMES],
+      themes: [THEMES.light, THEMES.dark],
       langs: [...LANGS],
     });
   }
@@ -128,10 +132,7 @@ export async function highlightCode(code: string, lang?: string | null): Promise
 
   const html = highlighter.codeToHtml(code.replace(/\n$/, ''), {
     lang: useLang,
-    themes: {
-      light: 'github-light',
-      dark: 'github-dark',
-    },
+    themes: THEMES,
     defaultColor: false,
   });
 
