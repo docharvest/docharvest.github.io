@@ -29,13 +29,25 @@ function normalizePack(raw: Partial<DocPack> & { id: string }): DocPack {
   };
 }
 
+const packsList: DocPack[] = (
+  (manifestJson as { packs: Array<Partial<DocPack> & { id: string }> }).packs ?? []
+).map(normalizePack);
+
 export function getPacks(): DocPack[] {
-  const packs = (manifestJson as { packs: Array<Partial<DocPack> & { id: string }> }).packs ?? [];
-  return packs.map(normalizePack);
+  return packsList;
 }
 
 export function getPack(tech: string): DocPack | undefined {
-  return getPacks().find((p) => p.id === tech);
+  return packsList.find((p) => p.id === tech);
+}
+
+/** One-pass page counts keyed by tech id. */
+export function countPagesByTech(pages: DocPage[]): Map<string, number> {
+  const counts = new Map<string, number>();
+  for (const page of pages) {
+    counts.set(page.tech, (counts.get(page.tech) ?? 0) + 1);
+  }
+  return counts;
 }
 
 async function buildPages(): Promise<DocPage[]> {
