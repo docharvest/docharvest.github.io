@@ -99,8 +99,9 @@ export default function techLlmsTxt(options = {}) {
             const data = await extractPage(htmlFile, titleSource);
             if (!byTech.has(tech)) byTech.set(tech, []);
             byTech.get(tech).push({ pathname: normalized === '//' ? '/' : normalized, ...data });
-          } catch {
-            logger.warn(`[tech-llms-txt] skip unreadable ${htmlFile}`);
+          } catch (err) {
+            const detail = err instanceof Error ? err.message : String(err);
+            logger.warn(`[tech-llms-txt] skip unreadable ${htmlFile}: ${detail}`);
           }
         }
 
