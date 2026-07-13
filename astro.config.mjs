@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import mdx from '@astrojs/mdx';
 import techLlmsTxt from './src/integrations/tech-llms-txt.mjs';
+import { THEMES } from './src/lib/pipelines/highlight.ts';
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,10 +19,7 @@ export default defineConfig({
   ],
   markdown: {
     shikiConfig: {
-      themes: {
-        light: 'github-light',
-        dark: 'github-dark',
-      },
+      themes: THEMES,
       defaultColor: false,
     },
   },
