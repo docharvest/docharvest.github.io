@@ -1,7 +1,7 @@
 /**
  * Shared Shiki 4 highlighting for HTML pipelines.
- * Themes match `astro.config` `markdown.shikiConfig` (github-light / github-dark,
- * `defaultColor: false`) so the theme toggle can use `--shiki-light*` /
+ * Theme ids live in `THEMES` (imported by `astro.config` `markdown.shikiConfig`)
+ * with `defaultColor: false` so the theme toggle can use `--shiki-light*` /
  * `--shiki-dark*` (see `global.css`).
  *
  * Pipelines emit ordinary Markdown HTML, then call `finalizeDocHtml` so fences
@@ -9,8 +9,8 @@
  */
 import { createHighlighter, type Highlighter } from 'shiki';
 
-/** Light/dark theme ids — shared by createHighlighter and codeToHtml. */
-const THEMES = {
+/** Light/dark theme ids — source of truth for highlight + astro markdown.shikiConfig. */
+export const THEMES = {
   light: 'github-light',
   dark: 'github-dark',
 } as const;
