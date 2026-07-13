@@ -92,6 +92,64 @@ export function titleFromDocSource(raw: string, segments: string[], slugPath = '
   return fromSlug;
 }
 
+/** GitHub-ish slug for heading anchors (no external dep). */
+function slugifyHeading(text: string): string {
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_]+/g, '-');
+}
+
+/**
+ * ATX headings (`#` … `######`) from markdown. Skips fenced ``` / ~~~ blocks.
+ * Shape matches DocPage.headings / Astro getHeadings().
+ */
+export function extractAtxHeadings(
+  markdown: string,
+): { depth: number; slug: string; text: string }[] {
+  const body = stripYamlFrontmatter(markdown);
+  const headings: { depth: number; slug: string; text: string }[] = [];
+  const seen = new Map<string, number>();
+  let fence: string | null = null;
+
+  for (const line of body.split(/\r?\n/)) {
+    if (fence) {
+      const ch = fence[0]!;
+      let n = 0;
+      while (n < line.length && line[n] === ch) n++;
+      // Close with same marker char, length ≥ open, only trailing whitespace.
+      if (n >= fence.length && line.slice(n).trim() === '') fence = null;
+      continue;
+    }
+    const fenceOpen = line.match(/^(`{3,}|~{3,})/);
+    if (fenceOpen) {
+      fence = fenceOpen[1]!;
+      continue;
+    }
+
+    const m = line.match(/^(#{1,6})\s+(.+?)\s*#*\s*$/);
+    if (!m) continue;
+    const depth = m[1]!.length;
+    // Light inline strip so TOC text is readable (links / emphasis).
+    const text = m[2]!
+      .replace(/!\[([^\]]*)\]\([^)]*\)/g, '$1')
+      .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+      .replace(/[*_`~]/g, '')
+      .trim();
+    if (!text) continue;
+
+    let slug = slugifyHeading(text) || 'heading';
+    const n = seen.get(slug) ?? 0;
+    seen.set(slug, n + 1);
+    if (n > 0) slug = `${slug}-${n}`;
+
+    headings.push({ depth, slug, text });
+  }
+
+  return headings;
+}
+
 /**
  * Make `title` the first ATX H1 in the markdown body (after frontmatter).
  * Replaces an existing leading `# ...` line, or inserts one before the rest.

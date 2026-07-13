@@ -10,6 +10,7 @@ import { marked } from 'marked';
 import type { DocPage, DocPipeline, PipelineContext } from './types';
 import {
   ensureLeadingH1Markdown,
+  extractAtxHeadings,
   pageOrder,
   parseContentPath,
   stripYamlFrontmatter,
@@ -62,7 +63,8 @@ export const markedPipeline: DocPipeline = {
         html,
         // Index source markdown (post title H1 rewrite), not rendered HTML
         searchText: stripYamlFrontmatter(prepared),
-        headings: [],
+        // Same prepared body as searchText / html so H1 matches ensureLeadingH1Markdown
+        headings: extractAtxHeadings(prepared),
         filePath: path,
         pipeline: 'marked',
       });
