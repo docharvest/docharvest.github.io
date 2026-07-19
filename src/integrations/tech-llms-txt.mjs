@@ -8,6 +8,13 @@ const BOM = '\uFEFF';
 const DEFAULT_EXCLUDED = new Set(['404']);
 const PARSE_OPTIONS = { comment: false, blockTextElements: { script: false, style: false } };
 
+/** One Turndown instance for the whole build (config is constant; service is reusable). */
+const turndown = new TurndownService({
+  headingStyle: 'atx',
+  bulletListMarker: '-',
+  codeBlockStyle: 'fenced',
+});
+
 function elementText(el) {
   return el ? el.text.replace(/\s+/g, ' ').trim() : '';
 }
@@ -19,13 +26,7 @@ function htmlToMarkdown(node) {
     )
     .forEach((el) => el.remove());
 
-  const td = new TurndownService({
-    headingStyle: 'atx',
-    bulletListMarker: '-',
-    codeBlockStyle: 'fenced',
-  });
-
-  return td.turndown(node.toString()).replace(/\n{3,}/g, '\n\n').trim();
+  return turndown.turndown(node.toString()).replace(/\n{3,}/g, '\n\n').trim();
 }
 
 async function extractPage(htmlPath, titleSource) {
