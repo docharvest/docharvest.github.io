@@ -78,6 +78,14 @@
 
 @plugin "@tailwindcss/typography";
 
+/*
+ * ThemeChooser / BaseLayout set html[data-theme]. Map Tailwind `dark:` to that
+ * instead of prefers-color-scheme so utilities like dark:prose-invert follow the
+ * toggle (OS preference alone desyncs forced light/dark from prose colors).
+ * Id matches THEME_DARK in src/lib/theme.ts.
+ */
+@custom-variant dark (&:where([data-theme="docharvest-dark"], [data-theme="docharvest-dark"] *));
+
 html {
   scroll-behavior: smooth;
 }
