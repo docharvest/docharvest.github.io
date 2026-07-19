@@ -60,6 +60,48 @@ function titleFromYamlFrontmatter(raw: string): string | undefined {
 }
 
 /**
+ * YAML frontmatter scalar for `field` (e.g. `description`).
+ * Supports single-line values and simple `|` / `>` block scalars (joined with spaces).
+ * Returns undefined when missing or empty — not a full YAML parser.
+ */
+export function yamlFrontmatterField(raw: string, field: string): string | undefined {
+  const yaml = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
+  if (!yaml) return undefined;
+  const fm = yaml[1];
+  // Escape field for RegExp (ids are plain identifiers in practice).
+  const key = field.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+  // Block: description: |- / | / >-
+  //   first line
+  //   second line
+  const block = fm.match(
+    new RegExp(`^${key}:\\s*[|>][-+]?\\s*\\r?\\n((?:[ \\t][^\\r\\n]*\\r?\\n?)*)`, 'm'),
+  );
+  if (block) {
+    const text = block[1]!
+      .split(/\r?\n/)
+      .map((line) => line.replace(/^[ \t]+/, ''))
+      .join(' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+    return text || undefined;
+  }
+
+  // Single line: description: "..." | '...' | bare
+  const line = fm.match(new RegExp(`^${key}:\\s*(?:["'](.+?)["']|(.+?))\\s*$`, 'm'));
+  if (!line) return undefined;
+  const v = (line[1] ?? line[2] ?? '').trim();
+  // Reject bare block markers if block branch missed (empty body).
+  if (!v || /^[|>][-+]?$/.test(v)) return undefined;
+  return v;
+}
+
+/** Page description from YAML frontmatter `description:` when present. */
+export function descriptionFromYamlFrontmatter(raw: string): string | undefined {
+  return yamlFrontmatterField(raw, 'description');
+}
+
+/**
  * Page title for a doc source file:
  * 1. YAML frontmatter `title:` if set
  * 2. Else if the first non-empty line (after frontmatter) is an ATX H1 (`# ...`),

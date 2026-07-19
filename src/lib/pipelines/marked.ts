@@ -9,6 +9,7 @@
 import { marked } from 'marked';
 import type { DocPage, DocPipeline, PipelineContext } from './types';
 import {
+  descriptionFromYamlFrontmatter,
   ensureLeadingH1Markdown,
   extractAtxHeadings,
   pageOrder,
@@ -48,6 +49,8 @@ export const markedPipeline: DocPipeline = {
       const isMdx = /\.mdx$/i.test(path);
       const raw = isMdx ? stripMdxModuleSyntax(fileRaw) : fileRaw;
       const title = titleFromDocSource(raw, segments, slugPath);
+      // Same frontmatter source as title; empty when pack docs omit description.
+      const description = descriptionFromYamlFrontmatter(raw) ?? '';
       // Chosen title is also the first H1 in the rendered body (nav + article agree)
       const prepared = ensureLeadingH1Markdown(raw, title);
       const html = renderMarkdown(prepared);
@@ -57,7 +60,7 @@ export const markedPipeline: DocPipeline = {
         segments,
         slugPath,
         title,
-        description: '',
+        description,
         order: pageOrder(segments),
         Content: null,
         html,
