@@ -55,6 +55,30 @@ async function extractPage(htmlPath, titleSource) {
 }
 
 /**
+ * Run async work over `items` with at most `limit` in flight (overlap disk I/O).
+ * JS stays single-threaded for sync Turndown; concurrency only interleaves awaits.
+ */
+async function mapPool(items, limit, worker) {
+  if (items.length === 0) return [];
+  const results = new Array(items.length);
+  let next = 0;
+  const workers = Math.min(Math.max(1, limit), items.length);
+
+  async function run() {
+    while (next < items.length) {
+      const i = next++;
+      results[i] = await worker(items[i], i);
+    }
+  }
+
+  await Promise.all(Array.from({ length: workers }, () => run()));
+  return results;
+}
+
+/** Cap concurrent extractPage reads so large packs do not open thousands of files at once. */
+const EXTRACT_CONCURRENCY = 16;
+
+/**
  * Astro integration: emit /docs/:tech/llms.txt and llms-full.txt per documentation pack.
  * Does NOT write a site-wide /llms.txt.
  */
@@ -82,6 +106,8 @@ export default function techLlmsTxt(options = {}) {
         /** @type {Map<string, { pathname: string, title: string, description: string, content: string }[]>} */
         const byTech = new Map();
 
+        /** @type {{ tech: string, htmlFile: string, pathname: string }[]} */
+        const jobs = [];
         for (const { pathname } of builtPages) {
           const clean = pathname.replace(/\/$/, '') || '/';
           if (excludedPaths.has(clean.replace(/^\//, '')) || excludedPaths.has(clean)) continue;
@@ -95,15 +121,28 @@ export default function techLlmsTxt(options = {}) {
           const htmlFile = join(outDir, pathname.replace(/^\//, ''), 'index.html');
           const urlPath = pathname.startsWith('/') ? pathname : `/${pathname}`;
           const normalized = urlPath.endsWith('/') ? urlPath : `${urlPath}/`;
+          jobs.push({
+            tech,
+            htmlFile,
+            pathname: normalized === '//' ? '/' : normalized,
+          });
+        }
 
+        const extracted = await mapPool(jobs, EXTRACT_CONCURRENCY, async (job) => {
           try {
-            const data = await extractPage(htmlFile, titleSource);
-            if (!byTech.has(tech)) byTech.set(tech, []);
-            byTech.get(tech).push({ pathname: normalized === '//' ? '/' : normalized, ...data });
+            const data = await extractPage(job.htmlFile, titleSource);
+            return { tech: job.tech, page: { pathname: job.pathname, ...data } };
           } catch (err) {
             const detail = err instanceof Error ? err.message : String(err);
-            logger.warn(`[tech-llms-txt] skip unreadable ${htmlFile}: ${detail}`);
+            logger.warn(`[tech-llms-txt] skip unreadable ${job.htmlFile}: ${detail}`);
+            return null;
           }
+        });
+
+        for (const row of extracted) {
+          if (!row) continue;
+          if (!byTech.has(row.tech)) byTech.set(row.tech, []);
+          byTech.get(row.tech).push(row.page);
         }
 
         for (const [tech, pages] of byTech) {
