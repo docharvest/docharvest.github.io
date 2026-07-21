@@ -83,6 +83,35 @@ function indexPagesByTech(pages: DocPage[]): Map<string, DocPage[]> {
   return byTech;
 }
 
+/**
+ * Run `fn` over `items` with at most `concurrency` in flight.
+ * Order of results matches `items` (index-stable).
+ */
+async function mapPool<T, R>(
+  items: readonly T[],
+  concurrency: number,
+  fn: (item: T, index: number) => Promise<R>,
+): Promise<R[]> {
+  if (items.length === 0) return [];
+  const results = new Array<R>(items.length);
+  let next = 0;
+
+  async function worker(): Promise<void> {
+    while (true) {
+      const i = next++;
+      if (i >= items.length) return;
+      results[i] = await fn(items[i]!, i);
+    }
+  }
+
+  const n = Math.min(Math.max(1, concurrency), items.length);
+  await Promise.all(Array.from({ length: n }, () => worker()));
+  return results;
+}
+
+/** Cap concurrent finalizeDocHtml calls (~1.8k marked pages; unbounded Promise.all peaks RAM). */
+const HIGHLIGHT_CONCURRENCY = 16;
+
 async function buildPageIndex(): Promise<PageIndex> {
   const pages: DocPage[] = [];
 
@@ -90,10 +119,8 @@ async function buildPageIndex(): Promise<PageIndex> {
     pages.push(...getPipeline(pack.pipeline).collect({ pack }));
   }
 
-  const highlighted = await Promise.all(
-    pages.map(async (page) =>
-      page.html ? { ...page, html: await finalizeDocHtml(page.html) } : page,
-    ),
+  const highlighted = await mapPool(pages, HIGHLIGHT_CONCURRENCY, async (page) =>
+    page.html ? { ...page, html: await finalizeDocHtml(page.html) } : page,
   );
 
   // Dedupe by tech+slug; keep the map for O(1) getPage (was discarded after sort).
