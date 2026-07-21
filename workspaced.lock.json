@@ -37,8 +37,8 @@
       "ref": "github:opencv/opencv",
       "depName": "opencv/opencv",
       "packageName": "https://github.com/opencv/opencv",
-      "currentValue": "5.x",
-      "currentDigest": "bbfe2eb0def4f90780ffaea836fea1a35028fcd9",
+      "currentValue": "4.x",
+      "currentDigest": "0e09f1a23885eee460ade65fe51950b80bc8f49c",
       "datasource": "git-refs"
     },
     {
