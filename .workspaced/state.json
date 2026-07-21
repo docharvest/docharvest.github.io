@@ -1071,6 +1071,9 @@
     "content/astro/reference/experimental-flags/client-prerender.mdx": {
       "source_info": "module:docs_astro place (content/astro/reference/experimental-flags/client-prerender.mdx)"
     },
+    "content/astro/reference/experimental-flags/collection-storage.mdx": {
+      "source_info": "module:docs_astro place (content/astro/reference/experimental-flags/collection-storage.mdx)"
+    },
     "content/astro/reference/experimental-flags/content-intellisense.mdx": {
       "source_info": "module:docs_astro place (content/astro/reference/experimental-flags/content-intellisense.mdx)"
     },
@@ -2205,6 +2208,9 @@
     "content/nixos/configuration/networking.chapter.md": {
       "source_info": "module:docs_nixos place (content/nixos/configuration/networking.chapter.md)"
     },
+    "content/nixos/configuration/nfs-file-systems.section.md": {
+      "source_info": "module:docs_nixos place (content/nixos/configuration/nfs-file-systems.section.md)"
+    },
     "content/nixos/configuration/overlayfs.section.md": {
       "source_info": "module:docs_nixos place (content/nixos/configuration/overlayfs.section.md)"
     },
@@ -2366,6 +2372,9 @@
     },
     "content/nixos/development/writing-nixos-tests.section.md": {
       "source_info": "module:docs_nixos place (content/nixos/development/writing-nixos-tests.section.md)"
+    },
+    "content/nixos/header.html": {
+      "source_info": "module:docs_nixos place (content/nixos/header.html)"
     },
     "content/nixos/installation/building-images-via-nixos-rebuild-build-image.chapter.md": {
       "source_info": "module:docs_nixos place (content/nixos/installation/building-images-via-nixos-rebuild-build-image.chapter.md)"
@@ -2577,6 +2586,9 @@
     "content/nixpkgs/build-helpers/trivial-build-helpers.chapter.md": {
       "source_info": "module:docs_nixpkgs place (content/nixpkgs/build-helpers/trivial-build-helpers.chapter.md)"
     },
+    "content/nixpkgs/channels.chapter.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/channels.chapter.md)"
+    },
     "content/nixpkgs/contributing.md": {
       "source_info": "module:docs_nixpkgs place (content/nixpkgs/contributing.md)"
     },
@@ -2609,6 +2621,9 @@
     },
     "content/nixpkgs/doc-support/epub.nix": {
       "source_info": "module:docs_nixpkgs place (content/nixpkgs/doc-support/epub.nix)"
+    },
+    "content/nixpkgs/doc-support/header.html": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/doc-support/header.html)"
     },
     "content/nixpkgs/doc-support/lib-function-docs.nix": {
       "source_info": "module:docs_nixpkgs place (content/nixpkgs/doc-support/lib-function-docs.nix)"
@@ -2669,6 +2684,9 @@
     },
     "content/nixpkgs/hooks/cernlib.section.md": {
       "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/cernlib.section.md)"
+    },
+    "content/nixpkgs/hooks/check-phase-thread-limit-hook.section.md": {
+      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/check-phase-thread-limit-hook.section.md)"
     },
     "content/nixpkgs/hooks/cmake.section.md": {
       "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/cmake.section.md)"
@@ -2741,9 +2759,6 @@
     },
     "content/nixpkgs/hooks/npm-install-hook.section.md": {
       "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/npm-install-hook.section.md)"
-    },
-    "content/nixpkgs/hooks/openmp-check-hook.section.md": {
-      "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/openmp-check-hook.section.md)"
     },
     "content/nixpkgs/hooks/patch-rc-path-hooks.section.md": {
       "source_info": "module:docs_nixpkgs place (content/nixpkgs/hooks/patch-rc-path-hooks.section.md)"
