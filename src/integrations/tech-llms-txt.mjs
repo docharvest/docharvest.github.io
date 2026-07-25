@@ -111,9 +111,12 @@ export default function techLlmsTxt(options = {}) {
         for (const { pathname } of builtPages) {
           const clean = pathname.replace(/\/$/, '') || '/';
           if (excludedPaths.has(clean.replace(/^\//, '')) || excludedPaths.has(clean)) continue;
-          if (clean.includes('.')) continue;
 
           // Only documentation pack routes: /docs/:tech or /docs/:tech/...
+          // Note: do not filter on `pathname.includes('.')` — many packs use dotted
+          // slug segments (nixpkgs `*.chapter` / `*.section`, `manifest.json`, etc.).
+          // builtPages is the route list from the build, not a dist file scan, so
+          // static assets and the llms.txt files we write later are not listed here.
           const m = clean.match(/^\/?docs\/([^/]+)(?:\/(.*))?$/);
           if (!m) continue;
 
