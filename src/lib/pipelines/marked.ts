@@ -24,12 +24,72 @@ const sources = import.meta.glob('../../../content/**/*.{md,mdx,markdown}', {
   import: 'default',
 }) as Record<string, string>;
 
-/** Drop MDX module syntax so the rest can be treated as Markdown. */
+/**
+ * Drop MDX module-level `import` / `export` so the rest can be treated as Markdown.
+ *
+ * - Only outside fenced ``` / ~~~ blocks (examples must keep their import lines).
+ * - Single-line statements with or without a trailing `;` (Starlight often omits it).
+ * - Multi-line import/export continued until `;`, a `from '…'` line, or non-continuation.
+ */
 function stripMdxModuleSyntax(raw: string): string {
-  // import/export may span lines until `;` (common in Starlight docs).
-  return raw
-    .replace(/^import\s[\s\S]*?;\s*$/gm, '')
-    .replace(/^export\s[\s\S]*?;\s*$/gm, '');
+  const lines = raw.split(/\r?\n/);
+  const out: string[] = [];
+  let fence: string | null = null;
+  let skipping = false;
+
+  const endsModuleStmt = (line: string): boolean => {
+    if (/;\s*$/.test(line)) return true;
+    // import x from 'y' | } from "y" | import 'side-effect'
+    if (/\bfrom\s+['"][^'"]+['"]\s*$/.test(line)) return true;
+    if (/^import\s+['"][^'"]+['"]\s*$/.test(line)) return true;
+    return false;
+  };
+
+  const isModuleContinuation = (line: string): boolean => {
+    if (line.trim() === '') return false;
+    if (/^\s/.test(line)) return true;
+    if (/^[})\]]/.test(line.trim())) return true;
+    if (/^from\s+['"]/.test(line.trim())) return true;
+    return false;
+  };
+
+  for (const line of lines) {
+    if (fence) {
+      out.push(line);
+      const ch = fence[0]!;
+      let n = 0;
+      while (n < line.length && line[n] === ch) n++;
+      if (n >= fence.length && line.slice(n).trim() === '') fence = null;
+      continue;
+    }
+
+    const fenceOpen = line.match(/^(`{3,}|~{3,})/);
+    if (fenceOpen) {
+      fence = fenceOpen[1]!;
+      out.push(line);
+      continue;
+    }
+
+    if (skipping) {
+      if (isModuleContinuation(line) || endsModuleStmt(line)) {
+        if (endsModuleStmt(line)) skipping = false;
+        continue;
+      }
+      // Not a continuation — resume normal handling of this line.
+      skipping = false;
+    }
+
+    if (/^(import|export)\s/.test(line)) {
+      if (endsModuleStmt(line)) continue;
+      // Multi-line form (e.g. `import {\n  A\n} from 'pkg'`).
+      skipping = true;
+      continue;
+    }
+
+    out.push(line);
+  }
+
+  return out.join('\n');
 }
 
 function renderMarkdown(raw: string): string {
