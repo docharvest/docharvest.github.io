@@ -6,7 +6,12 @@
  * with `pipeline: "astro-md"`, add matching globs under `modules` and `sources`.
  */
 import type { DocPage, DocPipeline, PipelineContext } from './types';
-import { pageOrder, parseContentPath, stripYamlFrontmatter, titleFromSlug } from './path';
+import {
+  pageOrder,
+  parseContentPath,
+  stripYamlFrontmatter,
+  titleFromDocSource,
+} from './path';
 
 type MdModule = {
   frontmatter: {
@@ -43,9 +48,13 @@ export const astroMdPipeline: DocPipeline = {
       const { tech, segments } = parsed;
       const slugPath = segments.join('/');
       const fm = mod.frontmatter ?? {};
-      const title = fm.title ?? titleFromSlug(slugPath, segments);
-      const description = fm.description ?? '';
       const raw = sources[path];
+      // Prefer compiled frontmatter title; else same H1/slug path as marked.
+      // ~half of renovate pages omit YAML title and only lead with `# …`.
+      const title =
+        fm.title?.trim() ||
+        titleFromDocSource(raw ?? '', segments, slugPath);
+      const description = fm.description ?? '';
       const searchText = raw != null ? stripYamlFrontmatter(raw) : null;
 
       pages.push({
