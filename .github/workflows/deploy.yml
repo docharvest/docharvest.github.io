@@ -20,6 +20,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
+      - name: Install workspaced
+        run: |
+          export DOWNLOAD_DIR="${RUNNER_TEMP}/workspaced"
+          curl -sL https://raw.githubusercontent.com/lucasew/workspaced/refs/heads/master/setup | bash
+          echo "$DOWNLOAD_DIR" >> "$GITHUB_PATH"
+
+      - name: Apply documentation packs
+        run: workspaced codebase apply
+
       - name: Setup mise
         uses: jdx/mise-action@c37c93293d6b742fc901e1406b8f764f6fb19dac # v2
         with:

@@ -2,6 +2,9 @@
 dist/
 .astro/
 
+# vendored by `workspaced codebase apply` (still written on disk; omitted from state.json)
+content/
+
 # deps
 node_modules/
 
