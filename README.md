@@ -26,7 +26,7 @@ Source of truth: [`workspaced.cue`](workspaced.cue) `#docs`.
 5. New pipelines: `src/lib/pipelines/` + `registry.ts`, and allow the id in the `#docs` `pipeline` union.
 6. `workspaced mod lock` && `workspaced codebase apply`.
 
-`content/` is gitignored. Apply writes the files on disk; they stay out of `state.json` and git. Renovate updates `workspaced.lock.json`. Do not hand-edit `content/manifest.json`.
+`content/` is gitignored. Apply writes the files on disk; they stay out of `state.json` and git. Renovate updates `workspaced.lock.json`. The apply workflow opens a PR if apply rewrites the lock. Do not hand-edit `content/manifest.json`.
 
 ## Develop
 

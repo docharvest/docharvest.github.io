@@ -27,6 +27,8 @@ jobs:
           echo "$DOWNLOAD_DIR" >> "$GITHUB_PATH"
 
       - name: Apply documentation packs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: workspaced codebase apply
 
       - name: Setup mise
