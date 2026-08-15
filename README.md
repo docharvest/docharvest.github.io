@@ -26,7 +26,7 @@ Source of truth: [`workspaced.cue`](workspaced.cue) `#docs`.
 5. New pipelines: `src/lib/pipelines/` + `registry.ts`, and allow the id in the `#docs` `pipeline` union.
 6. `workspaced mod lock` && `workspaced codebase apply`.
 
-`content/` is gitignored. Apply writes the files on disk; they stay out of `state.json` and git. Renovate updates `workspaced.lock.json`. The apply workflow opens a PR if apply rewrites the lock. Do not hand-edit `content/manifest.json`.
+`content/` is gitignored. Apply writes the files on disk; they stay out of `state.json` and git. Renovate updates `workspaced.lock.json`. Deploy opens a PR if apply rewrites the lock. Do not hand-edit `content/manifest.json`.
 
 ## Develop
 
@@ -41,4 +41,4 @@ npm run check   # astro check (strict TS on src/)
 npm run build   # also writes per-tech llms.txt under dist/docs/<tech>/
 ```
 
-Node is pinned via [mise](https://mise.jdx.dev/) (`mise.toml`). Deploy runs `workspaced codebase apply` before the build, then publishes from `main`.
+Node is pinned via [mise](https://mise.jdx.dev/) (`mise.toml`). One deploy job applies packs, builds, publishes from `main`, and opens a lock PR when apply rewrites the lock.

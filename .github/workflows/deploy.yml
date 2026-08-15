@@ -5,9 +5,12 @@ on:
   pull_request:
   workflow_dispatch:
 
-# Default: read-only for PR/build runs. Write tokens only on the main deploy job.
 permissions:
-  contents: read
+  contents: write
+  pull-requests: write
+  actions: read
+  pages: write
+  id-token: write
 
 concurrency:
   group: pages-${{ github.ref }}
@@ -31,6 +34,21 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: workspaced codebase apply
 
+      - name: Open lock PR
+        if: github.ref == 'refs/heads/main'
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8
+        with:
+          commit-message: "chore: apply workspaced lock"
+          title: "chore: apply workspaced lock"
+          body: |
+            Apply rewrote `workspaced.lock.json` and/or `.workspaced/state.json`.
+            `content/` is gitignored. No PR when apply is a no-op.
+          branch: workspaced/apply
+          delete-branch: true
+          add-paths: |
+            workspaced.lock.json
+            .workspaced/state.json
+
       - name: Setup mise
         uses: jdx/mise-action@c37c93293d6b742fc901e1406b8f764f6fb19dac # v2
         with:
@@ -53,19 +71,9 @@ jobs:
         with:
           path: dist
 
-  # Elevated token only when actually deploying (main). PR runs never get pages/id-token write.
-  deploy:
-    needs: site
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      actions: read # list this run's upload-pages-artifact for create-deployment
-      pages: write
-      id-token: write
-    steps:
       # Create deployment only — no status poll (deploy-pages waits/cancels on timeout).
       - name: Queue GitHub Pages deployment
+        if: github.ref == 'refs/heads/main'
         id: deployment
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
