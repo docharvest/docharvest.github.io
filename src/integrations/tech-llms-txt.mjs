@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 import { parse } from 'node-html-parser';
 import TurndownService from 'turndown';
+import { mapPool } from '../lib/map-pool.ts';
 
 const BOM = '\uFEFF';
 const DEFAULT_EXCLUDED = new Set(['404']);
@@ -52,27 +53,6 @@ async function extractPage(htmlPath, titleSource) {
   const content = mainEl ? htmlToMarkdown(mainEl) : '';
 
   return { title, description, content };
-}
-
-/**
- * Run async work over `items` with at most `limit` in flight (overlap disk I/O).
- * JS stays single-threaded for sync Turndown; concurrency only interleaves awaits.
- */
-async function mapPool(items, limit, worker) {
-  if (items.length === 0) return [];
-  const results = new Array(items.length);
-  let next = 0;
-  const workers = Math.min(Math.max(1, limit), items.length);
-
-  async function run() {
-    while (next < items.length) {
-      const i = next++;
-      results[i] = await worker(items[i], i);
-    }
-  }
-
-  await Promise.all(Array.from({ length: workers }, () => run()));
-  return results;
 }
 
 /** Cap concurrent extractPage reads so large packs do not open thousands of files at once. */
