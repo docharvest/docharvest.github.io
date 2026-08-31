@@ -8,3 +8,11 @@ export function siteBase(): string {
 export function sitePath(path: string): string {
   return `${siteBase()}${path.replace(/^\/+/, '')}`;
 }
+
+/**
+ * Pack or page URL: `/docs/:tech/` or `/docs/:tech/:slug/`.
+ * `slugPath` is the page's joined segments (no leading/trailing slash).
+ */
+export function docsPath(tech: string, slugPath = ''): string {
+  return slugPath ? sitePath(`docs/${tech}/${slugPath}/`) : sitePath(`docs/${tech}/`);
+}
