@@ -2,8 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PackLogo from '../components/PackLogo.astro';
 import { getPackSummaries } from '../lib/docs';
+import { docsPath } from '../lib/site';
 
-const base = import.meta.env.BASE_URL;
 const packs = await getPackSummaries();
 ---
 
@@ -31,7 +31,7 @@ const packs = await getPackSummaries();
           {packs.map((p) => (
             <li>
               <a
-                href={`${base}docs/${p.id}/`}
+                href={docsPath(p.id)}
                 class="group grid gap-3 py-5 transition-colors hover:bg-base-200/50 sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:items-center sm:gap-6 sm:px-1"
               >
                 <PackLogo logo={p.logo} title={p.title} size={40} />

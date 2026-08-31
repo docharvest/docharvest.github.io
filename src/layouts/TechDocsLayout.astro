@@ -3,6 +3,7 @@ import BaseLayout from './BaseLayout.astro';
 import PackLogo from '../components/PackLogo.astro';
 import ReadingProgress from '../components/ReadingProgress.astro';
 import { getPack, getTechNav, humanizeSegment } from '../lib/docs';
+import { docsPath, siteBase, sitePath } from '../lib/site';
 
 interface Props {
   tech: string;
@@ -16,7 +17,6 @@ interface Props {
 const { tech, title, description = '', slugPath = '', hasContentTitle = false } = Astro.props;
 const pack = getPack(tech);
 const nav = await getTechNav(tech);
-const base = import.meta.env.BASE_URL;
 const packTitle = pack?.title ?? tech;
 const activeGroup = slugPath.split('/')[0] || '_root';
 
@@ -32,10 +32,6 @@ const groupEntries = [...groups.entries()].sort(([a], [b]) => {
   if (b === '_root') return 1;
   return a.localeCompare(b);
 });
-
-function hrefFor(itemSlug: string) {
-  return itemSlug ? `${base}docs/${tech}/${itemSlug}/` : `${base}docs/${tech}/`;
-}
 
 function labelFor(item: NavItem) {
   // Prefer frontmatter / extracted title over path soup
@@ -87,8 +83,8 @@ function labelFor(item: NavItem) {
 
       <div class="flex min-h-0 flex-1 flex-col overflow-hidden">
         <div class="hidden shrink-0 border-b border-base-300 px-4 py-3 lg:block">
-          <a href={`${base}`} class="font-mono text-[0.65rem] text-base-content/45 hover:text-primary">← packs</a>
-          <a href={`${base}docs/${tech}/`} class="mt-2 flex items-center gap-2.5 no-underline hover:opacity-90">
+          <a href={siteBase()} class="font-mono text-[0.65rem] text-base-content/45 hover:text-primary">← packs</a>
+          <a href={docsPath(tech)} class="mt-2 flex items-center gap-2.5 no-underline hover:opacity-90">
             {pack?.logo && <PackLogo logo={pack.logo} title={packTitle} size={28} />}
             <span class="truncate text-base font-semibold text-primary">{packTitle}</span>
           </a>
@@ -104,7 +100,7 @@ function labelFor(item: NavItem) {
                     {items.map((item) => (
                       <li>
                         <a
-                          href={hrefFor(item.slugPath)}
+                          href={docsPath(tech, item.slugPath)}
                           data-active={item.slugPath === slugPath ? 'true' : undefined}
                           class:list={[
                             'block rounded-md px-2.5 py-1.5 leading-snug text-base-content/80 hover:bg-base-200 hover:text-base-content',
@@ -131,7 +127,7 @@ function labelFor(item: NavItem) {
                     {items.map((item) => (
                       <li>
                         <a
-                          href={hrefFor(item.slugPath)}
+                          href={docsPath(tech, item.slugPath)}
                           data-active={item.slugPath === slugPath ? 'true' : undefined}
                           class:list={[
                             'block rounded-md px-2 py-1 text-[0.8125rem] leading-snug text-base-content/75 hover:bg-base-200 hover:text-base-content',
@@ -152,9 +148,9 @@ function labelFor(item: NavItem) {
 
         <div class="shrink-0 space-y-1 border-t border-base-300 px-4 py-3 font-mono text-[0.65rem] text-base-content/45">
           <p>
-            <a class="hover:text-primary hover:underline" href={`${base}docs/${tech}/llms.txt`}>llms.txt</a>
+            <a class="hover:text-primary hover:underline" href={sitePath(`docs/${tech}/llms.txt`)}>llms.txt</a>
             <span class="mx-1 opacity-40">·</span>
-            <a class="hover:text-primary hover:underline" href={`${base}docs/${tech}/llms-full.txt`}>full</a>
+            <a class="hover:text-primary hover:underline" href={sitePath(`docs/${tech}/llms-full.txt`)}>full</a>
             {
               pack?.source && (
                 <>

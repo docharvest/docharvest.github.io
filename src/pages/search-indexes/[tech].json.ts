@@ -1,6 +1,6 @@
 import type { APIRoute, GetStaticPaths } from 'astro';
 import { getPack, getPacks, getPagesForTech } from '../../lib/docs';
-import { sitePath } from '../../lib/site';
+import { docsPath } from '../../lib/site';
 
 export const prerender = true;
 
@@ -22,7 +22,7 @@ export const GET: APIRoute = async ({ params }) => {
 
   const documents = pages.map((page) => {
     const slugPath = page.slugPath;
-    const path = slugPath ? sitePath(`docs/${tech}/${slugPath}/`) : sitePath(`docs/${tech}/`);
+    const path = docsPath(tech, slugPath);
     const md =
       page.searchText?.trim() ||
       [page.title, page.description].filter(Boolean).join('\n\n');
