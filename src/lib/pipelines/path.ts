@@ -52,15 +52,8 @@ export function stripYamlFrontmatter(raw: string): string {
   return yaml ? raw.slice(yaml[0].length) : raw;
 }
 
-function titleFromYamlFrontmatter(raw: string): string | undefined {
-  const yaml = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
-  if (!yaml) return undefined;
-  const t = yaml[1].match(/^title:\s*["']?(.+?)["']?\s*$/m);
-  return t ? t[1].trim() : undefined;
-}
-
 /**
- * YAML frontmatter scalar for `field` (e.g. `description`).
+ * YAML frontmatter scalar for `field` (e.g. `title`, `description`).
  * Supports single-line values and simple `|` / `>` block scalars (joined with spaces).
  * Returns undefined when missing or empty — not a full YAML parser.
  */
@@ -138,7 +131,8 @@ function cleanHeadingText(raw: string): string {
  * Does not scan later headings (avoids a random `#` deeper in the body).
  */
 export function titleFromDocSource(raw: string, segments: string[], slugPath = ''): string {
-  const fromFm = titleFromYamlFrontmatter(raw);
+  // Same scalar parser as description (quoted, bare, and simple block scalars).
+  const fromFm = yamlFrontmatterField(raw, 'title');
   if (fromFm) return fromFm;
 
   const fromSlug = titleFromSlug(slugPath, segments);
