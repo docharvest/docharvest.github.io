@@ -30,6 +30,25 @@ function htmlToMarkdown(node) {
   return turndown.turndown(node.toString()).replace(/\n{3,}/g, '\n\n').trim();
 }
 
+/** Pathname without a trailing slash (`/` stays `/`). */
+function stripTrailingSlash(pathname) {
+  return pathname.replace(/\/$/, '') || '/';
+}
+
+function withLeadingSlash(pathname) {
+  return pathname.startsWith('/') ? pathname : `/${pathname}`;
+}
+
+function pageAbsUrl(origin, pathname) {
+  return `${origin}${withLeadingSlash(pathname)}`;
+}
+
+/** Pack index `/docs/:tech` (leading slash optional; trailing slash ignored). */
+function isPackIndex(pathname, tech) {
+  const p = stripTrailingSlash(pathname);
+  return p === `/docs/${tech}` || p === `docs/${tech}`;
+}
+
 async function extractPage(htmlPath, titleSource) {
   const html = await readFile(htmlPath, 'utf-8');
   const root = parse(html, PARSE_OPTIONS);
@@ -89,7 +108,7 @@ export default function techLlmsTxt(options = {}) {
         /** @type {{ tech: string, htmlFile: string, pathname: string }[]} */
         const jobs = [];
         for (const { pathname } of builtPages) {
-          const clean = pathname.replace(/\/$/, '') || '/';
+          const clean = stripTrailingSlash(pathname);
           if (excludedPaths.has(clean.replace(/^\//, '')) || excludedPaths.has(clean)) continue;
 
           // Only documentation pack routes: /docs/:tech or /docs/:tech/...
@@ -102,7 +121,7 @@ export default function techLlmsTxt(options = {}) {
 
           const tech = m[1];
           const htmlFile = join(outDir, pathname.replace(/^\//, ''), 'index.html');
-          const urlPath = pathname.startsWith('/') ? pathname : `/${pathname}`;
+          const urlPath = withLeadingSlash(pathname);
           const normalized = urlPath.endsWith('/') ? urlPath : `${urlPath}/`;
           jobs.push({
             tech,
@@ -130,11 +149,10 @@ export default function techLlmsTxt(options = {}) {
 
         for (const [tech, pages] of byTech) {
           pages.sort((a, b) => {
-            const ap = a.pathname.replace(/\/$/, '') || '/';
-            const bp = b.pathname.replace(/\/$/, '') || '/';
-            // pack index first
-            const aIndex = ap === `/docs/${tech}` || ap === `/docs/${tech}/`;
-            const bIndex = bp === `/docs/${tech}` || bp === `/docs/${tech}/`;
+            const ap = stripTrailingSlash(a.pathname);
+            const bp = stripTrailingSlash(b.pathname);
+            const aIndex = isPackIndex(a.pathname, tech);
+            const bIndex = isPackIndex(b.pathname, tech);
             if (aIndex && !bIndex) return -1;
             if (!aIndex && bIndex) return 1;
             return ap.localeCompare(bp);
@@ -142,24 +160,19 @@ export default function techLlmsTxt(options = {}) {
 
           const name = pages[0]?.title?.replace(/\s*·.*$/, '') || tech;
           const homeDesc =
-            pages.find((p) => {
-              const pp = p.pathname.replace(/\/$/, '');
-              return pp === `/docs/${tech}` || pp === `docs/${tech}`;
-            })?.description ||
+            pages.find((p) => isPackIndex(p.pathname, tech))?.description ||
             pages[0]?.description ||
             `${tech} documentation pack`;
 
           const indexLines = [`# ${name}`, '', `> ${homeDesc}`, '', '## Pages', ''];
           for (const page of pages) {
-            const url = `${site}${page.pathname.startsWith('/') ? page.pathname : `/${page.pathname}`}`;
-            indexLines.push(`- [${page.title}](${url}): ${page.description}`);
+            indexLines.push(`- [${page.title}](${pageAbsUrl(site, page.pathname)}): ${page.description}`);
           }
           indexLines.push('');
 
           const fullLines = [`# ${name}`, '', `> ${homeDesc}`, ''];
           for (const page of pages) {
-            const url = `${site}${page.pathname.startsWith('/') ? page.pathname : `/${page.pathname}`}`;
-            fullLines.push(`## [${page.title}](${url})`, '', page.content, '');
+            fullLines.push(`## [${page.title}](${pageAbsUrl(site, page.pathname)})`, '', page.content, '');
           }
 
           const techDir = join(outDir, 'docs', tech);
